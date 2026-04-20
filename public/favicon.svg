@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="adaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0bc3c" />
+      <stop offset="100%" stop-color="#d99e11" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#ffffff" />
+  <path d="M14 42V24l10-8v26z" fill="#8e8e93" />
+  <path d="M25 48V16l15 8v24z" fill="url(#adaGold)" />
+  <path d="M39 48V28l11 6v14z" fill="#b8b8bd" />
+  <rect x="7" y="7" width="50" height="50" rx="14" fill="none" stroke="#f3e0ad" stroke-width="2" />
+</svg>

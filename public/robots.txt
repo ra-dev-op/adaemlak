@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /adaemlak/admin
+Disallow: /adaemlak/arama
+
+Sitemap: http://46.245.164.65/adaemlak/sitemap.xml

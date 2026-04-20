@@ -1,0 +1,5260 @@
+import { Listing, SidebarListing } from "../types";
+
+// Generated from https://www.adaemlak.com.tr on 2026-03-28 04:07:09.
+// Run `python3 scripts/sync_adaemlak_listings.py` to refresh.
+
+export const LIVE_MAIN_LISTINGS: Listing[] = [
+  {
+    "id": "585",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Pendik Kurtköy'de Ticari İmarlı 6.108 m² Satılık Arsa",
+    "description": "Pendik Kurtköy'de Ticari İmarlı 6.108 m² Arsa Emsal : 1.50 Yükseklik (h) : Serbest Satış Bedeli : 600.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Pendik / İSTANBUL",
+    "ilanNo": "ADA-585",
+    "updateDate": "19.09.2024",
+    "createdDate": "2024-09-19",
+    "price": "600.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-3465520-585_4176-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-2649192-585_4176-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-1774263-585_6432-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-8535548-585_6432-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-4898484-585_6432-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-6206086-585_6432-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-2892325-585_6432-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-6-108-m2-satilik-arsa-8188136-585_6432-6.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Harmandere+Mah.%2C+Pendik%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Pendik"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Harmandere Mah."
+      },
+      {
+        "label": "M²",
+        "value": "6.108 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "600.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "GABARİ",
+        "value": "Serbest"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Pendik",
+      "neighborhood": "Harmandere Mah.",
+      "m2": "6.108 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "1.50",
+      "gabari": "Serbest",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 1
+  },
+  {
+    "id": "780",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Karaköy Perşembe Pazarında Caddede 2 Katlı 120 m² Bina",
+    "description": "Karaköy Perşembe Pazarında Caddede 2 Katlı 120 m² Bina Hali Hazırda Kiracılı Kiracının Tahliyesi Yeni Mal Sahibine Aittir​ Satış Bedeli : 64.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Beyoğlu / İSTANBUL",
+    "ilanNo": "ADA-780",
+    "updateDate": "17.11.2025",
+    "createdDate": "2025-11-17",
+    "price": "64.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-1064943-780_5922-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-3282025-780_5922-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-312405-780_5922-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-5828637-780_5922-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-7640778-780_5922-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-8087863-780_5922-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-8585568-780_5922-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddede-2-katli-120-m2-bina-2048593-780_5922-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Arap+Cami+Mah.%2C+Beyo%C4%9Flu%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Beyoğlu"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Arap Cami Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "50"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi Isınma"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Kiracı Var"
+      },
+      {
+        "label": "M²",
+        "value": "120 m²"
+      },
+      {
+        "label": "BÖLÜM SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "64.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Beyoğlu",
+      "neighborhood": "Arap Cami Mah.",
+      "m2": "120 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "50",
+      "floorLocation": "-",
+      "floorCount": "2",
+      "heating": "Merkezi Isınma",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Kiracı Var",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "2",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 2
+  },
+  {
+    "id": "814",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Levent Nisbetiye Caddesine Cepheli Müstakil Bina",
+    "description": "Levent Nisbetiye Caddesine Cepheli 563 m² Kiracılı Müstakil Bina​ Bodrum Kat : 163 m² Zemin Kat : 345 m² Çatı Katı : 55 m² Toplam : 563 m² Tapu Devrinden3 Ay Sonra Boş Teslim Satış Bedeli : 420.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Beşiktaş / İSTANBUL",
+    "ilanNo": "ADA-814",
+    "updateDate": "03.09.2025",
+    "createdDate": "2025-09-03",
+    "price": "420.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-8349855-814_6270-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-7104089-814_6270-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-8702317-814_6270-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-7710471-814_6270-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-1460866-814_6270-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-3984919-814_6270-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-8749652-814_6270-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/levent-nisbetiye-caddesine-cepheli-mustakil-bina-2039762-814_6270-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Levent+Mah.%2C+Be%C5%9Fikta%C5%9F%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Beşiktaş"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Levent Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "35"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "3"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "M²",
+        "value": "563 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "420.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Beşiktaş",
+      "neighborhood": "Levent Mah.",
+      "m2": "563 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "35",
+      "floorLocation": "-",
+      "floorCount": "3",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 3
+  },
+  {
+    "id": "586",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Pendik Kurtköy'de Ticari İmarlı 3.400 m² Satılık Arsa",
+    "description": "Pendik Kurtköy'de Ticari İmarlı 3.400 m² Satılık Arsa Emsal : 1.50 Yükseklik (h) : Serbest Satış Bedeli : 350.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Pendik / İSTANBUL",
+    "ilanNo": "ADA-586",
+    "updateDate": "19.09.2024",
+    "createdDate": "2024-09-19",
+    "price": "350.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-4841246-586_6426-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-5532659-586_6426-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-4394615-586_4180-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-3121502-586_4180-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-3556331-586_4180-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-1204182-586_6426-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-5420280-586_6426-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/pendik-kurtkoy-de-ticari-imarli-3-400-m2-satilik-arsa-5023559-586_6426-5.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Kurtk%C3%B6y+Mah.%2C+Pendik%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Pendik"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Kurtköy Mah."
+      },
+      {
+        "label": "M²",
+        "value": "3.400 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "350.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "GABARİ",
+        "value": "Serbest"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Pendik",
+      "neighborhood": "Kurtköy Mah.",
+      "m2": "3.400 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "1.50",
+      "gabari": "Serbest",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 4
+  },
+  {
+    "id": "297",
+    "category": "SATILIK VİLLA",
+    "type": "Satılık Villa",
+    "title": "Fethiye Göcek'te Montenegro Butik Otel ve Villaları",
+    "description": "Montenegro Butik Otel ve Villaları Yer : Göcek'in 9 km üzerinde, Dalaman Havaalanı'ndan Göcek merkeze 12 dakikalık araba yolculuğu mesafesinde. Deniz seviyesine 540 m. uzaklıkta. İç içe konumlanmış dağların arasında olduğu için nem oranı düşük ve serin bir iklime sahip. Fiziksel Koşullar : Montenegro mülkleri, 3 farklı toprak arazisi üzerine konumlanmıştır. Totalde 9000 metrekare'dir. A bölümü : 2000 metrekare. Biri 240 metrekare , diğeri 80 metrekareolmak üzere iki adet kendilerine özel havuz ve teraslı villa. B bölümü : 2000 metrekare. 6 odalı bir otel ve bu 6 odadan bağımsız olarak 2 adet saunalı ve kapalı masaj odalı bahçe odası. Otelin kapalı alanı toplam 550 metrekare. C bölümü : 5000 metrekare ve boş. 2 adet villa inşa etmek için izin bulunmaktadır. İçlerinde kapalı ve açık yoga platformları (her biri 1000 metrekare) ve ayrı bir masaj çardağı olacaktır. Total kapasite 30 yatak şeklindedir. Bunlara ek olarak jeneratör, 60 tonluk su deposu, TV uydusu, müzik sistemi ve istek üzerine yapılmış havalandırma sistemi mevcuttur. 3 arazide ormanlarla çevrilidir ve herhangi bir komşunun bulunmasına imkan yoktur. Arazilerin etrafındaki ormanlar devlet koruması altındadır. Bütün villalar ve odalar her daim gün batımını görebilmektedir. Satış Bedeli : 120.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Fethiye / MUĞLA",
+    "ilanNo": "ADA-297",
+    "updateDate": "29.01.2026",
+    "createdDate": "2026-01-29",
+    "price": "120.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-7249413-297_2120-4.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-2301979-297_2117-1.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-7981908-297_2117-2.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-6425515-297_2117-3.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-5144385-297_2120-1.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-4507666-297_2120-2.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-3060662-297_2120-3.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fethiye-gocek-te-montenegro-otel-ve-villalari-4290780-297_2127-1.JPG"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=G%C3%B6cek%2C+Fethiye%2C+Mu%C4%9Fla&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Muğla"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Fethiye"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Göcek"
+      },
+      {
+        "label": "KONUT TİPİ",
+        "value": "Villa"
+      },
+      {
+        "label": "KONUT ŞEKLİ",
+        "value": "Dublex"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "12"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "BULUNDUĞU KAT",
+        "value": "Müstakil"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Klima"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "9.000"
+      },
+      {
+        "label": "ODA SAYISI",
+        "value": "7"
+      },
+      {
+        "label": "BÖLÜM SAYISI",
+        "value": "13"
+      },
+      {
+        "label": "SALON SAYISI",
+        "value": "6"
+      },
+      {
+        "label": "BANYO SAYISI",
+        "value": "8"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "120.000.000 TL"
+      }
+    ],
+    "details": {
+      "city": "Muğla",
+      "district": "Fethiye",
+      "neighborhood": "Göcek",
+      "m2": "9.000",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "7+6",
+      "salonCount": "6",
+      "buildingAge": "12",
+      "floorLocation": "Müstakil",
+      "floorCount": "2",
+      "heating": "Klima",
+      "bathroomCount": "8",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "13",
+      "buildingCondition": "İkinci El",
+      "housingType": "Villa",
+      "housingShape": "Dublex",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 5
+  },
+  {
+    "id": "818",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Çerkezköy Kapaklı'da Ticaret + Konut İmarlı 1.200 m² Arsa",
+    "description": "Çerkezköy Kapaklı'da Ticaret + Konut İmarlı 1.200 m² Arsa Satış Bedeli : 14.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Kapaklı / TEKİRDAĞ",
+    "ilanNo": "ADA-818",
+    "updateDate": "26.08.2025",
+    "createdDate": "2025-08-26",
+    "price": "14.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-2420627-818_6307-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-8018513-818_6307-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-7289945-818_6307-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-9151899-818_6307-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-4093040-818_6307-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-26973-818_6307-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-356891-818_6307-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tekirdag-kapakli-da-ticaret-konut-imarli-1-200-m2-arsa-2158836-818_6307-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Karaa%C4%9Fa%C3%A7+Mah.%2C+Kapakl%C4%B1%2C+Tekirda%C4%9F&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Tekirdağ"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Kapaklı"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Karaağaç Mah."
+      },
+      {
+        "label": "M²",
+        "value": "1.200 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "14.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticaret+Konut"
+      },
+      {
+        "label": "ADA NO",
+        "value": "664"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "3"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "Tekirdağ",
+      "district": "Kapaklı",
+      "neighborhood": "Karaağaç Mah.",
+      "m2": "1.200 m²",
+      "zoningStatus": "Ticaret+Konut",
+      "kaks": "1.50",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 6
+  },
+  {
+    "id": "704",
+    "category": "SATILIK OTEL",
+    "type": "Satılık Otel",
+    "title": "Bolu Merkez'de 60 Oda 120 Yataklı Satılık Otel",
+    "description": "Bolu Merkez'de 60 Oda - 120 Yataklı Satılık Otel Satış Bedeli : 260.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Merkez / BOLU",
+    "ilanNo": "ADA-704",
+    "updateDate": "26.09.2025",
+    "createdDate": "2025-09-26",
+    "price": "260.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-2240163-704_5270-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-9083490-704_5270-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-4064250-704_5270-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-3236487-704_5270-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-285646-704_5270-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-8626690-704_5270-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-8238172-704_5270-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bolu-merkez-de-60-oda-120-yatakli-satilik-otel-1506063-704_5270-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Akta%C5%9F+Mah.%2C+Merkez%2C+Bolu&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Bolu"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Merkez"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Aktaş Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Turistik İşletme"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "3"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "7"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "M²",
+        "value": "3.500 m²"
+      },
+      {
+        "label": "ODA SAYISI",
+        "value": "60"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "260.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "Bolu",
+      "district": "Merkez",
+      "neighborhood": "Aktaş Mah.",
+      "m2": "3.500 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "60",
+      "salonCount": "-",
+      "buildingAge": "3",
+      "floorLocation": "-",
+      "floorCount": "7",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "Turistik İşletme",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "60",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 7
+  },
+  {
+    "id": "362",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Kadıköy Hasanpaşa'da 1.065 m² Müstakil Parsel",
+    "description": "Kadıköy Hasanpaşa'da Uzunçayır Caddesine Cepheli 1.065 m² Arsa Satış Bedeli : 250.000.000 TL Tek Yetkili Yakup Kasa​",
+    "location": "Kadıköy / İSTANBUL",
+    "ilanNo": "ADA-362",
+    "updateDate": "31.01.2026",
+    "createdDate": "2026-01-31",
+    "price": "250.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-9273679-362_7070-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-8207523-362_7070-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-377355-362_7070-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-4203184-362_7070-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-6581499-362_7070-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-3526568-362_7070-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-5117451-362_7070-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kadikoy-hasanpasa-da-1-250-m2-mustakil-parsel-5263035-362_7070-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Hasanpa%C5%9Fa%2C+Kad%C4%B1k%C3%B6y%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Kadıköy"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Hasanpaşa"
+      },
+      {
+        "label": "M²",
+        "value": "1.065 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "250.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "616"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "2"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Kadıköy",
+      "neighborhood": "Hasanpaşa",
+      "m2": "1.065 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 8
+  },
+  {
+    "id": "438",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Bakırköy Merkez 'de Carousel Karşısı Komple Bina",
+    "description": "Bakırköy Merkez 'de Carousel Karşısı 161 m² Arsa Üstünde Asansörlü - 5 Katlı Her Katı 160 m² Toplam 800 m² Komple Bina Satış Bedeli : 295.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Bakırköy / İSTANBUL",
+    "ilanNo": "ADA-438",
+    "updateDate": "05.01.2026",
+    "createdDate": "2026-01-05",
+    "price": "295.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bakirkoy-merkez-de-carousel-karsisi-komple-bina2-8805215-438_6315-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bakirkoy-merkez-de-carousel-karsisi-komple-bina2-9167811-438_6315-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bakirkoy-merkez-de-carousel-karsisi-komple-bina2-8357200-438_6315-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bakirkoy-merkez-de-carousel-karsisi-komple-bina2-951139-438_6315-4.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Zeytinlik%2C+Bak%C4%B1rk%C3%B6y%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bakırköy"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Zeytinlik"
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Komple Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "35"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "5"
+      },
+      {
+        "label": "BULUNDUĞU KAT",
+        "value": "Müstakil"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi Isınma"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "800 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "295.000.000 TL"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Bakırköy",
+      "neighborhood": "Zeytinlik",
+      "m2": "800 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "35",
+      "floorLocation": "Müstakil",
+      "floorCount": "5",
+      "heating": "Merkezi Isınma",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "Komple Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 9
+  },
+  {
+    "id": "652",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Tarla",
+    "title": "Kırklareli Lüleburgaz Büyükkarıştıran'da 91 Dönüm Satılık Tarla",
+    "description": "Kırklareli Lüleburgaz Büyükkarıştıran'da 91 Dönüm Satılık Tarla Satış Bedeli : 130.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Lüleburgaz / KIRKLARELİ",
+    "ilanNo": "ADA-652",
+    "updateDate": "17.12.2024",
+    "createdDate": "2024-12-17",
+    "price": "130.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-91-donum-satilik-tarla-1098985-652_4705-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=B%C3%BCy%C3%BCkkar%C4%B1%C5%9Ft%C4%B1ran+Y%C4%B1ld%C4%B1r%C4%B1m+Mah.%2C+L%C3%BCleburgaz%2C+K%C4%B1rklareli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kırklareli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Lüleburgaz"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Büyükkarıştıran Yıldırım Mah."
+      },
+      {
+        "label": "M²",
+        "value": "91.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "130.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Tarla"
+      }
+    ],
+    "details": {
+      "city": "Kırklareli",
+      "district": "Lüleburgaz",
+      "neighborhood": "Büyükkarıştıran Yıldırım Mah.",
+      "m2": "91.000 m²",
+      "zoningStatus": "Tarla",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    },
+    "homepage_featured": true,
+    "homepage_order": 10
+  },
+  {
+    "id": "706",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Tarla",
+    "title": "Kırklareli Lüleburgaz Büyükkarıştıran'da 62 Dönüm Satılık Tarla",
+    "description": "Kırklareli Lüleburgaz Büyükkarıştıran'da 62 Dönüm Satılık Tarla​ Satış Bedeli : 90.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Lüleburgaz / KIRKLARELİ",
+    "ilanNo": "ADA-706",
+    "updateDate": "30.09.2024",
+    "createdDate": "2024-09-30",
+    "price": "90.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-3169685-706_5296-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-423524-706_5296-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-7370135-706_5296-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-3551835-706_5296-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-9186040-706_5296-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-8083163-706_5296-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-62-donum-satilik-tarla-7444817-706_5296-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=B%C3%BCy%C3%BCkkar%C4%B1%C5%9Ft%C4%B1ran+Mah.%2C+L%C3%BCleburgaz%2C+K%C4%B1rklareli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kırklareli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Lüleburgaz"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Büyükkarıştıran Mah."
+      },
+      {
+        "label": "M²",
+        "value": "62.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "90.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "ADA NO",
+        "value": "149"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "36"
+      }
+    ],
+    "details": {
+      "city": "Kırklareli",
+      "district": "Lüleburgaz",
+      "neighborhood": "Büyükkarıştıran Mah.",
+      "m2": "62.000 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "828",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Hadımköy Ömerli'de 10.000 m² Satılık Arsa",
+    "description": "Hadımköy Ömerli'de 10.000 m² Satılık Arsa​ Sanayi İmarlı Emsal : 1.50 Satış Bedeli : 250.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Arnavutköy / İSTANBUL",
+    "ilanNo": "ADA-828",
+    "updateDate": "12.12.2024",
+    "createdDate": "2024-12-12",
+    "price": "250.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/hadimkoy-omerli-de-10-000-m2-satilik-arsa-3720761-828_6454-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=%C3%96merli+Mah.%2C+Arnavutk%C3%B6y%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Arnavutköy"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Ömerli Mah."
+      },
+      {
+        "label": "M²",
+        "value": "10.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "250.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Sanayi İmarlı"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Arnavutköy",
+      "neighborhood": "Ömerli Mah.",
+      "m2": "10.000 m²",
+      "zoningStatus": "Sanayi İmarlı",
+      "kaks": "1.50",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "713",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Merter Keresteciler'de Ana Caddeye 2. Parsel Arsa",
+    "description": "Merter Keresteciler'de Ana Caddeye 2. Parsel Sentez Merter Avm'nin Tam karşısında Çift Yola Cepheli Toplam 853 m² Arsa Toplam İnşaat Alanı : 5.000 m² Toprak Üstünde 4,5 Kat Yapılacak Toprak Altında da 2 Kat Yapılacak Not : 117 m²'si Belediyeden Satın Alınacak Satış Bedeli : 220.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Güngören / İSTANBUL",
+    "ilanNo": "ADA-713",
+    "updateDate": "06.01.2025",
+    "createdDate": "2025-01-06",
+    "price": "220.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-3949509-713_5368-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-349601-713_5368-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-1174698-713_5368-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-3782435-713_5368-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-7449062-713_5368-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-4019388-713_5368-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-1940468-713_5368-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/merter-keresteciler-de-ana-caddeye-2-parsel-arsa-2188747-713_5368-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Mehmet+Nesih+%C3%96zmen+Mah.%2C+G%C3%BCng%C3%B6ren%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Güngören"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Mehmet Nesih Özmen Mah."
+      },
+      {
+        "label": "M²",
+        "value": "736 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "220.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "1021"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "3"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Güngören",
+      "neighborhood": "Mehmet Nesih Özmen Mah.",
+      "m2": "736 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "847",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Çorlu'da Özel Eğitim İmarlı 5.624 m² Arsa",
+    "description": "Tekirdağ Çorlu'da Özel Eğitim İmarlı 5.624 m² Arsa Emsal : 1.00 ​ Satış Bedeli : 80.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Çorlu / TEKİRDAĞ",
+    "ilanNo": "ADA-847",
+    "updateDate": "21.03.2025",
+    "createdDate": "2025-03-21",
+    "price": "80.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-5631793-847_6659-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-3195283-847_6659-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-3777246-847_6659-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-3214837-847_6659-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-3890927-847_6659-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-8269466-847_6659-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/corlu-da-ozel-egitim-imarli-5-624-m2-arsa-1954569-847_6659-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Zafer+Mah.%2C+%C3%87orlu%2C+Tekirda%C4%9F&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Tekirdağ"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Çorlu"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Zafer Mah."
+      },
+      {
+        "label": "M²",
+        "value": "5.624 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "80.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Okul(Eğitim Tesisi)"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "3494"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.0"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "Tekirdağ",
+      "district": "Çorlu",
+      "neighborhood": "Zafer Mah.",
+      "m2": "5.624 m²",
+      "zoningStatus": "Okul(Eğitim Tesisi)",
+      "kaks": "1.0",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "848",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Arnavutköy Ömerli'de Sanayi İmarlı Kat Karşılığı Arsa",
+    "description": "Arnavutköy Ömerli'de Sanayi İmarlı 10.000 m² Kat Karşılığı Arsa​ Emsal : 1.50 Oran : %50 - %50 Hasılat Paylaşımı olmayacaktır Pazarlığa Kapalıdır Tek Yetkili Yakup Kasa",
+    "location": "Arnavutköy / İSTANBUL",
+    "ilanNo": "ADA-848",
+    "updateDate": "21.03.2025",
+    "createdDate": "2025-03-21",
+    "price": "-",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/arnavutkoy-omerli-de-sanayi-imarli-kat-karsiligi-arsa-3303288-848_6666-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=%C3%96merli+Mah.%2C+Arnavutk%C3%B6y%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Arnavutköy"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Ömerli Mah."
+      },
+      {
+        "label": "M²",
+        "value": "10.000 m²"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Evet"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Arnavutköy",
+      "neighborhood": "Ömerli Mah.",
+      "m2": "10.000 m²",
+      "zoningStatus": "-",
+      "kaks": "1.50",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "-",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "853",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Fatih Mercanağa'da 5 Katlı 1.500 m² Müstakil Bina",
+    "description": "Fatih Mercanağa'da 6 Katlı Toplam 1.500 m² Müstakil Bina Binanın yıkılıp yeniden inşa edilmesi halinde, 7 Katlı Toplam 2.800 m² bina olacaktır. Herhangi bir yasal kısıtlılık yoktur. ​ Satış Bedeli : 450.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Fatih / İSTANBUL",
+    "ilanNo": "ADA-853",
+    "updateDate": "01.05.2025",
+    "createdDate": "2025-05-01",
+    "price": "450.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-2917720-853_6722-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-9288737-853_6722-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-916039-853_6722-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-7595669-853_6722-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-204886-853_6722-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-7854842-853_6722-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-1094982-853_6722-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-mercanaga-da-5-katli-1-500-m2-mustakil-bina-234558-853_6722-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Mercan+Mah.%2C+Fatih%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Fatih"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Mercan Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "72"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "6"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "1.500 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "450.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Fatih",
+      "neighborhood": "Mercan Mah.",
+      "m2": "1.500 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "72",
+      "floorLocation": "-",
+      "floorCount": "6",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "854",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Bağcılar'da 12.500 m² İmarlı Arsa",
+    "description": "Bağcılar'da 12.500 m² İmarlı Arsa ​ Satış Bedeli : 1.200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Bağcılar / İSTANBUL",
+    "ilanNo": "ADA-854",
+    "updateDate": "01.05.2025",
+    "createdDate": "2025-05-01",
+    "price": "1.200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bagcilar-da-12-500-m2-imarli-arsa-3231929-854_6730-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=15+Temmuz+Mah.%2C+Ba%C4%9Fc%C4%B1lar%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bağcılar"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "15 Temmuz Mah."
+      },
+      {
+        "label": "M²",
+        "value": "12.500 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "1.200.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "2.00"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Bağcılar",
+      "neighborhood": "15 Temmuz Mah.",
+      "m2": "12.500 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "2.00",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "851",
+    "category": "KİRALIK MAĞAZA",
+    "type": "Kiralık Mağaza",
+    "title": "Şişli Perpa'da 5. Katta 112 m² Kiralık Mağaza",
+    "description": "Şişli Perpa'da B Blok 5. Kat No:209 2 Katlı - İç Koridorda 112 m² Kiralık Mağaza Kira Bedeli : 60.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Şişli / İSTANBUL",
+    "ilanNo": "ADA-851",
+    "updateDate": "06.05.2025",
+    "createdDate": "2025-05-06",
+    "price": "65.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sisli-perpa-da-5-katta-112-m2-kiralik-magaza-4335789-851_6702-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sisli-perpa-da-5-katta-112-m2-kiralik-magaza-2792195-851_6702-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sisli-perpa-da-5-katta-112-m2-kiralik-magaza-3035594-851_6702-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sisli-perpa-da-5-katta-112-m2-kiralik-magaza-380692-851_6702-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sisli-perpa-da-5-katta-112-m2-kiralik-magaza-8173907-851_6702-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sisli-perpa-da-5-katta-112-m2-kiralik-magaza-7762117-851_6702-6.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Halil+R%C4%B1fat+Pa%C5%9Fa+Mah.%2C+%C5%9Ei%C5%9Fli%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Şişli"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Halil Rıfat Paşa Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Mağaza"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "28"
+      },
+      {
+        "label": "BULUNDUĞU KAT",
+        "value": "5"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Açık Otopark"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "112"
+      },
+      {
+        "label": "FİYAT",
+        "value": "65.000 TL"
+      },
+      {
+        "label": "DEVREN",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Şişli",
+      "neighborhood": "Halil Rıfat Paşa Mah.",
+      "m2": "112",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "-",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "28",
+      "floorLocation": "5",
+      "floorCount": "-",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "Açık Otopark",
+      "usageStatus": "Boş",
+      "workplaceType": "Mağaza",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "Hayır"
+    }
+  },
+  {
+    "id": "737",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Beyoğlu İngiliz Konsolosluğunun Karşısında Satılık Köşe Bina",
+    "description": "Beyoğlu İngiliz Konsolosluğunun Karşısında Satılık Köşe Bina Çelik Konstrüksiyon Bina Aslına Göre Yeniden Yapılmıştır Binada Kiracı Yoktur, tamamı boştur ​Kat Büyüklükleri : Bodrum Kat : 220 m² Zemin Kat : 220 m² Asma Kat : 100 m² 1. Kat : 220 m² 2. Kat : 220 m² 3. Kat : 220 m² Teras : 220 m² Toplam : 1.420 m² Satış Bedeli : 245.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Beyoğlu / İSTANBUL",
+    "ilanNo": "ADA-737",
+    "updateDate": "14.05.2025",
+    "createdDate": "2025-05-14",
+    "price": "245.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-1988340-737_5543-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-4254989-737_5543-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-2753290-737_5543-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-180431-737_5543-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-4182631-737_5543-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-3880230-737_5543-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beyoglu-ingiliz-konsoloslugunun-karsisinda-satilik-kose-bina-2992056-737_5543-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=H%C3%BCseyina%C4%9Fa+Mah.%2C+Beyo%C4%9Flu%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Beyoğlu"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Hüseyinağa Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "35"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "7"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "1.420 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "245.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Beyoğlu",
+      "neighborhood": "Hüseyinağa Mah.",
+      "m2": "1.420 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "35",
+      "floorLocation": "-",
+      "floorCount": "7",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "859",
+    "category": "SATILIK DEPO-ANTREPO",
+    "type": "Satılık Arsa",
+    "title": "Kırklareli Babaeski 'de Sanayi ve Depolama İmarlı 16.350 m² Arsa",
+    "description": "Kırklareli Babaeski 'de Sanayi ve Depolama İmarlı 16.350 m² Arsa Emsal : 0.50 Yükseklik (h) : 12.50 Satış Bedeli : 80.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Babaeski / KIRKLARELİ",
+    "ilanNo": "ADA-859",
+    "updateDate": "31.05.2025",
+    "createdDate": "2025-05-31",
+    "price": "80.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-6653612-859_6794-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-3967273-859_6794-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-7228556-859_6794-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-1497372-859_6794-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-4652520-859_6794-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-4685693-859_6794-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-3297861-859_6794-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-babaeski-de-sanayi-ve-depolama-imarli-16-350-m2-arsa-4795283-859_6794-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Cumhuriyet+Mah.%2C+Babaeski%2C+K%C4%B1rklareli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kırklareli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Babaeski"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Cumhuriyet Mah."
+      },
+      {
+        "label": "M²",
+        "value": "16.350 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "80.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Sanayi İmarlı"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "0.50"
+      },
+      {
+        "label": "GABARİ",
+        "value": "12.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "Kırklareli",
+      "district": "Babaeski",
+      "neighborhood": "Cumhuriyet Mah.",
+      "m2": "16.350 m²",
+      "zoningStatus": "Sanayi İmarlı",
+      "kaks": "0.50",
+      "gabari": "12.50",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "861",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Bahçelievler Yenibosna'da 9.000 m² Müstakil Bina",
+    "description": "Bahçelievler Yenibosna'da 9.000 m² Müstakil Bina ​ Depo Bölümü 3 Kat : Alt Kat : 2.000 m² (h: 5.80 m.) Giriş Kat : 2.000 m² (h: 5.32 m.) 1. Kat : 2.000 m² (h: 4.21 m.) Teras : 1.750 m² (Açık - Kapatılabilir) İdari Bina Bölümü : 6 Katlı Toplam 1.250 m² Satış Bedeli : 520.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Bahçelievler / İSTANBUL",
+    "ilanNo": "ADA-861",
+    "updateDate": "31.05.2025",
+    "createdDate": "2025-05-31",
+    "price": "520.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-4608977-861_6811-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-9207550-861_6811-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-5226793-861_6811-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-8217676-861_6930-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-8720752-861_6811-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-2693630-861_6811-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-7931044-861_6811-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-yenibosna-da-9-000-m2-mustakil-bina-1997584-861_6811-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Yenibosna+Merkez+Mah.%2C+Bah%C3%A7elievler%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bahçelievler"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Yenibosna Merkez Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "35"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "3"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Açık Otopark"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "9.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "520.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Bahçelievler",
+      "neighborhood": "Yenibosna Merkez Mah.",
+      "m2": "9.000 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "35",
+      "floorLocation": "-",
+      "floorCount": "3",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "Açık Otopark",
+      "usageStatus": "Boş",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "863",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Kasımpaşa Piyalepaşa Bulvarına Cepheli 2.800 m² Müstakil Bina",
+    "description": "Kasımpaşa Piyalepaşa Bulvarına Cepheli Kastelli Bloklarında Her Katı 350 m² 8 Katlı Toplam 2.800 m² Satılık Komple Bina Arsa Yüzölçümü : 752 m² Kat Yükseklikleri : 2.80 m. Asansör Sayısı : 2 Otopark : Açık (10-15 Araçlık) Satış Bedeli : 400.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Beyoğlu / İSTANBUL",
+    "ilanNo": "ADA-863",
+    "updateDate": "05.06.2025",
+    "createdDate": "2025-06-05",
+    "price": "400.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-2549671-863_6927-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-8579987-863_6927-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-4516680-863_6831-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-600426-863_6831-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-8901866-863_6831-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-1648067-863_6831-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-204317-863_6831-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kasimpasa-piyalepasa-bulvarina-cepheli-2-800-m2-mustakil-bina-514666-863_6831-6.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=K%C3%BC%C3%A7%C3%BCk+Piyale+Mah.%2C+Beyo%C4%9Flu%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Beyoğlu"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Küçük Piyale Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "40"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "8"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi Isınma"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Açık Otopark"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "2.800 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "400.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Beyoğlu",
+      "neighborhood": "Küçük Piyale Mah.",
+      "m2": "2.800 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "40",
+      "floorLocation": "-",
+      "floorCount": "8",
+      "heating": "Merkezi Isınma",
+      "bathroomCount": "-",
+      "parking": "Açık Otopark",
+      "usageStatus": "Boş",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "864",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Başakşehir Şamlar'da Ticaret+Konut İmarlı 5.914 m² Arsa",
+    "description": "Başakşehir Şamlar'da Ticaret+Konut İmarlı 5.914 m² Arsa​ Emsal : 1.25 Satış Bedeli : 200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Başakşehir / İSTANBUL",
+    "ilanNo": "ADA-864",
+    "updateDate": "12.06.2025",
+    "createdDate": "2025-06-12",
+    "price": "200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-126875-864_6841-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-3245704-864_6841-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-6654121-864_6841-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-7489414-864_6841-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-3636825-864_6841-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-2034290-864_6841-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/basaksehir-ikitelli-de-ticaret-konut-imarli-5-914-m2-arsa-7946895-864_6841-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=%C5%9Eahintepe+Mah.%2C+Ba%C5%9Fak%C5%9Fehir%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Başakşehir"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Şahintepe Mah."
+      },
+      {
+        "label": "M²",
+        "value": "5.914 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "200.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticaret+Konut"
+      },
+      {
+        "label": "ADA NO",
+        "value": "135"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "2"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.25"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Başakşehir",
+      "neighborhood": "Şahintepe Mah.",
+      "m2": "5.914 m²",
+      "zoningStatus": "Ticaret+Konut",
+      "kaks": "1.25",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "875",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Sultanbeyli'de Otobana Cepheli 5.600 m² İmarlı Arsa",
+    "description": "Sultanbeyli'de Otoban Cepheli Ticaret ve Konut İmarlı 5.600 m² Arsa Satış Bedeli : 450.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Sultanbeyli / İSTANBUL",
+    "ilanNo": "ADA-875",
+    "updateDate": "10.07.2025",
+    "createdDate": "2025-07-10",
+    "price": "450.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-1860435-875_7035-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-5697699-875_7035-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-7393494-875_7035-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-1291271-875_7035-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-5484902-875_7035-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-9227047-875_7035-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-6131863-875_7035-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/sultanbeyli-de-otobana-cepheli-5-600-m2-imarli-arsa-106367-875_7035-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Ahmet+Yesevi+Mah.%2C+Sultanbeyli%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Sultanbeyli"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Ahmet Yesevi Mah."
+      },
+      {
+        "label": "M²",
+        "value": "5.603 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "450.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "METRE KARE BİRİM FİYAT",
+        "value": "80.314 TL"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticaret+Konut"
+      },
+      {
+        "label": "ADA NO",
+        "value": "7514"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "3"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.05"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Sultanbeyli",
+      "neighborhood": "Ahmet Yesevi Mah.",
+      "m2": "5.603 m²",
+      "zoningStatus": "Ticaret+Konut",
+      "kaks": "1.05",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "80.314 TL",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "835",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Tarla",
+    "title": "Kırklareli Lüleburgaz Büyükkarıştıran'da 121 Dönüm Satılık Tarla",
+    "description": "Kırklareli Lüleburgaz Büyükkarıştıran'da Satılık Tarla 121 Dönüm​ (121.000 m²) Satış Bedeli : 200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Lüleburgaz / KIRKLARELİ",
+    "ilanNo": "ADA-835",
+    "updateDate": "23.07.2025",
+    "createdDate": "2025-07-23",
+    "price": "200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-8285902-835_6541-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-3577290-835_6541-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-303147-835_6541-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-5901421-835_6541-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-7822950-835_6541-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-8437823-835_6541-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-121-donum-satilik-tarla-596607-835_6541-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=B%C3%BCy%C3%BCkkar%C4%B1%C5%9Ft%C4%B1ran+Bld.+Mah.%2C+L%C3%BCleburgaz%2C+K%C4%B1rklareli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kırklareli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Lüleburgaz"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Büyükkarıştıran Bld. Mah."
+      },
+      {
+        "label": "M²",
+        "value": "121.000 m²"
+      },
+      {
+        "label": "FİYAT",
+        "value": "200.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Tarla"
+      }
+    ],
+    "details": {
+      "city": "Kırklareli",
+      "district": "Lüleburgaz",
+      "neighborhood": "Büyükkarıştıran Bld. Mah.",
+      "m2": "121.000 m²",
+      "zoningStatus": "Tarla",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "-",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "845",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Arnavutköy Deliklikaya'da 2.450 m² Satılık Arsa",
+    "description": "Arnavutköy Deliklikaya'da 2.450 m² Satılık Arsa Sanayi İmarlı Emsal : 1.50 Yükseklik (h) : Serbest ​ Satış Bedeli : 80.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Arnavutköy / İSTANBUL",
+    "ilanNo": "ADA-845",
+    "updateDate": "23.07.2025",
+    "createdDate": "2025-07-23",
+    "price": "80.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/arnavutkoy-deliklikaya-da-2-450-m2-satilik-arsa-7319347-845_6656-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/arnavutkoy-deliklikaya-da-2-450-m2-satilik-arsa-1974341-845_6656-2.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Deliklikaya+Mah.%2C+Arnavutk%C3%B6y%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Arnavutköy"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Deliklikaya Mah."
+      },
+      {
+        "label": "M²",
+        "value": "2.450 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "80.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Sanayi İmarlı"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "GABARİ",
+        "value": "Serbest"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Arnavutköy",
+      "neighborhood": "Deliklikaya Mah.",
+      "m2": "2.450 m²",
+      "zoningStatus": "Sanayi İmarlı",
+      "kaks": "1.50",
+      "gabari": "Serbest",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "850",
+    "category": "KİRALIK DEPO-ANTREPO",
+    "type": "Kiralık İşyeri",
+    "title": "Mahmutbey Mia'da 3.100 m² Düz Giriş Depo",
+    "description": "Mahmutbey Mia'da 3.100 m² Düz Giriş Depo​ Yükseklik (h): Net 3.40 m. 10 Araçlık Açık Otoparkı mevcuttur. Kira Bedeli : 1.000.000 TL (Net) Tek Yetkili Yakup Kasa",
+    "location": "Bağcılar / İSTANBUL",
+    "ilanNo": "ADA-850",
+    "updateDate": "17.09.2025",
+    "createdDate": "2025-09-17",
+    "price": "1.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-3-katta-ofis-8211552-850_6731-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-3-katta-ofis-4666337-850_6731-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-3-katta-ofis-7209185-850_6731-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-3-katta-ofis-2254834-850_6731-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-3-katta-ofis-7611864-850_6731-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-3-katta-ofis-3791922-850_6731-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-ofis-7651930-850_6674-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/mahmutbey-mia-da-4-200-m2-duz-giris-depo-ve-ofis-4715762-850_6674-2.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Mahmutbey+Mah.%2C+Ba%C4%9Fc%C4%B1lar%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bağcılar"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Mahmutbey Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Depo"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "20"
+      },
+      {
+        "label": "BULUNDUĞU KAT",
+        "value": "Zemin Kat"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Açık Otopark"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "3.100 m²"
+      },
+      {
+        "label": "FİYAT",
+        "value": "1.000.000 TL"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Bağcılar",
+      "neighborhood": "Mahmutbey Mah.",
+      "m2": "3.100 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "-",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "20",
+      "floorLocation": "Zemin Kat",
+      "floorCount": "-",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "Açık Otopark",
+      "usageStatus": "Boş",
+      "workplaceType": "Depo",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "882",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Tarla",
+    "title": "Çatalca Nakkaş'ta 300 Dönüm Tarla",
+    "description": "Çatalca Nakkaş'ta 300 Dönüm Tarla Satış Bedeli : 1.200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Çatalca / İSTANBUL",
+    "ilanNo": "ADA-882",
+    "updateDate": "09.10.2025",
+    "createdDate": "2025-10-09",
+    "price": "1.200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/catalca-nakkas-ta-300-donum-tarla2-655161-882_7187-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Nakka%C5%9F+Mah.%2C+%C3%87atalca%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Çatalca"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Nakkaş Mah."
+      },
+      {
+        "label": "M²",
+        "value": "300.000 m²"
+      },
+      {
+        "label": "FİYAT",
+        "value": "1.200.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Tarla"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Çatalca",
+      "neighborhood": "Nakkaş Mah.",
+      "m2": "300.000 m²",
+      "zoningStatus": "Tarla",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "-",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "860",
+    "category": "SATILIK DEPO-ANTREPO",
+    "type": "Satılık Arsa",
+    "title": "Büyükçekmece Karaağaç'ta Otoban Cepheli Lojistik-Depolama Arsası",
+    "description": "Büyükçekmece Karaağaç'ta Otoban Cepheli 17.263 m² Lojistik-Depolama İmarlı Arsa Emsal : 0.20​ Alt Giriş Katı : 12.500 m² Üst Giriş Katı : 4.500 m² Toplam İnşaat Alanı : 17.000 m² Açık Park Alanı : 12.500 m² Satış Bedeli : 350.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Büyükçekmece / İSTANBUL",
+    "ilanNo": "ADA-860",
+    "updateDate": "30.10.2025",
+    "createdDate": "2025-10-30",
+    "price": "350.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/buyukcekmece-karaagac-ta-otoban-cepheli-lojistik-depolama-arsasi-4116014-860_6806-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/buyukcekmece-karaagac-ta-otoban-cepheli-lojistik-depolama-arsasi-7980626-860_6806-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/buyukcekmece-karaagac-ta-otoban-cepheli-lojistik-depolama-arsasi-4011692-860_6806-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/buyukcekmece-karaagac-ta-otoban-cepheli-lojistik-depolama-arsasi-7348262-860_6806-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/buyukcekmece-karaagac-ta-otoban-cepheli-lojistik-depolama-arsasi-5572641-860_6806-5.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Karaa%C4%9Fa%C3%A7+Mah.%2C+B%C3%BCy%C3%BCk%C3%A7ekmece%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Büyükçekmece"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Karaağaç Mah."
+      },
+      {
+        "label": "M²",
+        "value": "17.263 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "350.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Depo-Antrepo İzinli"
+      },
+      {
+        "label": "ADA NO",
+        "value": "120"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "7"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "0.20"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Büyükçekmece",
+      "neighborhood": "Karaağaç Mah.",
+      "m2": "17.263 m²",
+      "zoningStatus": "Depo-Antrepo İzinli",
+      "kaks": "0.20",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "849",
+    "category": "SATILIK MAĞAZA",
+    "type": "Satılık Mağaza",
+    "title": "Ataşehir İçerenköy'de 2 Katlı 1.200 m² Migros Kiracılı Mağaza",
+    "description": "Ataşehir İçerenköy'de 2 Katlı 1.200 m² Migros Kiracılı Mağaza Giriş Katı : 600 m² Depo Katı : 600 m²​ Satış Bedeli : 120.000.000 TL ------------------------------------- Aylık Kira Geliri : 450.000 TL Net Koşulsuz Tahliye Tarihi : 2027 Tek Yetkili Yakup Kasa",
+    "location": "Ataşehir / İSTANBUL",
+    "ilanNo": "ADA-849",
+    "updateDate": "13.11.2025",
+    "createdDate": "2025-11-13",
+    "price": "120.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-6331855-849_6667-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-9157983-849_6667-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-7211321-849_6667-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-2920712-849_6667-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-5369246-849_6667-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-285063-849_6667-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/atasehir-icerenkoy-de-2-katli-1-200-m2-migros-kiracili-magaza-8012985-849_6667-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=%C4%B0%C3%A7erenk%C3%B6y+Mah.%2C+Ata%C5%9Fehir%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Ataşehir"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "İçerenköy Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Mağaza"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "18"
+      },
+      {
+        "label": "BULUNDUĞU KAT",
+        "value": "Zemin Kat"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Kiracı Var"
+      },
+      {
+        "label": "M²",
+        "value": "1.200 m²"
+      },
+      {
+        "label": "BÖLÜM SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "120.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Ataşehir",
+      "neighborhood": "İçerenköy Mah.",
+      "m2": "1.200 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "18",
+      "floorLocation": "Zemin Kat",
+      "floorCount": "-",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Kiracı Var",
+      "workplaceType": "Mağaza",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "2",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "885",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Yalova Çiftlikköy'de Ruhsatı Alınmış 31.400 m² Konut Arsası",
+    "description": "Yalova Çiftlikköy'de 31.400 m² Net Konut İmarlı Arsa İmar Durumu Emsal : 1.68 İnşaat Ruhsatı Alınmış Projesi Onaylanmış Toplam İnşaat Alanı : 85.000 m² Satılabilir Brüt İnşaat Alanı : 62.500 m² Satılabilir Net İnşaat Alanı : 54.500 m² Toplam Daire Sayısı : 498 2+1 : 376 Adet 3+1 : 70 Adet 4+1 : 52 Adet Satış Bedeli : 700.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Çiftlikköy / YALOVA",
+    "ilanNo": "ADA-885",
+    "updateDate": "24.11.2025",
+    "createdDate": "2025-11-24",
+    "price": "700.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/yalova-ciftlikkoy-de-ruhsati-alinmis-31-400-m2-konut-arsasi-4439196-885_7289-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/yalova-ciftlikkoy-de-ruhsati-alinmis-31-400-m2-konut-arsasi-7189977-885_7289-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/yalova-ciftlikkoy-de-ruhsati-alinmis-31-400-m2-konut-arsasi-7292936-885_7289-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/yalova-ciftlikkoy-de-ruhsati-alinmis-31-400-m2-konut-arsasi-2436152-885_7289-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/yalova-ciftlikkoy-de-ruhsati-alinmis-31-400-m2-konut-arsasi-3155115-885_7289-5.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/yalova-ciftlikkoy-de-ruhsati-alinmis-31-400-m2-konut-arsasi-1052922-885_7289-6.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=500+Evler+Mah.%2C+%C3%87iftlikk%C3%B6y%2C+Yalova&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Yalova"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Çiftlikköy"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "500 Evler Mah."
+      },
+      {
+        "label": "M²",
+        "value": "31.400 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "700.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Konut İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "140"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "9"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.60"
+      },
+      {
+        "label": "GABARİ",
+        "value": "12.50"
+      }
+    ],
+    "details": {
+      "city": "Yalova",
+      "district": "Çiftlikköy",
+      "neighborhood": "500 Evler Mah.",
+      "m2": "31.400 m²",
+      "zoningStatus": "Konut İmarlı",
+      "kaks": "1.60",
+      "gabari": "12.50",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "887",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Bahçelievler'de E-5 'e 150 m. Mesafede Müstakil Bina",
+    "description": "Bahçelievler'de E-5 'e 150 m. Mesafede Müstakil Bina ​ Taks : 0.25 h (Yükseklik): 13.50 Satış Bedeli : 120.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Bahçelievler / İSTANBUL",
+    "ilanNo": "ADA-887",
+    "updateDate": "24.11.2025",
+    "createdDate": "2025-11-24",
+    "price": "120.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-m-mesafede-mustakil-bina-7611194-887_7324-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-m-mesafede-mustakil-bina-1657142-887_7324-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-m-mesafede-mustakil-bina-4483859-887_7324-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-m-mesafede-mustakil-bina-556171-887_7324-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-m-mesafede-mustakil-bina-4874716-887_7324-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-m-mesafede-mustakil-bina-1983869-887_7324-6.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Bah%C3%A7elievler+Mah.%2C+Bah%C3%A7elievler%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bahçelievler"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Bahçelievler Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "35"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "6"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Açık Otopark"
+      },
+      {
+        "label": "M²",
+        "value": "1.500 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "120.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Bahçelievler",
+      "neighborhood": "Bahçelievler Mah.",
+      "m2": "1.500 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "35",
+      "floorLocation": "-",
+      "floorCount": "6",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "Açık Otopark",
+      "usageStatus": "-",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "673",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Sefaköy Merkezde Satılık ve Kat Karşılığı Okul-Yurt İmarlı Arsa",
+    "description": "Küçükçekmece Sefaköy Merkez'de İnşaat Ruhsatı Alınmış ;​ 3 Yola Cepheli Özel Okul ve Yurt Yapımına müsait Satılık veya Kat Karşılığı Arsa Toplam İnşaat Alanı : 12.000 m² İmar Durumuna göre Kullanım Fonksiyonları : Özel Eğitim Alanı ve Özel Yurt Binası Satış Bedeli : 200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Küçükçekmece / İSTANBUL",
+    "ilanNo": "ADA-673",
+    "updateDate": "27.11.2025",
+    "createdDate": "2025-11-27",
+    "price": "200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-2396270-673_4878-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-2895602-673_4878-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-3720700-673_4878-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-2920284-673_4878-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-4178073-673_4878-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-5983691-673_4878-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-6231567-673_4878-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kucukcekmece-sefakoy-merkez-de-ozel-okul-imarli-arsa-1771559-673_4878-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Tevfik+Bey+Mah.%2C+K%C3%BC%C3%A7%C3%BCk%C3%A7ekmece%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Küçükçekmece"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Tevfik Bey Mah."
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "4.029 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "200.000.000 TL"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Okul(Eğitim Tesisi)"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "362"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Küçükçekmece",
+      "neighborhood": "Tevfik Bey Mah.",
+      "m2": "4.029 m²",
+      "zoningStatus": "Okul(Eğitim Tesisi)",
+      "kaks": "1.50",
+      "gabari": "-",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "884",
+    "category": "SATILIK BİNA",
+    "type": "Satılık Bina",
+    "title": "Fatih Vatan Caddesine Cepheli 6 Katlı Komple Bina",
+    "description": "Fatih Vatan Caddesine Cepheli 6 Katlı 1.500 m² Komple Bina 2. Bodrum Kat : 120 m² ​1. Bodrum Kat : 200 m² Zemin Kat : 200 m² 1. Kat : 260 m² 2. Kat : 260 m² 3. Kat : 260 m² 4. Kat : 200 m² Toplam : 1.500 m² Asansör Yangın Merdiveni 4 Araçlık Otopark Satış Bedeli : 200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Fatih / İSTANBUL",
+    "ilanNo": "ADA-884",
+    "updateDate": "28.11.2025",
+    "createdDate": "2025-11-28",
+    "price": "200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-817108-884_7194-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-6367321-884_7247-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-5778602-884_7194-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-8165484-884_7194-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-6841768-884_7194-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-7170462-884_7194-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-4240445-884_7194-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/fatih-vatan-caddesine-cepheli-6-katli-komple-bina-3836403-884_7194-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Topkap%C4%B1+Mah.%2C+Fatih%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Fatih"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Topkapı Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Komple Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "30"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "6"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Açık Otopark"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "1.500 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "200.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Fatih",
+      "neighborhood": "Topkapı Mah.",
+      "m2": "1.500 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "30",
+      "floorLocation": "-",
+      "floorCount": "6",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "Açık Otopark",
+      "usageStatus": "Boş",
+      "workplaceType": "Komple Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "858",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Antalya Konyaaltı Geyikbayırı'nda 794 m² Konut İmarlı Arsa",
+    "description": "Antalya Konyaaltı Geyikbayırı'nda 794 m² Konut İmarlı Arsa",
+    "location": "Konyaaltı / ANTALYA",
+    "ilanNo": "ADA-858",
+    "updateDate": "01.12.2025",
+    "createdDate": "2025-12-01",
+    "price": "8.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/mid/antalya-konyaalti-geyikbayiri-nda-794-m2-konut-imarli-arsa-2260389-858_6790-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Konyaalt%C4%B1%2C+Antalya&output=embed",
+    "status": "active",
+    "detailRows": [],
+    "details": {
+      "city": "Antalya",
+      "district": "Konyaaltı",
+      "neighborhood": "-",
+      "m2": "794 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "-",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "866",
+    "category": "KİRALIK OFİS",
+    "type": "Kiralık Ofis",
+    "title": "Zeytinburnu Ottomare Suites 'te 4,5+1 Balkonlu Ofis",
+    "description": "Zeytinburnu Ottomare Suites 'te 12. Kat - 4,5+1 Balkonlu Ofis 330 m2 Brüt, 230 m2 Net Mutfak (Balkonlu) 3 Banyo - WC 1 WC 3 Adet Kapalı Otopark Alanı Kira Bedeli : 260.000 TL Net (Mülkün Sahibi Gerçek Kişidir) Tek Yetkili Yakup Kasa",
+    "location": "Zeytinburnu / İSTANBUL",
+    "ilanNo": "ADA-866",
+    "updateDate": "04.12.2025",
+    "createdDate": "2025-12-04",
+    "price": "260.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-1316196-866_6874-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-6773643-866_6874-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-5256419-866_6874-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-2830694-866_6874-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-6719802-866_6874-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-2095679-866_6874-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-126148-866_6874-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/zeytinburnu-ottomare-suites-te-4-5-1-balkonlu-ofis-4251187-866_6874-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Kazl%C4%B1%C3%A7e%C5%9Fme+Mah.%2C+Zeytinburnu%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Zeytinburnu"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Kazlıçeşme Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Ofis"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "12"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "25"
+      },
+      {
+        "label": "BULUNDUĞU KAT",
+        "value": "12"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi (Pay Ölçer)"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Kapalı Otopark"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "330 m²"
+      },
+      {
+        "label": "ODA SAYISI",
+        "value": "4"
+      },
+      {
+        "label": "SALON SAYISI",
+        "value": "1"
+      },
+      {
+        "label": "BANYO SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "260.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Zeytinburnu",
+      "neighborhood": "Kazlıçeşme Mah.",
+      "m2": "330 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "4+1",
+      "salonCount": "1",
+      "buildingAge": "12",
+      "floorLocation": "12",
+      "floorCount": "25",
+      "heating": "Merkezi (Pay Ölçer)",
+      "bathroomCount": "2",
+      "parking": "Kapalı Otopark",
+      "usageStatus": "Boş",
+      "workplaceType": "Ofis",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "4",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "888",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Bodrum Yalıkavak'ta 28.183 m² Net Arsa",
+    "description": "Muğla Bodrum Yalıkavak'ta 28.183 m² Net Arsa 577 Ada - 198 Parsel : 12.722,36 m² 577 Ada - 199 Parsel : 7.006,60 m² ​ 577 Ada - 15 Parsel : 2.669,03 m² 577 Ada - 19 Parsel : 5.785,69 m² Denize olan Mesafe : 550 Metre Satış Bedeli : 1.200.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Bodrum / MUĞLA",
+    "ilanNo": "ADA-888",
+    "updateDate": "10.12.2025",
+    "createdDate": "2025-12-10",
+    "price": "1.200.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-3694980-888_7339-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-5530340-888_7339-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-2381111-888_7339-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-8381476-888_7339-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-164293-888_7339-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-7506022-888_7339-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-5004359-888_7339-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bodrum-yalikavak-ta-28-183-m2-net-arsa-2402540-888_7339-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Dirmil+Mah.%2C+Bodrum%2C+Mu%C4%9Fla&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Muğla"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bodrum"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Dirmil Mah."
+      },
+      {
+        "label": "M²",
+        "value": "28.183 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "1.200.000.000 TL"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Villa İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "577"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "198"
+      }
+    ],
+    "details": {
+      "city": "Muğla",
+      "district": "Bodrum",
+      "neighborhood": "Dirmil Mah.",
+      "m2": "28.183 m²",
+      "zoningStatus": "Villa İmarlı",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "889",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Bahçelievler'de E-5'e 150 Metre Mesafede Konut İmarlı 536 m²Arsa",
+    "description": "Bahçelievler Merkezde E-5'e 150 Metre Mesafede Konut İmarlı 536 m²Arsa Taks : 0.25 h (Yükseklik): 13.50 (4 Kat) Satış Bedeli : ​120.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Bahçelievler / İSTANBUL",
+    "ilanNo": "ADA-889",
+    "updateDate": "23.12.2025",
+    "createdDate": "2025-12-23",
+    "price": "120.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-metre-mesafede-konut-imarli-536-m2arsa-3174385-889_7351-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-metre-mesafede-konut-imarli-536-m2arsa-3914-889_7351-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-metre-mesafede-konut-imarli-536-m2arsa-3472153-889_7351-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bahcelievler-de-e-5-e-150-metre-mesafede-konut-imarli-536-m2arsa-1274036-889_7351-4.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Bah%C3%A7elievler+Mah.%2C+Bah%C3%A7elievler%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Bahçelievler"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Bahçelievler Mah."
+      },
+      {
+        "label": "M²",
+        "value": "536 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "120.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Konut İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "490"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "10"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Bahçelievler",
+      "neighborhood": "Bahçelievler Mah.",
+      "m2": "536 m²",
+      "zoningStatus": "Konut İmarlı",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "857",
+    "category": "SATILIK OTEL",
+    "type": "Satılık Otel",
+    "title": "Bursa Çekirge'de 20.000 m² Termal Turistik Tesis",
+    "description": "Bursa Çekirge'de Termal Turistik Tesis Arsa Büyüklüğü : 7.465 m² Toplam Kapalı Alan : 20.000 m² Kat Sayısı : 5 Oda Sayısı : 105 Yatak Sayısı : 210 Boş Teslim Metro İstasyonuna 500 m. Bursa Şehir Merkezine 3 km. Uludağ'a 30 km. Mantıklı ve uygulanabilir vade/takas teklifleriniz değerlendirilmeye açıktır. Nitelikli alıcıların teklifleri titizlikle incelenecektir. Satış Bedeli : 1.500.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Osmangazi / BURSA",
+    "ilanNo": "ADA-857",
+    "updateDate": "08.01.2026",
+    "createdDate": "2026-01-08",
+    "price": "1.500.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-532811-857_6782-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-6279297-857_7288-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-6630253-857_7248-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-8384120-857_7248-3.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-2500675-857_7248-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-8766146-857_7248-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-4282463-857_7248-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-cekirge-de-20-000-m2-termal-turistik-tesis-333532-857_7248-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=K%C3%BCk%C3%BCrtl%C3%BC+Mah.%2C+Osmangazi%2C+Bursa&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Bursa"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Osmangazi"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Kükürtlü Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Turistik İşletme"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "14"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "5"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Klima"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "20.000 m²"
+      },
+      {
+        "label": "ODA SAYISI",
+        "value": "105"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "1.500.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "Bursa",
+      "district": "Osmangazi",
+      "neighborhood": "Kükürtlü Mah.",
+      "m2": "20.000 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "105",
+      "salonCount": "-",
+      "buildingAge": "14",
+      "floorLocation": "-",
+      "floorCount": "5",
+      "heating": "Klima",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "Turistik İşletme",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "105",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "824",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Tarla",
+    "title": "Lüleburgaz Büyükkarıştıran'da E-5 Cepheli 21.000 m² Tarla",
+    "description": "Kırklareli Lüleburgaz Büyükkarıştıran'da E-5 Cepheli 21.000 m² Tarla 107 Ada 33 Parsel - 107 Ada 34 Parsel Satış Bedeli : 45.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Lüleburgaz / KIRKLARELİ",
+    "ilanNo": "ADA-824",
+    "updateDate": "29.01.2026",
+    "createdDate": "2026-01-29",
+    "price": "45.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-8058863-824_6412-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-2768551-824_6412-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-4148001-824_6412-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-4483636-824_6412-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-7568564-824_6412-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-1757399-824_6412-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/luleburgaz-buyukkaristiran-da-e-5-cepheli-21-000-m2-tarla-6154083-824_6412-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=B%C3%BCy%C3%BCkkar%C4%B1%C5%9Ft%C4%B1ran+Mah.%2C+L%C3%BCleburgaz%2C+K%C4%B1rklareli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kırklareli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Lüleburgaz"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Büyükkarıştıran Mah."
+      },
+      {
+        "label": "M²",
+        "value": "21.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "45.000.000 TL"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Tarla"
+      },
+      {
+        "label": "ADA NO",
+        "value": "107"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "34"
+      }
+    ],
+    "details": {
+      "city": "Kırklareli",
+      "district": "Lüleburgaz",
+      "neighborhood": "Büyükkarıştıran Mah.",
+      "m2": "21.000 m²",
+      "zoningStatus": "Tarla",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "699",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Silivri Kınalı Kavşağında Sanayi İmarlı 30 Dönüm Arsa",
+    "description": "Silivri Kınalı Kavşağında E-5 Cepheli - Sanayi İmarlı 30.000 m² Arsa Kaks (Emsal) : 0.50 h (Yükseklik) : 12.50 Satış Bedeli: 800.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Silivri / İSTANBUL",
+    "ilanNo": "ADA-699",
+    "updateDate": "30.01.2026",
+    "createdDate": "2026-01-30",
+    "price": "800.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-30-donum-arsa-7547811-699_5200-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-30-donum-arsa-7274013-699_5200-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-30-donum-arsa-2897860-699_5200-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-30-donum-arsa-1004267-699_5200-4.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Balaban+Mah.%2C+Silivri%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Silivri"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Balaban Mah."
+      },
+      {
+        "label": "M²",
+        "value": "30.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "800.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "0.50"
+      },
+      {
+        "label": "GABARİ",
+        "value": "12.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Silivri",
+      "neighborhood": "Balaban Mah.",
+      "m2": "30.000 m²",
+      "zoningStatus": "-",
+      "kaks": "0.50",
+      "gabari": "12.50",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "702",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Silivri Kınalı Kavşağında Sanayi İmarlı 14.000 m² Arsa",
+    "description": "Silivri Kınalı Kavşağında E-5 Cepheli - Sanayi İmarlı 14.000 m² Arsa Kaks (Emsal) : 0.50 h (Yükseklik) : 12.50 Satış Bedeli: 370.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Silivri / İSTANBUL",
+    "ilanNo": "ADA-702",
+    "updateDate": "30.01.2026",
+    "createdDate": "2026-01-30",
+    "price": "370.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-14-000-m2-arsa-887043-702_5246-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-14-000-m2-arsa-1776643-702_5246-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/silivri-kinali-kavsaginda-sanayi-imarli-14-000-m2-arsa-5147315-702_5246-3.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Balaban+Mah.%2C+Silivri%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Silivri"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Balaban Mah."
+      },
+      {
+        "label": "M²",
+        "value": "14.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "370.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Sanayi İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "389"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "7"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "0.50"
+      },
+      {
+        "label": "GABARİ",
+        "value": "12.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Silivri",
+      "neighborhood": "Balaban Mah.",
+      "m2": "14.000 m²",
+      "zoningStatus": "Sanayi İmarlı",
+      "kaks": "0.50",
+      "gabari": "12.50",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "892",
+    "category": "KİRALIK BİNA",
+    "type": "Kiralık Bina",
+    "title": "Karaköy Perşembe Pazarında Caddeye Cepheli 2 Katlı 120 m² Bina",
+    "description": "Karaköy Perşembe Pazarında Caddeye Cepheli 2 Katlı 120 m² Boş Bina Kira Bedeli : 225.000 TL (Net) (Gayrimenkul Sahibi Şahıstır) Tek Yetkili Yakup Kasa",
+    "location": "Beyoğlu / İSTANBUL",
+    "ilanNo": "ADA-892",
+    "updateDate": "06.02.2026",
+    "createdDate": "2026-02-06",
+    "price": "225.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-7484713-892_7386-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-6793299-892_7386-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-7188959-892_7386-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-6458764-892_7386-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-8334145-892_7386-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-2534802-892_7386-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/karakoy-persembe-pazarinda-caddeye-cepheli-2-katli-120-m2-bina-2380588-892_7386-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Arap+Cami+Mah.%2C+Beyo%C4%9Flu%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Beyoğlu"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Arap Cami Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "50"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Merkezi-Doğalgaz"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "120 m²"
+      },
+      {
+        "label": "BÖLÜM SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "FİYAT",
+        "value": "225.000 TL"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Beyoğlu",
+      "neighborhood": "Arap Cami Mah.",
+      "m2": "120 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "-",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "50",
+      "floorLocation": "-",
+      "floorCount": "2",
+      "heating": "Merkezi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "2",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "842",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Çayırova Şekerpınar'da 2.185 m² Ticari İmarlı Arsa",
+    "description": "Kocaeli Çayırova Şekerpınar'da 2.185 m² Ticari İmarlı Arsa Emsal : 1.50 Kat Sayısı : 6 Satış Bedeli : 60.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Çayırova / KOCAELİ",
+    "ilanNo": "ADA-842",
+    "updateDate": "07.02.2026",
+    "createdDate": "2026-02-07",
+    "price": "60.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/cayirova-sekerpinar-da-2-185-m2-ticari-imarli-arsa-2345706-842_6600-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/cayirova-sekerpinar-da-2-185-m2-ticari-imarli-arsa-4273790-842_6600-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/cayirova-sekerpinar-da-2-185-m2-ticari-imarli-arsa-27680-842_6600-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/cayirova-sekerpinar-da-2-185-m2-ticari-imarli-arsa-5235686-842_6600-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/cayirova-sekerpinar-da-2-185-m2-ticari-imarli-arsa-6911090-842_6600-5.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=%C5%9Eekerp%C4%B1nar+Mah.%2C+%C3%87ay%C4%B1rova%2C+Kocaeli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kocaeli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Çayırova"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Şekerpınar Mah."
+      },
+      {
+        "label": "M²",
+        "value": "2.185 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "60.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "826"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "10"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.50"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "Kocaeli",
+      "district": "Çayırova",
+      "neighborhood": "Şekerpınar Mah.",
+      "m2": "2.185 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "1.50",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "868",
+    "category": "SATILIK DEPO-ANTREPO",
+    "type": "Satılık Arsa",
+    "title": "Tuzla Orhanlı'da Lojistik ve Depolama İmarlı 22.000 m² Arsa",
+    "description": "Tuzla Orhanlı'da Yan Yola Cepheli Lojistik ve Depolama İmarlı 22.000 m² Arsa Bu arsa üzerindeki İnşaat Alanı Araç Giren -1. Kat : 13.000 m² Zemin Kat : 13.000 m² Araç Giren +1. Kat : 13.000 m² TOPLAM : 39.000 m² ​ Satış Bedeli : 1.100.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Tuzla / İSTANBUL",
+    "ilanNo": "ADA-868",
+    "updateDate": "09.02.2026",
+    "createdDate": "2026-02-09",
+    "price": "1.100.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-4752550-868_6911-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-9187039-868_6911-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-5592848-868_6911-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-8630022-868_6911-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-1564416-868_6911-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-9144151-868_6911-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-7080756-868_6911-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-8867177-868_6911-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Orhanl%C4%B1+Mah.%2C+Tuzla%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Tuzla"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Orhanlı Mah."
+      },
+      {
+        "label": "M²",
+        "value": "22.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "1.100.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Depo-Antrepo İzinli"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "1591"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Tuzla",
+      "neighborhood": "Orhanlı Mah.",
+      "m2": "22.000 m²",
+      "zoningStatus": "Depo-Antrepo İzinli",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "890",
+    "category": "SATILIK MAĞAZA",
+    "type": "Satılık Bina",
+    "title": "Bursa Nilüfer'de 1 Adet Depolu Dükkan 6 Adet Daire Komple Bina",
+    "description": "Bursa Nilüfer'de Satılık Komple Bina 1 Adet Depolu Dükkan 6 Adet Kat Mülkiyet Tapulu Mesken Bodrum Dahil 4 Tam Kat ve Teras Katı ------------------------------------------ No: 1  Depolu Mağaza  391,00 m² (Bodrum ve Zemin Kat) No: 2  2+1  62,00 m² (1. Kat) No: 3  2+1  68,00 m² (1. Kat) No: 4  2+1  61,00 m² (1. Kat) No: 5  4+1  131,46 m² (2. Kat - Dubleks) No: 6  4+1  156,18 m² (2. Kat - Dubleks) No: 7  4+1  155,87 m² (2. Kat - Dubleks) Toplam : 1.025,51 m² Satış Bedeli : 30.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Nilüfer / BURSA",
+    "ilanNo": "ADA-890",
+    "updateDate": "09.02.2026",
+    "createdDate": "2026-02-09",
+    "price": "30.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-1525289-890_7355-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-2563447-890_7355-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-2486797-890_7355-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-1022641-890_7355-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-7406332-890_7355-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-5054311-890_7355-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-8210683-890_7355-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-9153753-890_7355-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Fethiye+Mah.%2C+Nil%C3%BCfer%2C+Bursa&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Bursa"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Nilüfer"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Fethiye Mah."
+      },
+      {
+        "label": "İŞYERİ TİPİ",
+        "value": "Bina"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "4"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "4"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Kombi-Doğalgaz"
+      },
+      {
+        "label": "OTOPARK",
+        "value": "Yok"
+      },
+      {
+        "label": "M²",
+        "value": "1025 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "30.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Kat Mülkiyeti"
+      }
+    ],
+    "details": {
+      "city": "Bursa",
+      "district": "Nilüfer",
+      "neighborhood": "Fethiye Mah.",
+      "m2": "1025 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "Kat Mülkiyeti",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "4",
+      "floorLocation": "-",
+      "floorCount": "4",
+      "heating": "Kombi-Doğalgaz",
+      "bathroomCount": "-",
+      "parking": "Yok",
+      "usageStatus": "-",
+      "workplaceType": "Bina",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "İkinci El",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "813",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Beykoz Riva'da Villa İmarlı 2 Ayrı Parsel",
+    "description": "Beykoz Riva'da Villa İmarlı 2 Ayrı Parsel ------------- Villa İmarlı : 495 m² (Emsal: 0.25 - H (Yükseklik): 2 Kat) Parsel No : 752 ----------------------------------------------------------------- Villa İmarlı : 487 m² (Emsal: 0.25 - H (Yükseklik): 2 Kat) Parsel No : 795 ----------------------------------------------------------------- 2 Parselin Toplam Büyüklüğü : 982 m² Önemli Not : 2 Parselin tamamı birlikte satılacaktır. Ayrı ayrı satar mısınız? gibi tekliflere kapalıyız Satış Bedeli : 22.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Beykoz / İSTANBUL",
+    "ilanNo": "ADA-813",
+    "updateDate": "24.02.2026",
+    "createdDate": "2026-02-24",
+    "price": "22.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-1679402-813_6249-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-5239490-813_6249-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-7630076-813_6249-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-5611568-813_6249-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-1204628-813_6249-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-8839058-813_6249-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-6358048-813_6249-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-2312947-813_6256-1.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Riva+Mah.%2C+Beykoz%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Beykoz"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Riva Mah."
+      },
+      {
+        "label": "M²",
+        "value": "982 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "22.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "METRE KARE BİRİM FİYAT",
+        "value": "25.458 TL"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Villa İmarlı"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "752"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "0.25"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Beykoz",
+      "neighborhood": "Riva Mah.",
+      "m2": "982 m²",
+      "zoningStatus": "Villa İmarlı",
+      "kaks": "0.25",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "25.458 TL",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "893",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Haramidere'de E-5 Cepheli 12.000 m² Kupon Arsa",
+    "description": "Esenyurt Haramidere'de Çok Özel bir konumda E-5 Cepheli 12.000 m² Ticaret + Hizmet İmarlı Kupon Arsa Kaks : 2 Taks : 0.40 SATIŞ YÖNTEMİ : A.Ş. HİSSE DEVRİ Söz Konusu Arsanın üzerindeki Bina Kentsel Dönüşüm kapsamında yıkılacaktır Satış Bedeli : 2.600.000.000 TL Tek ve Tam Yetkili Yakup Kasa",
+    "location": "Esenyurt / İSTANBUL",
+    "ilanNo": "ADA-893",
+    "updateDate": "25.02.2026",
+    "createdDate": "2026-02-25",
+    "price": "2.600.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-3317531-893_7393-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-5829206-893_7423-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-3295129-893_7423-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-7220152-893_7423-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-1711450-893_7423-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-755535-893_7423-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-1007486-893_7423-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-8442707-893_7423-7.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=Zafer+Mah.%2C+Esenyurt%2C+%C4%B0stanbul&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "İstanbul"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Esenyurt"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Zafer Mah."
+      },
+      {
+        "label": "M²",
+        "value": "12.000 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "2.600.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "2257"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "2"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "2.00"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "İstanbul",
+      "district": "Esenyurt",
+      "neighborhood": "Zafer Mah.",
+      "m2": "12.000 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "2.00",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "671",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Kırklareli Lüleburgaz Büyükkarıştıran'da 30 Dönüm Arsa",
+    "description": "Kırklareli Lüleburgaz Büyükkarıştıran'da Konut Dışı Kentsel Çalışma Alanı 30 Dönüm Arsa İmar Durumu Bilgileri : Fonksiyon : Konut Dışı Kentsel Çalışma Alanı Emsal : 1.00 Taks : 0.60 Bina Yüksekliği : 2 Kat Satış Bedeli : 195.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Lüleburgaz / KIRKLARELİ",
+    "ilanNo": "ADA-671",
+    "updateDate": "13.03.2026",
+    "createdDate": "2026-03-13",
+    "price": "195.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-3237911-671_7330-1.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-6493476-671_7330-2.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-4410079-671_7330-3.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-7986080-671_7330-4.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-9091607-671_7330-5.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-828732-671_7330-6.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-604298-671_7330-7.jpg",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-8387318-671_7330-8.jpg"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=B%C3%BCy%C3%BCkkar%C4%B1%C5%9Ft%C4%B1ran+Bld.%2C+L%C3%BCleburgaz%2C+K%C4%B1rklareli&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Kırklareli"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Lüleburgaz"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Büyükkarıştıran Bld."
+      },
+      {
+        "label": "M²",
+        "value": "29.810 m²"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "195.000.000 TL"
+      },
+      {
+        "label": "İMAR DURUMU",
+        "value": "Ticari İmarlı"
+      },
+      {
+        "label": "ADA NO",
+        "value": "430"
+      },
+      {
+        "label": "PARSEL NO",
+        "value": "46"
+      },
+      {
+        "label": "KAKS (EMSAL)",
+        "value": "1.00"
+      },
+      {
+        "label": "TAKS",
+        "value": "0.60"
+      },
+      {
+        "label": "KAT KARŞILIĞI",
+        "value": "Hayır"
+      },
+      {
+        "label": "TAPU TİPİ",
+        "value": "Arsa Tapusu"
+      }
+    ],
+    "details": {
+      "city": "Kırklareli",
+      "district": "Lüleburgaz",
+      "neighborhood": "Büyükkarıştıran Bld.",
+      "m2": "29.810 m²",
+      "zoningStatus": "Ticari İmarlı",
+      "kaks": "1.00",
+      "gabari": "-",
+      "deedType": "Arsa Tapusu",
+      "credit": "Uygun",
+      "swap": "-",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "-",
+      "salonCount": "-",
+      "buildingAge": "-",
+      "floorLocation": "-",
+      "floorCount": "-",
+      "heating": "-",
+      "bathroomCount": "-",
+      "parking": "-",
+      "usageStatus": "-",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "-",
+      "buildingCondition": "-",
+      "housingType": "-",
+      "housingShape": "-",
+      "taks": "0.60",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  },
+  {
+    "id": "894",
+    "category": "SATILIK ARSA",
+    "type": "Satılık Arsa",
+    "title": "Göcek Gökçeovacık'ta Orman İçinde Ruhsatlı Müstakil Villa",
+    "description": "Muğla Göcek Gökçeovacık'ta 6.600 m² Arsa Üzerinde 600 m² Kapalı Alanlı Orman İçinde Ruhsatlı Müstakil Villa ​ Satış Bedeli : 150.000.000 TL Tek Yetkili Yakup Kasa",
+    "location": "Fethiye / MUĞLA",
+    "ilanNo": "ADA-894",
+    "updateDate": "23.03.2026",
+    "createdDate": "2026-03-23",
+    "price": "150.000.000 TL",
+    "imageUrls": [
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-6845613-894_7403-1.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-3782150-894_7405-1.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-1427681-894_7405-2.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-562376-894_7405-3.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-3767337-894_7405-4.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-578490-894_7405-5.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-2052237-894_7405-6.JPG",
+      "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-1246104-894_7405-7.JPG"
+    ],
+    "mapUrl": "https://www.google.com/maps?q=G%C3%B6k%C3%A7eovac%C4%B1k+Mah.%2C+Fethiye%2C+Mu%C4%9Fla&output=embed",
+    "status": "active",
+    "detailRows": [
+      {
+        "label": "İL",
+        "value": "Muğla"
+      },
+      {
+        "label": "İLÇE",
+        "value": "Fethiye"
+      },
+      {
+        "label": "MAHALLE",
+        "value": "Gökçeovacık Mah."
+      },
+      {
+        "label": "KONUT TİPİ",
+        "value": "Müstakil Ev"
+      },
+      {
+        "label": "KONUT ŞEKLİ",
+        "value": "Dublex"
+      },
+      {
+        "label": "BİNANIN YAŞI",
+        "value": "27"
+      },
+      {
+        "label": "KAT SAYISI",
+        "value": "2"
+      },
+      {
+        "label": "YAPININ DURUMU",
+        "value": "İkinci El"
+      },
+      {
+        "label": "ISINMA TİPİ",
+        "value": "Şömine"
+      },
+      {
+        "label": "MEVCUT HALİ",
+        "value": "Boş"
+      },
+      {
+        "label": "M²",
+        "value": "600 m²"
+      },
+      {
+        "label": "ODA SAYISI",
+        "value": "9"
+      },
+      {
+        "label": "BANYO SAYISI",
+        "value": "4"
+      },
+      {
+        "label": "KREDİYE UYGUNLUK",
+        "value": "Uygun"
+      },
+      {
+        "label": "FİYAT",
+        "value": "150.000.000 TL"
+      },
+      {
+        "label": "TAKAS",
+        "value": "Hayır"
+      }
+    ],
+    "details": {
+      "city": "Muğla",
+      "district": "Fethiye",
+      "neighborhood": "Gökçeovacık Mah.",
+      "m2": "600 m²",
+      "zoningStatus": "-",
+      "kaks": "-",
+      "gabari": "-",
+      "deedType": "-",
+      "credit": "Uygun",
+      "swap": "Hayır",
+      "grossM2": "-",
+      "netM2": "-",
+      "roomCount": "9",
+      "salonCount": "-",
+      "buildingAge": "27",
+      "floorLocation": "-",
+      "floorCount": "2",
+      "heating": "Şömine",
+      "bathroomCount": "4",
+      "parking": "-",
+      "usageStatus": "Boş",
+      "workplaceType": "-",
+      "closedAreaM2": "-",
+      "roomOrSectionCount": "9",
+      "buildingCondition": "İkinci El",
+      "housingType": "Müstakil Ev",
+      "housingShape": "Dublex",
+      "taks": "-",
+      "unitPrice": "-",
+      "devren": "-"
+    }
+  }
+];
+
+export const LIVE_SIDEBAR_LISTINGS: SidebarListing[] = [
+  {
+    "id": "894",
+    "title": "Göcek Gökçeovacık'ta Orman İçinde Ruhsatlı Müstakil Villa",
+    "price": "150.000.000 TL",
+    "imageUrl": "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/gocek-gokceovacik-ta-orman-icinde-ruhsatli-mustakil-villa-6845613-894_7403-1.JPG"
+  },
+  {
+    "id": "671",
+    "title": "Kırklareli Lüleburgaz Büyükkarıştıran'da 30 Dönüm Arsa",
+    "price": "195.000.000 TL",
+    "imageUrl": "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/kirklareli-luleburgaz-buyukkaristiran-da-30-donum-arsa-3237911-671_7330-1.jpg"
+  },
+  {
+    "id": "893",
+    "title": "Haramidere'de E-5 Cepheli 12.000 m² Kupon Arsa",
+    "price": "2.600.000.000 TL",
+    "imageUrl": "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/haramidere-de-e-5-cepheli-12-000-m2-kupon-arsa-3317531-893_7393-1.jpg"
+  },
+  {
+    "id": "813",
+    "title": "Beykoz Riva'da Villa İmarlı 2 Ayrı Parsel",
+    "price": "22.000.000 TL",
+    "imageUrl": "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/beykoz-riva-da-imarli-3-ayri-parsel-1679402-813_6249-1.jpg"
+  },
+  {
+    "id": "890",
+    "title": "Bursa Nilüfer'de 1 Adet Depolu Dükkan 6 Adet Daire Komple Bina",
+    "price": "30.000.000 TL",
+    "imageUrl": "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/bursa-nilufer-de-komple-bina-1525289-890_7355-1.jpg"
+  },
+  {
+    "id": "868",
+    "title": "Tuzla Orhanlı'da Lojistik ve Depolama İmarlı 22.000 m² Arsa",
+    "price": "1.100.000.000 TL",
+    "imageUrl": "https://www.adaemlak.com.tr/UserFiles/ProductFiles/big/tuzla-orhanli-da-lojistik-ve-depolama-imarli-22-000-m2-arsa-4752550-868_6911-1.jpg"
+  }
+];

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ada Emlak Canli Yayin Raporu</title>
+    <style>
+      :root {
+        --bg: #f7f5ef;
+        --card: #ffffff;
+        --text: #2a2f36;
+        --muted: #687280;
+        --line: #e8dfcf;
+        --brand: #e6aa23;
+        --brand-dark: #3d352c;
+        --success: #1f8a55;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(230, 170, 35, 0.12), transparent 30%),
+          linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 40px 20px 56px;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, var(--brand-dark), #615547);
+        color: #fff;
+        border-radius: 28px;
+        padding: 36px;
+        box-shadow: 0 28px 80px rgba(61, 53, 44, 0.24);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 18px 0 12px;
+        font-size: clamp(34px, 5vw, 56px);
+        line-height: 1;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 760px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .meta-card,
+      .section,
+      .summary {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 16px 42px rgba(38, 34, 28, 0.06);
+      }
+
+      .meta-card {
+        padding: 22px;
+      }
+
+      .meta-card h2 {
+        margin: 0 0 10px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      .meta-card p,
+      .meta-card a {
+        margin: 0;
+        color: var(--text);
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        word-break: break-word;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .section {
+        padding: 26px;
+      }
+
+      .section h3 {
+        margin: 0 0 14px;
+        font-size: 22px;
+      }
+
+      .section p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      li {
+        margin: 0 0 10px;
+        line-height: 1.65;
+        color: var(--text);
+      }
+
+      .tag {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #eef7f1;
+        color: var(--success);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .summary {
+        margin-top: 18px;
+        padding: 28px;
+        border-left: 6px solid var(--brand);
+      }
+
+      .summary h3 {
+        margin: 0 0 12px;
+        font-size: 24px;
+      }
+
+      .summary p {
+        margin: 0;
+        line-height: 1.8;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .footer {
+        margin-top: 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      code {
+        background: #f8f4ea;
+        border: 1px solid #eadfca;
+        border-radius: 8px;
+        padding: 2px 8px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 0.95em;
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 22px 14px 40px;
+        }
+
+        .hero,
+        .section,
+        .summary {
+          border-radius: 20px;
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Ada Emlak Canli Yayin Raporu</span>
+        <h1>Site, Admin ve Backend Yayinlandi</h1>
+        <p>
+          Ada Emlak projesi alan adi baglama disinda canli kullanim icin hazir hale getirildi.
+          Public site yayinda, gizli admin erisimi guvenli sekilde acik, backend servisi
+          sunucuda ayakta ve veriler SQLite veritabaninda kalici olarak tutuluyor.
+        </p>
+      </section>
+
+      <section class="meta">
+        <article class="meta-card">
+          <h2>Canli Site</h2>
+          <p><a href="http://46.245.164.65/adaemlak/" target="_blank">http://46.245.164.65/adaemlak/</a></p>
+        </article>
+        <article class="meta-card">
+          <h2>Gizli Admin Girisi</h2>
+          <p><a href="http://46.245.164.65/adaemlak/yk-panel-giris" target="_blank">http://46.245.164.65/adaemlak/yk-panel-giris</a></p>
+        </article>
+        <article class="meta-card">
+          <h2>Kullanici Adi</h2>
+          <p><code>adaemlakyk</code></p>
+        </article>
+        <article class="meta-card">
+          <h2>Sifre</h2>
+          <p><code>60729663.Yk</code></p>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="section">
+          <h3>Sitede Yapilan Ana Isler</h3>
+          <ul>
+            <li>Ana sayfa vitrin, ilan kartlari ve ilan detay alanlari modernize edildi.</li>
+            <li>Arama bandi, fiyat bantlari, son eklenenler ve diger firsatlar alanlari yeniden duzenlendi.</li>
+            <li>Iletisim, referanslar ve yasal sayfalar gercek iceriklerle guncellendi.</li>
+            <li>Ilan detay galerisine buyutme, blur arka plan ve watermark destegi eklendi.</li>
+            <li>Footer, header ve ortak kurumsal kartlar tutarli bir gorsel dile cekildi.</li>
+          </ul>
+        </article>
+
+        <article class="section">
+          <h3>Admin ve Icerik Yonetimi</h3>
+          <ul>
+            <li>Gorunur footer admin girisi kaldirildi, gizli admin linki kullanima alindi.</li>
+            <li>Admin panelinden ilan, blog, mesaj, SEO ve genel ayarlar yonetilebilir hale getirildi.</li>
+            <li>Iletisim formundan gelen mesajlar admin paneline dusuyor ve kalici saklaniyor.</li>
+            <li>Ilan ekleme alaninda il ve ilce secimi tum Turkiye verisi ile duzenlendi.</li>
+            <li>Demo blog ve gecici yonetim icerikleri temizlenip gercek kullanim akisina gecildi.</li>
+          </ul>
+        </article>
+
+        <article class="section">
+          <h3>SEO ve Performans</h3>
+          <ul>
+            <li>Temiz URL yapisina gecildi ve hash routing kaldirildi.</li>
+            <li>Tum public sayfalara page title, description, canonical ve noindex duzenleri eklendi.</li>
+            <li><code>robots.txt</code>, <code>sitemap.xml</code> ve favicon uretimi aktif edildi.</li>
+            <li>Tailwind CDN kaldirildi, build tabanli ciktiya gecildi.</li>
+            <li>Performans icin lazy load, code split ve hafifletilmis asset yapisi uygulandi.</li>
+          </ul>
+        </article>
+
+        <article class="section">
+          <h3>Backend ve Sunucu Kurulumu</h3>
+          <ul>
+            <li>Node tabanli API servisi sunucuda kuruldu.</li>
+            <li>Admin girisi artik backend token mantigi ile dogrulaniyor.</li>
+            <li>Ilanlar, bloglar, mesajlar ve ayarlar SQLite veritabaninda saklaniyor.</li>
+            <li>Nginx, <code>/adaemlak/api/</code> isteklerini backend servisine yonlendiriyor.</li>
+            <li>Servis <code>systemd</code> ile otomatik baslayacak sekilde ayarlandi.</li>
+          </ul>
+          <div class="tag">Kalici Sunucu Verisi Aktif</div>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="section">
+          <h3>Sunucudaki Temel Konumlar</h3>
+          <ul>
+            <li>Frontend yayin klasoru: <code>/var/www/adaemlak</code></li>
+            <li>Backend uygulama klasoru: <code>/opt/adaemlak-app</code></li>
+            <li>Kalici veritabani dosyasi: <code>/var/lib/adaemlak-api/adaemlak.sqlite</code></li>
+            <li>Environment dosyasi: <code>/etc/adaemlak-api.env</code></li>
+            <li>Servis dosyasi: <code>/etc/systemd/system/adaemlak-api.service</code></li>
+          </ul>
+        </article>
+
+        <article class="section">
+          <h3>Canli Test Sonuclari</h3>
+          <ul>
+            <li>Site acilisi basarili</li>
+            <li>Gizli admin girisi basic auth ile korumali ve erisilebilir</li>
+            <li>Admin login ve token uretimi basarili</li>
+            <li>API health kontrolu basarili</li>
+            <li>Veritabani olusumu ve veri yazma testi basarili</li>
+            <li><code>ikog</code> yayini korunarak calismaya devam ediyor</li>
+          </ul>
+          <div class="tag">Smoke Test Gecti</div>
+        </article>
+      </section>
+
+      <section class="summary">
+        <h3>Son Durum</h3>
+        <p>
+          Sistem, alan adi baglama ve SSL tanimlari disinda ilk kullanim icin hazirdir.
+          Musteri bu asamadan itibaren admin paneline girip ilan, blog, mesaj ve ayar
+          yonetimine baslayabilir. Alan adi baglandiginda son asama olarak domain, SSL
+          ve canonical URL kontrolleri tamamlanacaktir.
+        </p>
+      </section>
+
+      <div class="footer">
+        Hazirlanma tarihi: 25 Mart 2026
+      </div>
+    </main>
+  </body>
+</html>
