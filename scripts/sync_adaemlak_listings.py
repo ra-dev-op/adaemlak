@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,7 @@ BASE_URL = "https://www.adaemlak.com.tr"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_FILE = PROJECT_ROOT / "data" / "liveListings.generated.ts"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+REQUEST_TIMEOUT_SECONDS = 15
 
 IGNORED_PATHS = {
     "/",
@@ -44,6 +46,17 @@ CATEGORY_SOURCES = [
     ("luks-konut", "?Kategori=LuKS-KONUT&durum=kiralik"),
 ]
 
+DISCOVERY_PAGES = [
+    "/",
+    "/arsa/",
+    "/bina/",
+    "/plaza/",
+    "/fabrika/",
+    "/depo-antrepo/",
+    "/is-yeri/",
+    "/luks-konut/",
+]
+
 TURKISH_MAP = str.maketrans(
     {
         "ç": "c",
@@ -65,8 +78,19 @@ TURKISH_MAP = str.maketrans(
 
 def fetch(url: str) -> str:
     request = Request(url, headers={"User-Agent": USER_AGENT})
-    with urlopen(request) as response:
-        return response.read().decode("iso-8859-9", "replace")
+    last_error: Exception | None = None
+    for attempt in range(2):
+        try:
+            with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+                # The legacy site declares iso-8859-9, but several descriptions use
+                # Windows Turkish punctuation. cp1254 prevents curly quote/dash breaks.
+                return response.read().decode("cp1254", "replace")
+        except Exception as error:
+            last_error = error
+            if attempt == 0:
+                time.sleep(1)
+
+    raise RuntimeError(f"Could not fetch {url}: {last_error}") from last_error
 
 
 def clean_text(value: str) -> str:
@@ -78,6 +102,100 @@ def clean_text(value: str) -> str:
     text = re.sub(r"[ \t\r\f\v]+", " ", text)
     text = re.sub(r"\n\s*\n+", "\n", text)
     return text.strip(" :\n\t")
+
+
+def normalize_legacy_html(value: str) -> str:
+    text = value or ""
+    replacements = {
+        "\x92": "'",
+        "\x91": "'",
+        "\u2018": "'",
+        "\u2019": "'",
+        "\x93": '"',
+        "\x94": '"',
+        "\u201c": '"',
+        "\u201d": '"',
+        "\x96": "-",
+        "\x97": "-",
+        "\u2013": "-",
+        "\u2014": "-",
+        "\ufeff": "",
+    }
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+    return text
+
+
+def sanitize_description_html(value: str) -> str:
+    """Keep the live site's description formatting without carrying page chrome/scripts."""
+    fragment = normalize_legacy_html(value or "")
+    fragment = re.sub(r"<!--.*?-->", "", fragment, flags=re.S)
+    fragment = re.sub(r"<script\b[^>]*>.*?</script>", "", fragment, flags=re.S | re.I)
+    fragment = re.sub(r"<style\b[^>]*>.*?</style>", "", fragment, flags=re.S | re.I)
+    fragment = re.sub(r"\s+(?:class|id|width|height|valign|align)\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+)", "", fragment, flags=re.I)
+
+    allowed_tags = {
+        "br",
+        "p",
+        "div",
+        "span",
+        "strong",
+        "b",
+        "em",
+        "i",
+        "u",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "ul",
+        "ol",
+        "li",
+        "blockquote",
+        "font",
+    }
+
+    def clean_tag(match: re.Match[str]) -> str:
+        raw_tag = match.group(0)
+        closing = "/" if raw_tag.startswith("</") else ""
+        tag_match = re.match(r"</?\s*([a-z0-9]+)", raw_tag, flags=re.I)
+        if not tag_match:
+            return ""
+
+        tag_name = tag_match.group(1).lower()
+        if tag_name not in allowed_tags:
+            return ""
+
+        if closing:
+            return f"</{tag_name}>"
+
+        if tag_name == "br":
+            return "<br>"
+
+        attrs = ""
+        style_match = re.search(r"\sstyle\s*=\s*(['\"])(.*?)\1", raw_tag, flags=re.I | re.S)
+        if style_match:
+            style_value = style_match.group(2)
+            allowed_styles: list[str] = []
+            for name, style in re.findall(r"([a-z-]+)\s*:\s*([^;]+)", style_value, flags=re.I):
+                normalized_name = name.strip().lower()
+                normalized_style = style.strip()
+                if normalized_name == "color" and re.match(r"^#[0-9a-f]{3,6}$", normalized_style, flags=re.I):
+                    allowed_styles.append(f"color:{normalized_style}")
+                elif normalized_name == "font-size" and re.match(r"^\d+(?:\.\d+)?(?:px|rem|em|%)$", normalized_style, flags=re.I):
+                    allowed_styles.append(f"font-size:{normalized_style}")
+                elif normalized_name == "text-align" and normalized_style.lower() in {"left", "center", "right", "justify"}:
+                    allowed_styles.append(f"text-align:{normalized_style.lower()}")
+            if allowed_styles:
+                attrs = f' style="{"; ".join(allowed_styles)}"'
+
+        return f"<{tag_name}{attrs}>"
+
+    fragment = re.sub(r"</?[^>]+>", clean_tag, fragment)
+    fragment = re.sub(r"(?:\s*<br>\s*){3,}", "<br><br>", fragment, flags=re.I)
+    fragment = re.sub(r">\s+<", "><", fragment)
+    fragment = fragment.strip()
+    return fragment
 
 
 def squash_whitespace(value: str) -> str:
@@ -232,56 +350,72 @@ def collect_homepage_featured_paths() -> list[str]:
     return featured_paths
 
 
+def iter_listing_blocks(page_html: str) -> list[str]:
+    return re.findall(r'<div class="boxemlak">(.*?)(?=<div class="boxemlak">|$)', page_html, re.S | re.I)
+
+
+def merge_listing_block(records: dict[str, dict[str, Any]], block: str) -> None:
+    href_match = re.search(r'<a href="(/[^"?#]+/)"', block)
+    if not href_match:
+        return
+
+    path = href_match.group(1)
+    if path in IGNORED_PATHS or path.startswith("/UserFiles/"):
+        return
+
+    record = records.setdefault(
+        path,
+        {
+            "path": path,
+            "title": "",
+            "location": "",
+            "ilanNo": "",
+            "updateDate": "",
+            "price": "",
+            "rawCategories": set(),
+            "previewImage": "",
+        },
+    )
+
+    title_match = re.search(r'<div class="baslik">(.*?)</div>', block, re.S | re.I)
+    if not title_match:
+        title_match = re.search(r'<span class="baslik">(.*?)</span>', block, re.S | re.I)
+
+    location_match = re.search(r"<strong>(.*?)</strong>", block, re.S | re.I)
+    ilan_match = re.search(r"İLAN NO:\s*([^<\n]+)", block, re.I)
+    update_match = re.search(r"Güncelleme:\s*([^<\n]+)", block, re.I)
+    price_match = re.search(r'<span class="price">(.*?)</span>', block, re.S | re.I)
+    category_match = re.search(r'<div class="boxBot">\s*<span class="lef">(.*?)</span>', block, re.S | re.I)
+    image_match = re.search(r'<img[^>]+src="(/UserFiles/ProductFiles/[^"]+)"', block, re.I)
+
+    if title_match:
+        record["title"] = clean_text(title_match.group(1))
+    if location_match:
+        record["location"] = clean_text(location_match.group(1))
+    if ilan_match:
+        record["ilanNo"] = clean_text(ilan_match.group(1))
+    if update_match:
+        record["updateDate"] = clean_text(update_match.group(1))
+    if price_match:
+        record["price"] = clean_text(price_match.group(1))
+    if category_match:
+        record["rawCategories"].add(clean_text(category_match.group(1)))
+    if image_match:
+        record["previewImage"] = urljoin(BASE_URL, image_match.group(1))
+
+
 def collect_category_records() -> dict[str, dict[str, Any]]:
     records: dict[str, dict[str, Any]] = {}
 
     for slug, query in CATEGORY_SOURCES:
         category_html = fetch(f"{BASE_URL}/{slug}/{query}")
-        for block in re.findall(r'<div class="boxemlak">(.*?)</div><!--box -->', category_html, re.S | re.I):
-            href_match = re.search(r'<a href="(/[^"?#]+/)"', block)
-            if not href_match:
-                continue
+        for block in iter_listing_blocks(category_html):
+            merge_listing_block(records, block)
 
-            path = href_match.group(1)
-            if path in IGNORED_PATHS:
-                continue
-
-            record = records.setdefault(
-                path,
-                {
-                    "path": path,
-                    "title": "",
-                    "location": "",
-                    "ilanNo": "",
-                    "updateDate": "",
-                    "price": "",
-                    "rawCategories": set(),
-                    "previewImage": "",
-                },
-            )
-
-            title_match = re.search(r'<div class="baslik">(.*?)</div>', block, re.S | re.I)
-            location_match = re.search(r"<strong>(.*?)</strong>", block, re.S | re.I)
-            ilan_match = re.search(r"İLAN NO:\s*([^<\n]+)", block, re.I)
-            update_match = re.search(r"Güncelleme:\s*([^<\n]+)", block, re.I)
-            price_match = re.search(r'<span class="price">(.*?)</span>', block, re.S | re.I)
-            category_match = re.search(r'<div class="boxBot">\s*<span class="lef">(.*?)</span>', block, re.S | re.I)
-            image_match = re.search(r'<img[^>]+src="(/UserFiles/ProductFiles/[^"]+)"', block, re.I)
-
-            if title_match:
-                record["title"] = clean_text(title_match.group(1))
-            if location_match:
-                record["location"] = clean_text(location_match.group(1))
-            if ilan_match:
-                record["ilanNo"] = clean_text(ilan_match.group(1))
-            if update_match:
-                record["updateDate"] = clean_text(update_match.group(1))
-            if price_match:
-                record["price"] = clean_text(price_match.group(1))
-            if category_match:
-                record["rawCategories"].add(clean_text(category_match.group(1)))
-            if image_match:
-                record["previewImage"] = urljoin(BASE_URL, image_match.group(1))
+    for page_path in DISCOVERY_PAGES:
+        page_html = fetch(urljoin(BASE_URL, page_path))
+        for block in iter_listing_blocks(page_html):
+            merge_listing_block(records, block)
 
     return records
 
@@ -317,9 +451,12 @@ def build_listings() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         detail_row_list = collect_detail_rows(details_block_match.group(1)) if details_block_match else []
 
         description_match = re.search(r'<div class="boxMidBot">(.*?)</div><!--boxMidBot -->', detail_html, re.S | re.I)
-        description = tidy_numeric_spacing(squash_whitespace(clean_text(description_match.group(1)))) if description_match else detail_title
+        description = sanitize_description_html(description_match.group(1)) if description_match else detail_title
         if not description:
             description = detail_title
+
+        detail_ilan_match = re.search(r"İLAN NO:\s*(ADA-\d+)", detail_html, re.I)
+        detail_ilan_no = detail_ilan_match.group(1).upper() if detail_ilan_match else ""
 
         human_type = top_spans[0] if top_spans else prettify_category_label(next(iter(seed["rawCategories"]), "SATILIK ARSA"))
         location = top_spans[1] if len(top_spans) > 1 else seed["location"]
@@ -333,7 +470,8 @@ def build_listings() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
             district, city = [smart_title_case(part.strip()) for part in location.split("/", 1)]
 
         category = infer_category(human_type, detail_title, " ".join(sorted(seed["rawCategories"])))
-        listing_id = re.sub(r"[^0-9]", "", seed["ilanNo"]) or path.strip("/").split("-")[-1]
+        listing_ilan_no = seed["ilanNo"] or detail_ilan_no
+        listing_id = re.sub(r"[^0-9]", "", listing_ilan_no) or path.strip("/").split("-")[-1]
 
         room_count = detail_rows.get("odasayisi", "-")
         salon_count = detail_rows.get("salonsayisi", "-")
@@ -349,7 +487,7 @@ def build_listings() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
             "title": detail_title,
             "description": description,
             "location": location or "-",
-            "ilanNo": seed["ilanNo"] or f"ADA-{listing_id}",
+            "ilanNo": listing_ilan_no or f"ADA-{listing_id}",
             "updateDate": seed["updateDate"] or "-",
             "createdDate": parse_date_for_sort(seed["updateDate"]),
             "price": price or "-",
@@ -410,7 +548,7 @@ def build_listings() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         listings,
         key=lambda item: (item.get("createdDate") or "0000-00-00", item.get("ilanNo", "")),
         reverse=True,
-    )[:6]
+    )[:8]
 
     sidebar_listings = [
         {

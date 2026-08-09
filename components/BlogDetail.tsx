@@ -125,7 +125,7 @@ const BlogDetail: React.FC = () => {
 
               <div className="rounded-[20px] border border-[#eceff3] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)]">
                 {sidebarListings.slice(0, 3).map((item) => (
-                  <SidebarItem key={item.id} item={item} />
+                  <SidebarItem key={item.id} item={item} largeImage />
                 ))}
               </div>
             </div>

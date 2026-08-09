@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { NAV_MENU, NEWS_ITEMS, SLUG_TO_CATEGORIES } from '../constants';
 import { LIVE_MAIN_LISTINGS } from '../data/liveListings.generated';
 import { DEFAULT_SEO_SETTINGS } from '../config/siteDefaults';
+import { ADMIN_LOGIN_PATH } from '../config/adminAuth';
+import { getListingUrl } from '../lib/seo';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,8 +53,18 @@ const blogRoutes = NEWS_ITEMS.filter((item) => item.status !== 'draft' && item.s
   lastmod: item.publishedDateIso,
 }));
 
+const escapeXml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+
+const withBasePath = (routePath: string) => `${basePath}${routePath}`.replace(/\/{2,}/g, '/');
+
 const listingRoutes = LIVE_MAIN_LISTINGS.filter((listing) => listing.status === 'active').map((listing) => ({
-  path: `/listing/${listing.id}`,
+  path: getListingUrl(listing),
   priority: '0.8',
   changefreq: 'weekly',
   lastmod: listing.createdDate || undefined,
@@ -70,7 +82,7 @@ const xmlLines = [
   ...uniqueEntries.map((entry) => {
     const parts = [
       '  <url>',
-      `    <loc>${baseUrl}${entry.path}</loc>`,
+      `    <loc>${escapeXml(`${baseUrl}${entry.path}`)}</loc>`,
       `    <changefreq>${entry.changefreq}</changefreq>`,
       `    <priority>${entry.priority}</priority>`,
     ];
@@ -86,8 +98,9 @@ const xmlLines = [
 const robotsTxt = [
   'User-agent: *',
   'Allow: /',
-  `Disallow: ${basePath}/admin`,
-  `Disallow: ${basePath}/arama`,
+  `Disallow: ${withBasePath('/admin')}`,
+  `Disallow: ${withBasePath(ADMIN_LOGIN_PATH)}`,
+  `Disallow: ${withBasePath('/arama')}`,
   '',
   `Sitemap: ${baseUrl}/sitemap.xml`,
   '',

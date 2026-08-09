@@ -7,7 +7,8 @@ import SeoHead from './SeoHead';
 import { EMPTY_LISTING_DETAILS, getPropertyFieldSet, PROPERTY_FIELD_LABELS } from '../config/propertyFields';
 import { getRichDescriptionHtml, stripHtmlTags } from '../lib/richText';
 import { getPriceParts } from '../lib/price';
-import { trackListingView } from '../lib/api';
+import { trackListingEvent, trackListingView } from '../lib/api';
+import { getListingIdFromSlug, getListingUrl } from '../lib/seo';
 
 const ImageWatermark: React.FC<{ compact?: boolean }> = ({ compact = false }) => (
   <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
@@ -85,16 +86,25 @@ const normalizeDetailLabel = (label: string = '') => {
     .replace(/(^|[\s(/-])([a-zçğıöşü])/g, (_, prefix: string, char: string) => `${prefix}${char.toLocaleUpperCase('tr-TR')}`);
 };
 
+const normalizeListingLookupId = (value = '') =>
+  String(value)
+    .trim()
+    .replace(/^ADA-/i, '');
+
 const ListingDetail: React.FC = () => {
   const { id } = useParams();
-  const { listings, sidebarListings } = useData();
+  const { listings, sidebarListings, seoSettings } = useData();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [thumbnailPage, setThumbnailPage] = useState(0);
 
-  let listing: any = listings.find(l => l.id === id);
+  const requestedListingId = normalizeListingLookupId(getListingIdFromSlug(id));
+  let listing: any = listings.find((item) =>
+    normalizeListingLookupId(item.id) === requestedListingId ||
+    normalizeListingLookupId(item.ilanNo) === requestedListingId
+  );
   if (!listing) {
-      const sidebarItem = sidebarListings.find(l => l.id === id);
+      const sidebarItem = sidebarListings.find((item) => normalizeListingLookupId(item.id) === requestedListingId);
       if (sidebarItem) {
           listing = {
             id: sidebarItem.id,
@@ -126,6 +136,7 @@ const ListingDetail: React.FC = () => {
   const plainDescription = stripHtmlTags(listing.description);
   const richDescriptionHtml = getRichDescriptionHtml(listing.description);
   const { schemaCurrency } = getPriceParts(listing.price);
+  const listingCanonicalUrl = `${seoSettings.baseUrl.replace(/\/$/, '')}${getListingUrl(listing)}`;
 
   // Helper for Schema
   const listingSchema = {
@@ -137,7 +148,7 @@ const ListingDetail: React.FC = () => {
     "sku": listing.ilanNo,
     "offers": {
       "@type": "Offer",
-      "url": window.location.href,
+      "url": listingCanonicalUrl,
       "priceCurrency": schemaCurrency,
       "price": listing.price.replace(/[^0-9]/g, ''),
       "availability": "https://schema.org/InStock",
@@ -235,6 +246,19 @@ const ListingDetail: React.FC = () => {
     setActiveImageIndex(boundedIndex);
   };
 
+  const handlePhoneClick = (source: string) => {
+    void trackListingEvent(listing.id, 'phone_click', source).catch((error) => {
+      console.error('Listing phone click could not be tracked:', error);
+    });
+  };
+
+  const handleGalleryOpen = (source: string) => {
+    void trackListingEvent(listing.id, 'gallery_open', source).catch((error) => {
+      console.error('Listing gallery open could not be tracked:', error);
+    });
+    setIsLightboxOpen(true);
+  };
+
   return (
     <>
     <div className="container mx-auto max-w-[1320px] px-4 py-8">
@@ -244,7 +268,7 @@ const ListingDetail: React.FC = () => {
          keywords={`${listing.type}, ${listing.location}, ${listing.category}, ${listing.ilanNo}`}
          image={galleryImages[0]}
          type="product"
-         canonicalUrl={`${window.location.origin}/listing/${listing.id}`}
+         canonicalUrl={listingCanonicalUrl}
          schema={listingSchema}
        />
 
@@ -279,11 +303,11 @@ const ListingDetail: React.FC = () => {
              <div className="mb-6 overflow-hidden rounded-[16px] border border-[#ebcf8d] bg-[linear-gradient(135deg,#d99e11_0%,#efb126_46%,#d5960d_100%)] shadow-[0_16px_34px_rgba(205,150,16,0.18)]">
                 <div className="flex flex-col gap-4 px-5 py-4 text-white md:flex-row md:items-center md:justify-between md:px-6">
                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
-                      <span className="inline-flex w-fit items-center rounded-full bg-white/14 px-4 py-1.5 text-sm font-bold uppercase tracking-[0.05em] backdrop-blur-sm">
+                      <span className="inline-flex w-fit items-center rounded-full bg-white/14 px-4 py-1.5 text-base font-bold uppercase tracking-[0.045em] backdrop-blur-sm md:text-[17px]">
                          {listing.type || listing.category}
                       </span>
                       <span className="hidden h-5 w-px bg-white/30 md:block"></span>
-                      <div className="flex items-center gap-2 text-[15px] font-semibold tracking-tight text-white/95">
+                      <div className="flex items-center gap-2 text-base font-semibold tracking-tight text-white/95 md:text-[17px]">
                          <svg className="h-4 w-4 shrink-0 text-white/85" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s6-4.35 6-10a6 6 0 10-12 0c0 5.65 6 10 6 10z" />
                             <circle cx="12" cy="11" r="2.25" />
@@ -302,6 +326,7 @@ const ListingDetail: React.FC = () => {
                          </div>
                          <a
                             href={consultantPhoneHref}
+                            onClick={() => handlePhoneClick('detail_price_bar')}
                             className="group/btn inline-flex shrink-0 items-center gap-2 rounded-full border border-white/30 bg-white/12 px-5 py-2.5 text-xs font-extrabold uppercase tracking-[0.22em] text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8f5c03] hover:bg-[#8f5c03] hover:text-white hover:shadow-[0_16px_28px_rgba(125,79,5,0.22)]"
                           >
                            <svg
@@ -325,7 +350,7 @@ const ListingDetail: React.FC = () => {
              <div className="mb-8 overflow-hidden rounded-[8px] border border-[#d9dde3] bg-white shadow-[0_14px_28px_rgba(15,23,42,0.08)]">
                 <div
                   className="relative aspect-[16/10] overflow-hidden border-b border-[#dfe4ea] bg-[#eef2f6] cursor-zoom-in group"
-                  onClick={() => setIsLightboxOpen(true)}
+                  onClick={() => handleGalleryOpen('detail_main_image')}
                 >
                    <img
                      src={galleryImages[activeImageIndex]}
@@ -343,7 +368,7 @@ const ListingDetail: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[#e5e7eb] bg-[linear-gradient(180deg,#f9fafb_0%,#f2f4f7_100%)] px-4 py-3 text-[13px] font-semibold text-[#6a7584]">
                    <button
                      type="button"
-                     onClick={() => setIsLightboxOpen(true)}
+                     onClick={() => handleGalleryOpen('detail_large_photo_button')}
                      className="inline-flex items-center gap-2 text-[#23408f] transition-colors hover:text-[#1d3271]"
                    >
                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -435,6 +460,7 @@ const ListingDetail: React.FC = () => {
                    <div className="grid w-full gap-3 md:max-w-[330px] md:justify-items-end xl:max-w-none xl:grid-cols-2">
                       <a
                         href={consultantPhoneHref}
+                        onClick={() => handlePhoneClick('detail_consultant_card')}
                         className="group flex w-full min-w-0 items-center gap-3 rounded-full border border-[#e7d7ab] bg-white px-4 py-3 text-left shadow-[0_10px_22px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-500/60 hover:shadow-[0_16px_28px_rgba(217,162,26,0.14)] xl:min-w-[250px]"
                       >
                         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold-50 text-gold-600 transition-colors duration-300 group-hover:bg-gold-500 group-hover:text-white">
@@ -522,7 +548,7 @@ const ListingDetail: React.FC = () => {
              <div className="sticky top-24 space-y-6">
                 <div className="rounded-[18px] border border-[#eceef2] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-4 shadow-[0_16px_34px_rgba(15,23,42,0.06)]">
                    {sidebarListings.slice(0, 3).map((item) => (
-                      <SidebarItem key={item.id} item={item} />
+                      <SidebarItem key={item.id} item={item} largeImage />
                    ))}
                 </div>
              </div>

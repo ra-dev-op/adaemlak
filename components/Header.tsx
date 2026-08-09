@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                 <img 
                   src="https://www.adaemlak.com.tr/UserFiles/images/Logolar/adaemlakcomtr.png" 
                   alt="Ada Emlak" 
-                  className="h-12 md:max-h-20 lg:max-h-[100px] object-contain transition-transform duration-300 group-hover:scale-[1.02] origin-bottom-left drop-shadow-sm"
+                  className="h-16 w-auto md:h-20 lg:h-[100px] object-contain transition-transform duration-300 group-hover:scale-[1.02] origin-bottom-left drop-shadow-sm"
                   decoding="async"
                   fetchPriority="high"
                 />
@@ -101,13 +101,12 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex w-full md:w-auto flex-col items-end md:ml-4 flex-grow justify-end">
               <div className="mb-0 w-full flex justify-end">
                   <img 
-                    src="https://www.adaemlak.com.tr/userfiles/images/AdaEmlakTopBan.gif" 
-                    alt="" 
-                    className="h-auto md:h-[75px] w-auto max-w-full object-contain opacity-100 hover:opacity-100 transition-opacity"
+                    src="/header-banner.gif" 
+                    alt="Ada Emlak 44 44 232" 
+                    className="h-auto w-full max-w-[850px] object-contain opacity-100 hover:opacity-100 transition-opacity"
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
-                    aria-hidden="true"
                   />
               </div>
           </div>

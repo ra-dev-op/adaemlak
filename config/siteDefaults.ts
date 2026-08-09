@@ -20,6 +20,7 @@ export const DEFAULT_SEO_SETTINGS: SeoSettings = {
   robotsTxt: `User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /yk-panel-giris
 Disallow: /arama
 
 Sitemap: ${SITE_BASE_URL}/sitemap.xml`,

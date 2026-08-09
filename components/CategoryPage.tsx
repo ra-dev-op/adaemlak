@@ -113,6 +113,22 @@ const CategoryPage: React.FC = () => {
     };
   }, [params, location.pathname, searchQuery, listings, seoSettings]);
 
+  const sidebarRecentListings = recentListings.slice(0, 12);
+  const categoryPairedRows = Array.from({
+    length: Math.max(pageData.filteredListings.length || 1, sidebarRecentListings.length),
+  });
+
+  const emptyState = (
+    <div className="rounded-[14px] border border-gray-100 bg-white p-10 text-center text-gray-500 shadow-card">
+      <svg className="mx-auto mb-3 h-12 w-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+      {location.pathname === '/arama'
+        ? 'Aramanıza uygun ilan bulunamadı.'
+        : 'Bu kategoride henüz ilan bulunmamaktadır.'}
+    </div>
+  );
+
   return (
     <>
       <SeoHead
@@ -137,61 +153,88 @@ const CategoryPage: React.FC = () => {
           <span className="font-bold text-gold-500">{pageData.pageTitle}</span>
         </div>
 
-        <div className="flex flex-col gap-8 lg:flex-row">
-          <div className="w-full lg:w-[66%]">
-            <div className="mb-6 flex items-end justify-between border-b border-gray-200 pb-2">
-              <h1 className="text-2xl font-serif font-bold leading-tight text-[#2c2c2c]">
-                {pageData.pageTitle}
-              </h1>
-              <span className="text-sm font-bold text-gray-400">{pageData.filteredListings.length} İlan</span>
-            </div>
+        <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,66fr)_minmax(0,34fr)] lg:grid-rows-[68px_auto] lg:gap-x-8 lg:gap-y-6">
+          <div className="mb-6 flex items-end justify-between border-b border-gray-200 pb-2 lg:col-start-1 lg:row-start-1 lg:mb-0 lg:h-[68px]">
+            <h1 className="text-2xl font-serif font-bold leading-tight text-[#2c2c2c]">
+              {pageData.pageTitle}
+            </h1>
+            <span className="text-sm font-bold text-gray-400">{pageData.filteredListings.length} İlan</span>
+          </div>
 
+          <div className="mb-0 flex h-[68px] items-center justify-between bg-[linear-gradient(135deg,#e5a61b_0%,#f0b52f_55%,#de9f14_100%)] px-6 py-5 font-sans text-xl font-bold uppercase tracking-[0.06em] text-white shadow-[0_14px_28px_rgba(232,175,54,0.22)] lg:col-start-2 lg:row-start-1">
+            <span>SON EKLENENLER</span>
+            <span className="text-sm font-medium normal-case tracking-normal text-white/75">Güncel</span>
+          </div>
+
+          <div className="w-full lg:hidden">
             {pageData.filteredListings.length > 0 ? (
-              pageData.filteredListings.map((listing) => <ListingCard key={listing.id} listing={listing} />)
-            ) : (
-              <div className="rounded-sm border border-gray-100 bg-white p-10 text-center text-gray-500 shadow-card">
-                <svg className="mx-auto mb-3 h-12 w-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-                {location.pathname === '/arama'
-                  ? 'Aramanıza uygun ilan bulunamadı.'
-                  : 'Bu kategoride henüz ilan bulunmamaktadır.'}
+              <div className="space-y-6">
+                {pageData.filteredListings.map((listing) => (
+                  <ListingCard key={listing.id} listing={listing} />
+                ))}
               </div>
+            ) : (
+              emptyState
             )}
           </div>
 
-          <div className="w-full lg:w-[34%]">
-            <div className="mb-6 flex items-center justify-between rounded-[16px] bg-[linear-gradient(135deg,#e5a61b_0%,#f0b52f_55%,#de9f14_100%)] px-6 py-5 font-sans text-xl font-bold uppercase tracking-[0.06em] text-white shadow-[0_14px_28px_rgba(232,175,54,0.22)]">
-              <span>SON EKLENENLER</span>
-              <span className="text-sm font-medium normal-case tracking-normal text-white/75">Güncel</span>
-            </div>
-
-            <div className="rounded-[20px] border border-[#eceff3] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)]">
-              {recentListings.map((item) => (
+          <div className="mt-8 w-full lg:hidden">
+            <div className="border border-t-0 border-[#eceff3] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)]">
+              {sidebarRecentListings.map((item) => (
                 <SidebarItem key={item.id} item={item} />
               ))}
             </div>
-
-            <div className="mt-6">
-              {adSettings.isActive && adSettings.imageUrl ? (
-                <div className="overflow-hidden rounded-sm border border-gray-100 bg-white shadow-sm">
-                  {adSettings.linkUrl ? (
-                    <a href={adSettings.linkUrl} target="_blank" rel="noopener noreferrer" className="group relative block">
-                      <img src={adSettings.imageUrl} alt="Reklam" className="h-auto w-full object-cover" loading="lazy" decoding="async" />
-                      <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5"></div>
-                    </a>
-                  ) : (
-                    <img src={adSettings.imageUrl} alt="Reklam" className="h-auto w-full object-cover" loading="lazy" decoding="async" />
-                  )}
-                  <div className="bg-gray-50 px-2 py-1 text-right font-sans text-[9px] text-gray-300">REKLAM</div>
-                </div>
-              ) : (
-                <div className="flex h-32 items-center justify-center border border-gray-100 bg-white p-4 font-serif italic text-gray-300 shadow-sm">
-                  Reklam Alanı
-                </div>
-              )}
-            </div>
           </div>
+
+          <div className="hidden lg:col-span-2 lg:row-start-2 lg:grid lg:gap-y-8">
+            {categoryPairedRows.map((_, index) => {
+              const listing = pageData.filteredListings[index];
+              const recentListing = sidebarRecentListings[index];
+
+              return (
+                <div key={`${listing?.id ?? 'empty'}-${recentListing?.id ?? 'empty'}-${index}`} className="grid grid-cols-[minmax(0,66fr)_minmax(0,34fr)] items-stretch gap-x-8">
+                  <div>
+                    {listing ? (
+                      <ListingCard listing={listing} flushSpacing />
+                    ) : index === 0 && pageData.filteredListings.length === 0 ? (
+                      <div className="h-full">{emptyState}</div>
+                    ) : (
+                      <div className="h-full" />
+                    )}
+                  </div>
+
+                  <div>
+                    {recentListing ? (
+                      <SidebarItem item={recentListing} flushSpacing />
+                    ) : (
+                      <div className="h-full" />
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+
+          </div>
+        </div>
+
+        <div className="mt-8">
+          {adSettings.isActive && adSettings.imageUrl ? (
+            <div className="overflow-hidden border border-gray-100 bg-white shadow-sm">
+              {adSettings.linkUrl ? (
+                <a href={adSettings.linkUrl} target="_blank" rel="noopener noreferrer" className="group relative block">
+                  <img src={adSettings.imageUrl} alt="Reklam" className="h-[120px] w-full object-cover md:h-[150px]" loading="lazy" decoding="async" />
+                  <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5"></div>
+                </a>
+              ) : (
+                <img src={adSettings.imageUrl} alt="Reklam" className="h-[120px] w-full object-cover md:h-[150px]" loading="lazy" decoding="async" />
+              )}
+              <div className="bg-gray-50 px-3 py-1 text-right font-sans text-[9px] text-gray-300">REKLAM</div>
+            </div>
+          ) : (
+            <div className="flex h-[120px] items-center justify-center border border-gray-100 bg-white p-4 font-serif italic text-gray-300 shadow-sm md:h-[150px]">
+              Reklam Alanı
+            </div>
+          )}
         </div>
       </div>
     </>

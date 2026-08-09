@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScriptInjector from './components/ScriptInjector';
+import EntryGate from './components/EntryGate';
 import { DataProvider } from './context/DataContext';
 import { ADMIN_LOGIN_PATH } from './config/adminAuth';
 
@@ -17,6 +18,7 @@ const References = lazy(() => import('./components/References'));
 const Contact = lazy(() => import('./components/Contact'));
 const News = lazy(() => import('./components/News'));
 const BlogDetail = lazy(() => import('./components/BlogDetail'));
+const NotFound = lazy(() => import('./components/NotFound'));
 const Login = lazy(() => import('./components/admin/Login'));
 const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
 const AdminDashboard = lazy(() => import('./components/admin/AdminDashboard'));
@@ -56,6 +58,7 @@ function ScrollToTop() {
 
 const PublicLayout = () => (
   <>
+    <EntryGate />
     <Header />
     <Navbar />
     <div className="min-h-[60vh] pb-24 lg:pb-0">
@@ -68,7 +71,7 @@ const PublicLayout = () => (
 );
 
 function App() {
-  const routerBaseName = import.meta.env.PROD ? '/adaemlak' : '/';
+  const routerBaseName = import.meta.env.PROD ? (import.meta.env.VITE_BASE_PATH || '/adaemlak') : '/';
 
   return (
     <DataProvider>
@@ -87,6 +90,7 @@ function App() {
                 <Route path="/blog/:slug" element={<BlogDetail />} />
                 <Route path="/haberler" element={<Navigate to="/blog" replace />} />
                 <Route path="/iletisim" element={<Contact />} />
+                <Route path="/ilan/:id" element={<ListingDetail />} />
                 <Route path="/listing/:id" element={<ListingDetail />} />
                 <Route path="/arama" element={<CategoryPage />} />
                 
@@ -101,10 +105,12 @@ function App() {
                 <Route path="/acik-riza-metni" element={<ExplicitConsent />} />
                 <Route path="/veri-sahibi-basvuru-formu" element={<DataSubjectForm />} />
                 <Route path="/kullanim-kosullari" element={<TermsOfUse />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
 
               {/* Admin Routes */}
               <Route path={ADMIN_LOGIN_PATH} element={<Login />} />
+              <Route path="/admin-panel-gizli-giris" element={<Login />} />
               <Route path="/admin/login" element={<Navigate to={ADMIN_LOGIN_PATH} replace />} />
               <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<AdminDashboard />} />

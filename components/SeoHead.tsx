@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 
@@ -41,6 +41,15 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     : seoSettings.logoUrl;
   const currentUrl = canonicalUrl || `${baseUrl}${location.pathname}`;
   const robotsValue = noIndex ? 'noindex, nofollow' : 'index, follow';
+  const socialLinks = useMemo(
+    () =>
+      [
+        seoSettings.socialFacebook,
+        seoSettings.socialInstagram,
+        seoSettings.socialTwitter,
+      ].filter(Boolean),
+    [seoSettings.socialFacebook, seoSettings.socialInstagram, seoSettings.socialTwitter],
+  );
 
   useEffect(() => {
     document.title = fullTitle;
@@ -81,6 +90,8 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     updateMeta('og:description', finalDesc, 'property');
     updateMeta('og:image', finalImage, 'property');
     updateMeta('og:image:alt', normalizedTitle, 'property');
+    updateMeta('og:image:width', '1200', 'property');
+    updateMeta('og:image:height', '630', 'property');
     updateMeta('og:url', currentUrl, 'property');
     updateMeta('og:type', type, 'property');
     updateMeta('og:site_name', seoSettings.siteTitle, 'property');
@@ -89,7 +100,10 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     updateMeta('twitter:title', fullTitle, 'name');
     updateMeta('twitter:description', finalDesc, 'name');
     updateMeta('twitter:image', finalImage, 'name');
+    updateMeta('twitter:image:alt', normalizedTitle, 'name');
     updateMeta('twitter:url', currentUrl, 'name');
+    updateMeta('author', seoSettings.siteTitle);
+    updateMeta('publisher', seoSettings.siteTitle);
 
     updateLink('canonical', currentUrl);
     updateLink('icon', seoSettings.faviconUrl, { type: 'image/svg+xml' });
@@ -106,17 +120,42 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     const baseSchema: any = {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
+      "@id": `${baseUrl}/#organization`,
       "name": seoSettings.siteTitle,
+      "legalName": generalSettings.companyName,
       "image": seoSettings.logoUrl,
-      "@id": seoSettings.baseUrl,
-      "url": seoSettings.baseUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": seoSettings.logoUrl
+      },
+      "url": baseUrl,
       "telephone": seoSettings.contactPhone,
+      "email": generalSettings.contactEmail,
+      "priceRange": "$$$",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "İstanbul"
+        },
+        {
+          "@type": "Country",
+          "name": "Türkiye"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": seoSettings.contactPhone,
+        "contactType": "customer service",
+        "areaServed": "TR",
+        "availableLanguage": ["tr-TR"]
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": seoSettings.contactAddress,
         "addressLocality": "İstanbul",
         "addressCountry": "TR"
-      }
+      },
+      ...(socialLinks.length ? { "sameAs": socialLinks } : {})
     };
 
     // Enhance schema with corporate data if available
@@ -133,14 +172,20 @@ const SeoHead: React.FC<SeoHeadProps> = ({
         };
     }
 
-    const schemaPayload = schema
+    const schemaItems = schema
       ? Array.isArray(schema)
         ? [baseSchema, ...schema]
         : [baseSchema, schema]
-      : baseSchema;
+      : [baseSchema];
 
-    scriptSchema.textContent = JSON.stringify(schemaPayload);
-  }, [fullTitle, normalizedTitle, finalDesc, finalKeywords, finalImage, currentUrl, type, schema, robotsValue, seoSettings, generalSettings]);
+    scriptSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": schemaItems.map((item) => {
+        const { '@context': _context, ...rest } = item as any;
+        return rest;
+      }),
+    });
+  }, [fullTitle, normalizedTitle, finalDesc, finalKeywords, finalImage, currentUrl, type, schema, robotsValue, seoSettings, generalSettings, baseUrl, socialLinks]);
 
   return null;
 };

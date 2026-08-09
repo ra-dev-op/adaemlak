@@ -7,7 +7,8 @@ import CompanyCard from './CompanyCard';
 import SeoHead from './SeoHead';
 
 const News: React.FC = () => {
-  const { news, sidebarListings } = useData();
+  const { news, sidebarListings, seoSettings } = useData();
+  const canonicalUrl = `${seoSettings.baseUrl.replace(/\/$/, '')}/blog`;
 
   return (
     <>
@@ -15,12 +16,13 @@ const News: React.FC = () => {
       title="Gayrimenkul Blog Yazıları"
       description="Gayrimenkul yatırımı, ticari arsa, satılık bina ve lokasyon analizi gibi konularda Ada Emlak blog yazılarını inceleyin."
       keywords="gayrimenkul blog, emlak yatırım yazıları, ticari arsa rehberi, satılık bina analizi, ada emlak blog"
-      canonicalUrl="https://www.adaemlak.com.tr/blog"
+      canonicalUrl={canonicalUrl}
       type="website"
       schema={{
         '@context': 'https://schema.org',
         '@type': 'Blog',
         name: 'Ada Emlak Blog',
+        url: canonicalUrl,
         description: 'Gayrimenkul yatırımı ve emlak piyasasına dair rehber yazılar',
       }}
     />
@@ -111,7 +113,7 @@ const News: React.FC = () => {
                 
                 <div className="rounded-[20px] border border-[#eceff3] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)]">
                    {sidebarListings.slice(0, 3).map((item) => (
-                      <SidebarItem key={item.id} item={item} />
+                      <SidebarItem key={item.id} item={item} largeImage />
                    ))}
                 </div>
 

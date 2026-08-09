@@ -75,8 +75,58 @@ export interface ListingAnalytics {
   weeklyViews: number;
   monthlyViews: number;
   totalViews: number;
+  dailyCardClicks: number;
+  weeklyCardClicks: number;
+  monthlyCardClicks: number;
+  totalCardClicks: number;
+  dailyPhoneClicks: number;
+  weeklyPhoneClicks: number;
+  monthlyPhoneClicks: number;
+  totalPhoneClicks: number;
+  dailyGalleryOpens: number;
+  weeklyGalleryOpens: number;
+  monthlyGalleryOpens: number;
+  totalGalleryOpens: number;
+  dailyUniqueVisitors: number;
+  weeklyUniqueVisitors: number;
+  monthlyUniqueVisitors: number;
+  totalUniqueVisitors: number;
+  interestScore: number;
+  phoneConversionRate: number;
   trend: 'up' | 'down' | 'stable';
   trendPercentage: number;
+}
+
+export interface ListingAnalyticsVisitor {
+  visitorKey: string;
+  name?: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+  formDate?: string;
+  firstSeen: string;
+  lastSeen: string;
+  views: number;
+  cardClicks: number;
+  phoneClicks: number;
+  galleryOpens: number;
+  totalEvents: number;
+}
+
+export interface ListingAnalyticsEventLog {
+  eventType: 'view' | 'card_click' | 'phone_click' | 'gallery_open';
+  source?: string;
+  createdAt: string;
+  visitorName?: string;
+  visitorCompany?: string;
+}
+
+export interface ListingAnalyticsDetail {
+  listing: Listing;
+  summary: ListingAnalytics;
+  visitors: ListingAnalyticsVisitor[];
+  recentEvents: ListingAnalyticsEventLog[];
+  legacyViews: number;
 }
 
 export interface SidebarListing {

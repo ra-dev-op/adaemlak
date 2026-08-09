@@ -73,6 +73,22 @@ input[type="file"]::file-selector-button {
     cursor: pointer;
 }
 
+/* Kart yüzeyleri artık daha keskin, düz köşeli bir dil kullanıyor.
+   rounded-full kullanılan ikon ve CTA pill'leri bilerek kapsam dışında kalır. */
+:is(
+    [class*="shadow-card"],
+    [class*="shadow-premium"],
+    [class*="shadow-[0_"],
+    [class*="overflow-hidden"][class*="rounded-"],
+    [class*="bg-white"][class*="rounded-lg"],
+    [class*="bg-white"][class*="rounded-xl"],
+    [class*="bg-white"][class*="rounded-2xl"],
+    [class*="bg-white"][class*="rounded-3xl"],
+    [class*="bg-white"][class*="rounded-["]
+):not([class*="rounded-full"]) {
+    border-radius: 0 !important;
+}
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translate3d(0, 8px, 0); }
     to { opacity: 1; transform: translate3d(0, 0, 0); }

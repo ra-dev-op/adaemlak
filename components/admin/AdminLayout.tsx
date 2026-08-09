@@ -3,17 +3,22 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import SeoHead from '../SeoHead';
 import { ADMIN_LOGIN_PATH, clearAdminToken, isAdminAuthenticated } from '../../config/adminAuth';
+import { useData } from '../../context/DataContext';
 
 const AdminLayout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { refreshAdminState } = useData();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     if (!isAdminAuthenticated()) {
       navigate(ADMIN_LOGIN_PATH);
+      return;
     }
-  }, [navigate]);
+
+    void refreshAdminState();
+  }, [location.pathname, navigate, refreshAdminState]);
 
   useEffect(() => {
     setSidebarOpen(false);

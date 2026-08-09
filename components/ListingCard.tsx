@@ -4,16 +4,20 @@ import { Link } from 'react-router-dom';
 import { Listing } from '../types';
 import { stripHtmlTags } from '../lib/richText';
 import { getPriceParts } from '../lib/price';
+import { getListingUrl } from '../lib/seo';
+import { trackListingEvent } from '../lib/api';
 
 interface ListingCardProps {
   listing: Listing;
+  flushSpacing?: boolean;
 }
 
-const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
+const ListingCard: React.FC<ListingCardProps> = ({ listing, flushSpacing = false }) => {
   const consultantPhoneHref = 'tel:+905322435522';
   const thumbUrl = listing.imageUrls && listing.imageUrls.length > 0 ? listing.imageUrls[0] : 'https://via.placeholder.com/400x250';
   const plainDescription = stripHtmlTags(listing.description);
   const { amount: displayPriceAmount, currency: displayPriceCurrency } = getPriceParts(listing.price);
+  const listingUrl = getListingUrl(listing);
   const normalizedTitle = listing.title.toLocaleLowerCase('tr-TR');
   const normalizedType = listing.type.toLocaleLowerCase('tr-TR');
   const normalizedCategory = listing.category.toLocaleLowerCase('tr-TR');
@@ -39,6 +43,18 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
     return listing.category;
   })();
 
+  const handleCardClick = (source: string) => {
+    void trackListingEvent(listing.id, 'card_click', source).catch((error) => {
+      console.error('Listing card click could not be tracked:', error);
+    });
+  };
+
+  const handlePhoneClick = () => {
+    void trackListingEvent(listing.id, 'phone_click', 'listing_card').catch((error) => {
+      console.error('Listing phone click could not be tracked:', error);
+    });
+  };
+
   const renderPrice = (amountClassName: string, currencyClassName: string) => {
     if (!displayPriceAmount) {
       return <span className={amountClassName}>{listing.price}</span>;
@@ -53,9 +69,9 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
   };
 
   return (
-    <div className="bg-white mb-6 lg:mb-8 shadow-card hover:shadow-premium transition-all duration-500 border-t-4 border-transparent hover:border-gold-500/30 relative group rounded-[12px] overflow-hidden w-full">
-      <div className="p-4 lg:p-6 lg:pb-2">
-        <Link to={`/listing/${listing.id}`} className="mb-4 block">
+    <div className={`bg-white shadow-card hover:shadow-premium transition-all duration-500 border-t-4 border-transparent hover:border-gold-500/30 relative group rounded-[12px] overflow-hidden w-full ${flushSpacing ? 'mb-0 flex h-full flex-col' : 'mb-6 lg:mb-8'}`}>
+      <div className="flex-1 p-4 lg:p-6 lg:pb-2">
+        <Link to={listingUrl} className="mb-4 block" onClick={() => handleCardClick('listing_card_title')}>
           <h3 className="overflow-hidden text-ellipsis whitespace-nowrap text-[18px] font-serif font-bold leading-tight tracking-tight text-[#253041] transition-colors duration-300 group-hover:text-gold-600 lg:text-[22px]">
             {listing.title}
           </h3>
@@ -65,7 +81,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
           
           {/* Left: Image (Full width on mobile, Fixed width on Desktop) */}
           <div className="w-full min-w-0">
-            <Link to={`/listing/${listing.id}`} className="block">
+            <Link to={listingUrl} className="block" onClick={() => handleCardClick('listing_card_image')}>
               <div className="border-[4px] lg:border-[6px] border-[#f8f8f8] shadow-inner relative overflow-hidden rounded-[10px] group-hover:border-white transition-colors duration-500 cursor-pointer aspect-video md:aspect-auto md:h-[200px]">
                  <img src={thumbUrl} alt={listing.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 saturate-[0.95] group-hover:saturate-100 contrast-[1.05]" loading="lazy" decoding="async" />
               </div>
@@ -111,7 +127,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
                </div>
 
                <div className="flex flex-col items-end gap-3">
-                 <Link to={`/listing/${listing.id}`} className="block">
+                 <Link to={listingUrl} className="block" onClick={() => handleCardClick('listing_card_price_mobile')}>
                     <div className="whitespace-nowrap text-right font-price text-[28px] font-bold leading-none tracking-tight text-[#27303d] drop-shadow-sm">
                      {renderPrice('text-[28px] font-bold leading-none tracking-tight text-[#27303d]', 'ml-1 text-base font-medium text-gray-400')}
                    </div>
@@ -119,6 +135,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
 
                  <a
                    href={consultantPhoneHref}
+                   onClick={handlePhoneClick}
                    className="group/btn flex items-center gap-2 rounded-full border border-gold-200 bg-[linear-gradient(135deg,#fff7e2_0%,#fffdf8_55%,#fff1c7_100%)] px-4 py-2 shadow-[0_10px_20px_rgba(232,175,54,0.10)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-500 hover:shadow-[0_16px_28px_rgba(232,175,54,0.18)]"
                  >
                    <svg
@@ -148,7 +165,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
                </div>
 
                <div className="flex flex-col items-start gap-3 md:items-end">
-                  <Link to={`/listing/${listing.id}`} className="block group-hover:translate-x-1 transition-transform duration-300">
+                  <Link to={listingUrl} className="block group-hover:translate-x-1 transition-transform duration-300" onClick={() => handleCardClick('listing_card_price')}>
                     <div className="font-price cursor-pointer whitespace-nowrap text-2xl font-bold leading-none tracking-tight text-[#27303d] drop-shadow-sm md:text-3xl">
                        {renderPrice('text-2xl font-bold leading-none tracking-tight text-[#27303d] md:text-3xl', 'ml-1 text-sm font-medium text-gray-400 md:text-lg')}
                     </div>
@@ -156,6 +173,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
 
                   <a 
                     href={consultantPhoneHref} 
+                    onClick={handlePhoneClick}
                     className="group/btn flex items-center gap-2 rounded-full border border-gold-200 bg-[linear-gradient(135deg,#fff7e2_0%,#fffdf8_55%,#fff1c7_100%)] px-4 py-2 lg:px-5 lg:py-2.5 shadow-[0_10px_20px_rgba(232,175,54,0.10)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-500 hover:shadow-[0_16px_28px_rgba(232,175,54,0.18)]"
                   >
                     <svg 

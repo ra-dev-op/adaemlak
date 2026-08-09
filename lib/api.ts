@@ -1,7 +1,8 @@
 import { getAdminToken } from '../config/adminAuth';
-import { AdminState, ListingAnalytics, Message, PublicBootstrap } from '../types';
+import { AdminState, ListingAnalytics, ListingAnalyticsDetail, Message, PublicBootstrap } from '../types';
 
 const API_BASE = import.meta.env.PROD ? '/adaemlak/api' : '/api';
+export type ListingAnalyticsEventType = 'view' | 'card_click' | 'phone_click' | 'gallery_open';
 
 const parseResponse = async <T,>(response: Response): Promise<T> => {
   if (!response.ok) {
@@ -76,10 +77,29 @@ export const fetchListingAnalytics = async () => {
   return parseResponse<{ analytics: ListingAnalytics[] }>(response);
 };
 
+export const fetchListingAnalyticsDetail = async (listingId: string) => {
+  const response = await fetch(`${API_BASE}/admin/listing-analytics/${listingId}`, {
+    headers: buildHeaders({ auth: true }),
+  });
+
+  return parseResponse<ListingAnalyticsDetail>(response);
+};
+
 export const trackListingView = async (listingId: string) => {
-  const response = await fetch(`${API_BASE}/listings/${listingId}/view`, {
+  const response = await fetch(`${API_BASE}/listings/${listingId}/events`, {
     method: 'POST',
     headers: buildHeaders(),
+    body: JSON.stringify({ eventType: 'view', source: 'detail' }),
+  });
+
+  return parseResponse<{ success: boolean }>(response);
+};
+
+export const trackListingEvent = async (listingId: string, eventType: ListingAnalyticsEventType, source = '') => {
+  const response = await fetch(`${API_BASE}/listings/${listingId}/events`, {
+    method: 'POST',
+    headers: buildHeaders(),
+    body: JSON.stringify({ eventType, source }),
   });
 
   return parseResponse<{ success: boolean }>(response);
@@ -93,4 +113,26 @@ export const submitContactMessage = async (message: Message) => {
   });
 
   return parseResponse<{ success: boolean; message: Message }>(response);
+};
+
+export interface EntryLeadPayload {
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+}
+
+export const fetchEntryLeadStatus = async () => {
+  const response = await fetch(`${API_BASE}/entry-lead/status`);
+  return parseResponse<{ required: boolean }>(response);
+};
+
+export const submitEntryLead = async (payload: EntryLeadPayload) => {
+  const response = await fetch(`${API_BASE}/entry-lead`, {
+    method: 'POST',
+    headers: buildHeaders(),
+    body: JSON.stringify(payload),
+  });
+
+  return parseResponse<{ success: boolean; alreadySubmitted?: boolean; message?: Message }>(response);
 };

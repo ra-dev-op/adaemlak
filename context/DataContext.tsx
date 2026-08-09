@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useMemo, useRef, useState, ReactNode } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, ReactNode } from 'react';
 import {
   AdSettings,
   AdminState,
@@ -42,6 +42,7 @@ interface DataContextType {
   updateSeoSettings: (settings: SeoSettings) => void;
   updateGeneralSettings: (settings: GeneralSettings) => void;
   updateAdSettings: (settings: AdSettings) => void;
+  refreshAdminState: () => Promise<void>;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -147,6 +148,29 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
   }, [listings, news, messages, googleSettings, seoSettings, generalSettings, adSettings]);
 
+  const applyAdminState = useCallback((adminState: AdminState) => {
+    setListings(applyListingMigrations(adminState.listings || []));
+    setNews(adminState.news || []);
+    setMessages(adminState.messages || []);
+    setGoogleSettings(adminState.googleSettings || initialGoogleSettings);
+    setSeoSettings(adminState.seoSettings || DEFAULT_SEO_SETTINGS);
+    setGeneralSettings(adminState.generalSettings || DEFAULT_GENERAL_SETTINGS);
+    setAdSettings(adminState.adSettings || initialAdSettings);
+  }, []);
+
+  const refreshAdminState = useCallback(async () => {
+    if (!isAdminAuthenticated()) {
+      return;
+    }
+
+    try {
+      const adminState = await fetchAdminBootstrap();
+      applyAdminState(adminState);
+    } catch (error) {
+      console.error('Admin bootstrap could not be loaded:', error);
+    }
+  }, [applyAdminState]);
+
   useEffect(() => {
     let isMounted = true;
 
@@ -167,34 +191,13 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       }
     };
 
-    const hydrateAdminState = async () => {
-      if (!isAdminAuthenticated()) {
-        return;
-      }
-
-      try {
-        const adminState = await fetchAdminBootstrap();
-        if (!isMounted) return;
-
-        setListings(applyListingMigrations(adminState.listings || []));
-        setNews(adminState.news || []);
-        setMessages(adminState.messages || []);
-        setGoogleSettings(adminState.googleSettings || initialGoogleSettings);
-        setSeoSettings(adminState.seoSettings || DEFAULT_SEO_SETTINGS);
-        setGeneralSettings(adminState.generalSettings || DEFAULT_GENERAL_SETTINGS);
-        setAdSettings(adminState.adSettings || initialAdSettings);
-      } catch (error) {
-        console.error('Admin bootstrap could not be loaded:', error);
-      }
-    };
-
     void hydratePublicState();
-    void hydrateAdminState();
+    void refreshAdminState();
 
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [refreshAdminState]);
 
   const syncAdminState = (partial: Partial<AdminState>) => {
     if (!isAdminAuthenticated()) {
@@ -224,6 +227,24 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         weeklyViews: daily * (Math.floor(Math.random() * 5) + 3) + Math.floor(Math.random() * 20),
         monthlyViews: daily * 25 + Math.floor(Math.random() * 200),
         totalViews: daily * 150 + Math.floor(Math.random() * 1000),
+        dailyCardClicks: 0,
+        weeklyCardClicks: 0,
+        monthlyCardClicks: 0,
+        totalCardClicks: 0,
+        dailyPhoneClicks: 0,
+        weeklyPhoneClicks: 0,
+        monthlyPhoneClicks: 0,
+        totalPhoneClicks: 0,
+        dailyGalleryOpens: 0,
+        weeklyGalleryOpens: 0,
+        monthlyGalleryOpens: 0,
+        totalGalleryOpens: 0,
+        dailyUniqueVisitors: 0,
+        weeklyUniqueVisitors: 0,
+        monthlyUniqueVisitors: 0,
+        totalUniqueVisitors: 0,
+        interestScore: 0,
+        phoneConversionRate: 0,
         trend: trendDir as 'up' | 'down',
         trendPercentage: Math.floor(Math.random() * 30) + 1,
       };
@@ -243,7 +264,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return listings
       .filter((listing) => listing.status === 'active')
       .sort((a, b) => new Date(b.createdDate || b.updateDate).getTime() - new Date(a.createdDate || a.updateDate).getTime())
-      .slice(0, 6)
+      .slice(0, 12)
       .map((listing) => ({
         id: listing.id,
         title: listing.title,
@@ -438,6 +459,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         updateSeoSettings,
         updateGeneralSettings,
         updateAdSettings,
+        refreshAdminState,
       }}
     >
       {children}

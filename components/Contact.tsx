@@ -6,8 +6,9 @@ import CompanyCard from './CompanyCard';
 import SeoHead from './SeoHead';
 
 const Contact: React.FC = () => {
-  const { addMessage, generalSettings } = useData();
+  const { addMessage, generalSettings, seoSettings } = useData();
   const directMobileHref = 'tel:+905322435522';
+  const siteUrl = seoSettings.baseUrl.replace(/\/$/, '');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -159,8 +160,8 @@ const Contact: React.FC = () => {
                             </div>
                             <div>
                                 <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#a18d65] mb-1">Web Site</span>
-                                <a href="https://www.adaemlak.com.tr" target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 transition-colors">
-                                    https://www.adaemlak.com.tr/
+                                <a href={siteUrl} target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 transition-colors">
+                                    {siteUrl}/
                                 </a>
                             </div>
                           </div>
