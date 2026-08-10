@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   const { featuredListings, recentListings, adSettings, seoSettings } = useData();
   const homepageFeaturedListings = featuredListings.slice(0, 10);
   const homepageRecentListings = recentListings.slice(0, 12);
-  const defaultHomeAdImage = '/ads/ikog-banner.png';
+  const defaultHomeAdImage = `${import.meta.env.BASE_URL}ads/ikog-banner.png`;
   const homeAdImage = adSettings.isActive && adSettings.imageUrl ? adSettings.imageUrl : defaultHomeAdImage;
   const homeAdLink = adSettings.isActive && adSettings.linkUrl ? adSettings.linkUrl : 'https://www.ikog.com/';
 

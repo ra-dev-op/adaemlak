@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const directMobileHref = 'tel:+905322435522';
+  const headerBannerSrc = `${import.meta.env.BASE_URL}header-banner.gif`;
 
   return (
     <div className="bg-white relative shadow-sm z-50 font-sans w-full overflow-hidden">
@@ -101,7 +102,7 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex w-full md:w-auto flex-col items-end md:ml-4 flex-grow justify-end">
               <div className="mb-0 w-full flex justify-end">
                   <img 
-                    src="/header-banner.gif" 
+                    src={headerBannerSrc} 
                     alt="Ada Emlak 44 44 232" 
                     className="h-auto w-full max-w-[850px] object-contain opacity-100 hover:opacity-100 transition-opacity"
                     loading="lazy"
