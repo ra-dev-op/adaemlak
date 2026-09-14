@@ -12,7 +12,8 @@ interface SidebarItemProps {
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ item, flushSpacing = false, largeImage = false }) => {
   const hasLargeImage = flushSpacing || largeImage;
-  const cardImageUrl = `${import.meta.env.BASE_URL}listing-thumbs/${item.id}.jpg`;
+  const cardImageUrl = `${import.meta.env.BASE_URL}listing-thumbs/${item.id}.webp`;
+  const fallbackImageUrl = `${import.meta.env.BASE_URL}listing-thumbs/${item.id}.jpg`;
   const listingUrl = getListingUrl(item);
   const handleClick = (source: string) => {
     void trackListingEvent(item.id, 'card_click', source).catch((error) => {
@@ -38,6 +39,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, flushSpacing = false, l
           height="800"
           loading="lazy"
           decoding="async"
+          onError={(event) => {
+            if (event.currentTarget.dataset.fallbackApplied !== 'true') {
+              event.currentTarget.dataset.fallbackApplied = 'true';
+              event.currentTarget.src = fallbackImageUrl;
+            }
+          }}
         />
       </Link>
 

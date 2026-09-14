@@ -143,13 +143,14 @@ const ListingDetail: React.FC = () => {
   const richDescriptionHtml = getRichDescriptionHtml(listing.description);
   const { schemaCurrency } = getPriceParts(listing.price);
   const listingCanonicalUrl = `${seoSettings.baseUrl.replace(/\/$/, '')}${getListingUrl(listing)}`;
+  const listingSocialImage = `${import.meta.env.BASE_URL}listing-thumbs/${encodeURIComponent(listing.id)}.jpg`;
 
   // Helper for Schema
   const listingSchema = {
     "@context": "https://schema.org",
     "@type": "Product", // or Residence/SingleFamilyResidence based on category
     "name": listing.title,
-    "image": galleryImages,
+    "image": [`${seoSettings.baseUrl.replace(/\/$/, '')}${listingSocialImage}`],
     "description": plainDescription,
     "sku": listing.ilanNo,
     "offers": {
@@ -273,7 +274,7 @@ const ListingDetail: React.FC = () => {
          title={listing.title} 
          description={plainDescription.substring(0, 150)}
          keywords={`${listing.type}, ${listing.location}, ${listing.category}, ${listing.ilanNo}`}
-         image={galleryImages[0]}
+         image={listingSocialImage}
          type="product"
          canonicalUrl={listingCanonicalUrl}
          schema={listingSchema}
@@ -300,7 +301,7 @@ const ListingDetail: React.FC = () => {
              <div
                className="mb-8 overflow-hidden text-[#666]"
                style={{
-                 backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                 backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.webp)`,
                  backgroundRepeat: 'no-repeat',
                  backgroundPosition: 'center center',
                  backgroundSize: '100% 100%',
@@ -600,7 +601,7 @@ const ListingDetail: React.FC = () => {
              <div
                className="mb-10 overflow-hidden text-[#333]"
                style={{
-                 backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                 backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.webp)`,
                  backgroundRepeat: 'no-repeat',
                  backgroundPosition: 'center center',
                  backgroundSize: '100% 100%',

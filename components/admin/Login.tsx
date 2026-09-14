@@ -45,7 +45,7 @@ const Login: React.FC = () => {
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#eef0ed] px-4 py-10">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-80"
-        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}textures/site-background.png)` }}
+        style={{ backgroundImage: `url(${import.meta.env.BASE_URL}textures/site-background.webp)` }}
         aria-hidden="true"
       />
       <div className="absolute -left-28 top-16 h-72 w-72 rounded-full bg-[#eba900]/18 blur-3xl" aria-hidden="true" />

@@ -16,6 +16,15 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#e8af36" />
     <meta name="format-detection" content="telephone=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ADA EMLAK" />
@@ -43,8 +52,10 @@
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <link rel="shortcut icon" href="%BASE_URL%favicon.svg" />
     <link rel="manifest" href="%BASE_URL%site.webmanifest" />
-    <link rel="preload" href="%BASE_URL%textures/boxbg.jpg" as="image" fetchpriority="high" />
-    <link rel="preload" href="%BASE_URL%listing-thumbs/585.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="%BASE_URL%textures/site-background.webp" as="image" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
+    <link rel="preload" href="%BASE_URL%textures/mobile-background.webp" as="image" type="image/webp" media="(max-width: 1023px)" fetchpriority="high" />
+    <link rel="preload" href="%BASE_URL%textures/boxbg.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="%BASE_URL%listing-thumbs/585.webp" as="image" type="image/webp" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>

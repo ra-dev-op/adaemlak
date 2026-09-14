@@ -19,9 +19,13 @@ const PLACEHOLDER_IMAGE =
     </svg>
   `);
 
-const getLocalThumbUrl = (listingId?: string) => {
-  if (!listingId) return '';
-  return `${import.meta.env.BASE_URL}listing-thumbs/${encodeURIComponent(listingId)}.jpg`;
+const getLocalThumbUrls = (listingId?: string) => {
+  if (!listingId) return [];
+  const encodedListingId = encodeURIComponent(listingId);
+  return [
+    `${import.meta.env.BASE_URL}listing-thumbs/${encodedListingId}.webp`,
+    `${import.meta.env.BASE_URL}listing-thumbs/${encodedListingId}.jpg`,
+  ];
 };
 
 const unique = (values: Array<string | undefined | null>) =>
@@ -35,13 +39,13 @@ interface ListingImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElemen
 
 const ListingImage: React.FC<ListingImageProps> = ({ listing, source, preferLocal = false, alt, onError, ...props }) => {
   const candidates = useMemo(() => {
-    const localThumb = getLocalThumbUrl(listing.id);
+    const localThumbs = getLocalThumbUrls(listing.id);
     const remoteImages = listing.imageUrls || [];
 
     return unique(
       preferLocal
-        ? [localThumb, source, ...remoteImages, PLACEHOLDER_IMAGE]
-        : [source, localThumb, ...remoteImages, PLACEHOLDER_IMAGE],
+        ? [...localThumbs, source, ...remoteImages, PLACEHOLDER_IMAGE]
+        : [source, ...localThumbs, ...remoteImages, PLACEHOLDER_IMAGE],
     );
   }, [listing.id, listing.imageUrls, preferLocal, source]);
 

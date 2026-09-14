@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,7 +42,7 @@ html, body {
     overflow-x: hidden;
     position: relative;
     background-color: #f7f7f4;
-    background-image: url('/textures/site-background.png');
+    background-image: url('/textures/site-background.webp');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -62,7 +60,7 @@ html, body {
 }
 
 body {
-    background-image: url('/textures/site-background.png');
+    background-image: url('/textures/site-background.webp');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -87,7 +85,7 @@ b {
 @media (max-width: 1023px) {
     html,
     body {
-        background-image: url('/textures/mobile-background.png');
+        background-image: url('/textures/mobile-background.webp');
         background-repeat: no-repeat;
         background-attachment: scroll;
         background-position: center top;

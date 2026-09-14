@@ -9,6 +9,7 @@ BUNDLE="/root/adaemlak_backend_bundle.tar.gz"
 ENV_FILE="/etc/adaemlak-api.env"
 SERVICE_FILE="/etc/systemd/system/adaemlak-api.service"
 NGINX_DEFAULT="/etc/nginx/sites-enabled/default"
+NGINX_GZIP="/etc/nginx/conf.d/adaemlak-gzip.conf"
 
 mkdir -p "${APP_DIR}" "${STATIC_DIR}" "${DB_DIR}"
 
@@ -72,6 +73,24 @@ if needle in content:
     content = content.replace(needle, replacement)
 path.write_text(content)
 PY
+
+cat > "${NGINX_GZIP}" <<'EOF'
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_min_length 1024;
+gzip_types
+    text/plain
+    text/css
+    text/xml
+    application/xml
+    application/rss+xml
+    application/json
+    application/javascript
+    application/x-javascript
+    image/svg+xml
+    font/woff2;
+EOF
 
 chown -R root:root "${APP_DIR}"
 chmod -R a+rX "${APP_DIR}"

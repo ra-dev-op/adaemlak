@@ -183,7 +183,7 @@ const CategoryPage: React.FC = () => {
                 aria-hidden="true"
                 className="pointer-events-none absolute bottom-0 right-0 top-[43px] w-[calc(34%-10.88px)] border border-t-0 border-[#e5ded3]"
                 style={{
-                  backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                  backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.webp)`,
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center top',
                   backgroundSize: '100% 100%',
@@ -221,7 +221,7 @@ const CategoryPage: React.FC = () => {
                         <div
                           className="flex-1 border border-t-0 border-[#e5ded3] px-5 py-5 lg:!border-0 lg:!bg-none"
                           style={{
-                            backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                            backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.webp)`,
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center top',
                             backgroundSize: '100% 100%',

@@ -16,7 +16,7 @@ interface ListingCardProps {
 }
 
 const ListingCard: React.FC<ListingCardProps> = ({ listing, flushSpacing = false, priority = false, stretchHeight = false, compactHeight = false, bottomPad = false }) => {
-  const cardImageUrl = `${import.meta.env.BASE_URL}listing-thumbs/${listing.id}.jpg`;
+  const cardImageUrl = `${import.meta.env.BASE_URL}listing-thumbs/${listing.id}.webp`;
   const { amount: displayPriceAmount, currency: displayPriceCurrency } = getPriceParts(listing.price);
   const listingUrl = getListingUrl(listing);
   const normalizedTitle = listing.title.toLocaleLowerCase('tr-TR');
@@ -54,7 +54,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing, flushSpacing = false
     <div
       className={`group relative w-full overflow-hidden bg-[#ddd] text-[#575757] shadow-[0_10px_24px_rgba(30,30,30,0.06)] transition-colors duration-300 ${flushSpacing ? `mb-0 flex flex-col ${stretchHeight ? 'h-full' : ''}` : 'mb-6 lg:mb-8'}`}
       style={{
-        backgroundImage: `url(${import.meta.env.BASE_URL}textures/boxbg.jpg)`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}textures/boxbg.webp)`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '0 0',
         backgroundSize: '100% 100%',

@@ -68,7 +68,7 @@ const PublicLayout = () => (
 );
 
 function App() {
-  const routerBaseName = import.meta.env.PROD ? (import.meta.env.VITE_BASE_PATH || '/adaemlak') : '/';
+  const routerBaseName = import.meta.env.PROD ? (import.meta.env.VITE_BASE_PATH || '/') : '/';
 
   return (
     <DataProvider>

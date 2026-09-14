@@ -18,7 +18,7 @@ const DesktopRecentListings: React.FC<DesktopRecentListingsProps> = ({ items }) 
     <div
       className="border border-t-0 border-[#e5ded3] px-5 pb-0 pt-5"
       style={{
-        backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.webp)`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',
         backgroundSize: '100% 100%',

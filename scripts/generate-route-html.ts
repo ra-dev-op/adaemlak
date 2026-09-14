@@ -19,6 +19,7 @@ interface RouteMeta {
   description: string;
   image?: string;
   type?: 'website' | 'article' | 'product';
+  summaryItems?: string[];
 }
 
 const escapeHtml = (value: string) =>
@@ -38,8 +39,31 @@ const normalizeDescription = (value: string) =>
     .trim()
     .slice(0, 158);
 
-const renderHtml = ({ route, title, description, image, type = 'website' }: RouteMeta) => {
-  const fullTitle = title === DEFAULT_SEO_SETTINGS.siteTitle ? title : `${title} | ${DEFAULT_SEO_SETTINGS.siteTitle}`;
+const toAbsoluteListingImage = (listingId: string) => `${baseUrl}/listing-thumbs/${encodeURIComponent(listingId)}.jpg`;
+
+const renderStaticContent = ({ title, description, summaryItems = [] }: RouteMeta) => {
+  const safeHeading = escapeHtml(title);
+  const safeDescription = escapeHtml(normalizeDescription(description));
+  const listItems = summaryItems
+    .filter(Boolean)
+    .slice(0, 6)
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('');
+
+  return [
+    '<main class="seo-fallback-content" style="max-width:1120px;margin:0 auto;padding:32px 20px;font-family:Arial,sans-serif;color:#202938">',
+    `<h1 style="margin:0 0 12px;font-size:30px;line-height:1.2">${safeHeading}</h1>`,
+    `<p style="margin:0 0 16px;font-size:16px;line-height:1.6">${safeDescription}</p>`,
+    listItems ? `<ul style="margin:0;padding-left:20px;font-size:15px;line-height:1.7">${listItems}</ul>` : '',
+    '</main>',
+  ].join('');
+};
+
+const renderHtml = (meta: RouteMeta) => {
+  const { route, title, description, image, type = 'website' } = meta;
+  const fullTitle = title === DEFAULT_SEO_SETTINGS.siteTitle || title.includes(DEFAULT_SEO_SETTINGS.siteTitle)
+    ? title
+    : `${title} | ${DEFAULT_SEO_SETTINGS.siteTitle}`;
   const canonical = `${baseUrl}${route === '/' ? '/' : route}`;
   const finalImage = image || DEFAULT_SEO_SETTINGS.logoUrl;
   const safeTitle = escapeHtml(fullTitle);
@@ -60,7 +84,20 @@ const renderHtml = ({ route, title, description, image, type = 'website' }: Rout
     .replace(/<meta name="twitter:image" content="[^"]*"\s*\/>/, `<meta name="twitter:image" content="${safeImage}" />`)
     .replace(/<link rel="canonical" href="[^"]*"\s*\/>/, `<link rel="canonical" href="${safeCanonical}" />`)
     .replace(/<link rel="alternate" hreflang="tr-TR" href="[^"]*"\s*\/>/, `<link rel="alternate" hreflang="tr-TR" href="${safeCanonical}" />`)
-    .replace(/<link rel="alternate" hreflang="x-default" href="[^"]*"\s*\/>/, `<link rel="alternate" hreflang="x-default" href="${safeCanonical}" />`);
+    .replace(/<link rel="alternate" hreflang="x-default" href="[^"]*"\s*\/>/, `<link rel="alternate" hreflang="x-default" href="${safeCanonical}" />`)
+    .replace('<div id="root"></div>', `<div id="root">${renderStaticContent(meta)}</div>`);
+};
+
+const homeRoute: RouteMeta = {
+  route: '/',
+  title: 'ADA EMLAK | İstanbul Gayrimenkul Yatırım Danışmanlığı',
+  description: DEFAULT_SEO_SETTINGS.siteDescription,
+  image: DEFAULT_SEO_SETTINGS.logoUrl,
+  summaryItems: [
+    'Satılık arsa, bina, plaza, fabrika, depo-antrepo ve konut portföyleri',
+    'İstanbul ve çevresinde yatırım odaklı ticari gayrimenkul danışmanlığı',
+    'Güncel ilanlar, detaylı portföy bilgileri ve doğrudan iletişim',
+  ],
 };
 
 const staticRoutes: RouteMeta[] = [
@@ -101,8 +138,14 @@ const listingRoutes: RouteMeta[] = LIVE_MAIN_LISTINGS.filter((listing) => listin
   route: getListingUrl(listing),
   title: listing.title,
   description: listing.description,
-  image: listing.imageUrls?.[0],
+  image: toAbsoluteListingImage(listing.id),
   type: 'product',
+  summaryItems: [
+    listing.ilanNo,
+    listing.location,
+    listing.category,
+    listing.price,
+  ],
 }));
 
 const blogRoutes: RouteMeta[] = NEWS_ITEMS.filter((item) => item.status !== 'draft' && item.slug).map((item) => ({
@@ -113,7 +156,7 @@ const blogRoutes: RouteMeta[] = NEWS_ITEMS.filter((item) => item.status !== 'dra
   type: 'article',
 }));
 
-for (const meta of [...staticRoutes, ...categoryRoutes, ...listingRoutes, ...blogRoutes]) {
+for (const meta of [homeRoute, ...staticRoutes, ...categoryRoutes, ...listingRoutes, ...blogRoutes]) {
   const outputDir = path.join(distDir, meta.route.replace(/^\//, ''));
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(path.join(outputDir, 'index.html'), renderHtml(meta), 'utf8');

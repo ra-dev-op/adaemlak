@@ -12,8 +12,13 @@ const PLACEHOLDER_IMAGE =
     </svg>
   `);
 
-const getLocalThumbUrl = (listingId: string) =>
-  `${import.meta.env.BASE_URL}listing-thumbs/${encodeURIComponent(listingId)}.jpg`;
+const getLocalThumbUrls = (listingId: string) => {
+  const encodedListingId = encodeURIComponent(listingId);
+  return [
+    `${import.meta.env.BASE_URL}listing-thumbs/${encodedListingId}.webp`,
+    `${import.meta.env.BASE_URL}listing-thumbs/${encodedListingId}.jpg`,
+  ];
+};
 
 const getFallbackImageUrl = (listing: Listing) =>
   listing.imageUrls?.find((imageUrl) => Boolean(imageUrl)) || PLACEHOLDER_IMAGE;
@@ -26,25 +31,21 @@ interface AdminListingImageProps {
 
 const AdminListingImage: React.FC<AdminListingImageProps> = ({ listing, className, alt = '' }) => {
   const fallbackImageUrl = getFallbackImageUrl(listing);
-  const preferredImageUrl = listing.id ? getLocalThumbUrl(listing.id) : fallbackImageUrl;
-  const [imageUrl, setImageUrl] = useState(preferredImageUrl);
-  const [fallbackUsed, setFallbackUsed] = useState(false);
+  const imageCandidates = listing.id
+    ? [...getLocalThumbUrls(listing.id), fallbackImageUrl, PLACEHOLDER_IMAGE]
+    : [fallbackImageUrl, PLACEHOLDER_IMAGE];
+  const [candidateIndex, setCandidateIndex] = useState(0);
+  const imageUrl = imageCandidates[candidateIndex] || PLACEHOLDER_IMAGE;
 
   useEffect(() => {
-    setImageUrl(preferredImageUrl);
-    setFallbackUsed(false);
-  }, [preferredImageUrl]);
+    setCandidateIndex(0);
+  }, [listing.id, fallbackImageUrl]);
 
   const handleImageError = () => {
-    if (!fallbackUsed && fallbackImageUrl && imageUrl !== fallbackImageUrl) {
-      setFallbackUsed(true);
-      setImageUrl(fallbackImageUrl);
-      return;
-    }
-
-    if (imageUrl !== PLACEHOLDER_IMAGE) {
-      setImageUrl(PLACEHOLDER_IMAGE);
-    }
+    setCandidateIndex((currentIndex) => {
+      const nextIndex = currentIndex + 1;
+      return nextIndex < imageCandidates.length ? nextIndex : currentIndex;
+    });
   };
 
   return (
