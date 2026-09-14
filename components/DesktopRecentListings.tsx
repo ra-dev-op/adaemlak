@@ -9,7 +9,7 @@ interface DesktopRecentListingsProps {
 const DesktopRecentListings: React.FC<DesktopRecentListingsProps> = ({ items }) => (
   <section className="hidden lg:block" aria-label="Son eklenen ilanlar">
     <div
-      className="flex h-[43px] items-center bg-[#eea904] px-5 text-[21px] font-bold uppercase leading-none text-white"
+      className="flex h-[43px] items-center bg-[#eea904] px-5 text-[21px] font-bold uppercase leading-none text-[#202938]"
       style={{ fontFamily: "var(--font-primary)" }}
     >
       SON EKLENENLER

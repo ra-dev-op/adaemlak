@@ -27,7 +27,7 @@ const FilterBar: React.FC = () => {
   return (
     <div className="mb-6 mt-4 lg:mb-8 lg:mt-5">
       <div className="container mx-auto max-w-[1320px] px-4">
-        <div className="w-full bg-[#858487] shadow-[0_8px_18px_rgba(15,23,42,0.08)]">
+        <div className="w-full bg-[#666a70] shadow-[0_8px_18px_rgba(15,23,42,0.08)]">
           <form onSubmit={handleSubmit} className="grid min-h-[50px] grid-cols-1 items-center gap-2.5 px-4 py-3 md:grid-cols-[minmax(0,1fr)_auto] md:gap-5 md:px-6 md:py-0">
             <h1
               className="whitespace-nowrap text-[17px] font-bold uppercase leading-none tracking-normal text-white md:text-[18px]"
@@ -37,7 +37,7 @@ const FilterBar: React.FC = () => {
             </h1>
 
             <div className="grid w-full grid-cols-[auto_auto_minmax(0,1fr)_40px] items-center gap-2 justify-self-start md:w-auto md:grid-cols-[auto_auto_minmax(132px,168px)_1px_42px] md:justify-self-end">
-              <span className="flex h-[30px] items-center border border-white/35 bg-white/10 px-2.5 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">
+              <span className="flex h-[30px] items-center border border-white bg-white px-2.5 text-[12px] font-bold uppercase tracking-[0.04em] text-[#202938]">
                 ADA
               </span>
               <span className="flex h-[30px] items-center text-[16px] font-bold leading-none text-white/90">-</span>

@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                             </svg>
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider leading-none mb-1">Kurumsal Mağaza</span>
+                            <span className="mb-1 text-[10px] font-bold uppercase leading-none tracking-wider text-[#5f6670]">Kurumsal Mağaza</span>
                             <span className="text-sm font-bold text-gray-700 group-hover:text-gold-500 transition-colors">sahibinden.com</span>
                         </div>
                     </a>
@@ -156,7 +156,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-[#dcdcdc] mb-6"></div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col items-center justify-between gap-y-4 font-sans text-[12px] font-medium uppercase tracking-tight text-[#7a7a7a] md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-y-4 font-sans text-[12px] font-semibold uppercase tracking-tight text-[#505761] md:flex-row">
             <div className="mb-2 md:mb-0">
                 {generalSettings.footerText}
             </div>

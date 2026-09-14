@@ -15,10 +15,38 @@ const ScriptInjector: React.FC = () => {
     const isLegacyUniversalAnalytics = /^UA-\d+-\d+$/i.test(analyticsId);
     const primaryTagId = analyticsId || adsConversionId;
 
-    if (!tagManagerId) {
-      removeElement('gtm-script');
-      removeElement('gtm-noscript');
-    } else {
+    const verificationMeta = document.querySelector('meta[name="google-site-verification"]');
+    const verificationValue = (() => {
+      const rawValue = googleSettings.searchConsoleMeta.trim();
+      const contentMatch = rawValue.match(/content=["']([^"']*)["']/);
+      const assignmentMatch = rawValue.match(/google-site-verification=([^\s"'<>]+)/);
+
+      return contentMatch?.[1] || assignmentMatch?.[1] || (!rawValue.includes('<') ? rawValue : '');
+    })();
+
+    if (verificationValue) {
+      const meta =
+        verificationMeta ||
+        (() => {
+          const newMeta = document.createElement('meta');
+          newMeta.setAttribute('name', 'google-site-verification');
+          document.head.appendChild(newMeta);
+          return newMeta;
+        })();
+
+      meta.setAttribute('content', verificationValue);
+    } else if (verificationMeta) {
+      verificationMeta.remove();
+    }
+
+    removeElement('gtm-script');
+    removeElement('gtm-noscript');
+    removeElement('ga-script');
+    removeElement('ga-inline');
+    removeElement('ga-legacy');
+
+    const loadMarketingScripts = () => {
+      if (tagManagerId) {
       let gtmScript = document.getElementById('gtm-script') as HTMLScriptElement | null;
       if (!gtmScript) {
         gtmScript = document.createElement('script');
@@ -40,16 +68,13 @@ const ScriptInjector: React.FC = () => {
         document.body.prepend(gtmNoScript);
       }
       gtmNoScript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${tagManagerId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
-    }
+      }
 
-    if (!primaryTagId) {
-      removeElement('ga-script');
-      removeElement('ga-inline');
-      removeElement('ga-legacy');
-    } else if (isLegacyUniversalAnalytics) {
-      removeElement('ga-script');
-      removeElement('ga-inline');
+      if (!primaryTagId) {
+        return;
+      }
 
+      if (isLegacyUniversalAnalytics) {
       let legacyScript = document.getElementById('ga-legacy') as HTMLScriptElement | null;
       if (!legacyScript) {
         legacyScript = document.createElement('script');
@@ -64,8 +89,8 @@ const ScriptInjector: React.FC = () => {
         ga('create', '${analyticsId}', 'auto');
         ga('send', 'pageview');
       `;
-    } else {
-      removeElement('ga-legacy');
+        return;
+      }
 
       let script = document.getElementById('ga-script') as HTMLScriptElement | null;
       if (!script) {
@@ -94,31 +119,48 @@ const ScriptInjector: React.FC = () => {
         gtag('js', new Date());
         ${configCalls}
       `;
+    };
+
+    if (!tagManagerId && !primaryTagId) {
+      return;
     }
 
-    const verificationMeta = document.querySelector('meta[name="google-site-verification"]');
-    const verificationValue = (() => {
-      const rawValue = googleSettings.searchConsoleMeta.trim();
-      const contentMatch = rawValue.match(/content=["']([^"']*)["']/);
-      const assignmentMatch = rawValue.match(/google-site-verification=([^\s"'<>]+)/);
+    let loaded = false;
+    let timeoutId: number | undefined;
 
-      return contentMatch?.[1] || assignmentMatch?.[1] || (!rawValue.includes('<') ? rawValue : '');
-    })();
+    const triggerLoad = () => {
+      if (loaded) return;
+      loaded = true;
+      if (timeoutId) window.clearTimeout(timeoutId);
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, triggerLoad);
+      });
+      window.removeEventListener('load', scheduleAfterLoad);
+      loadMarketingScripts();
+    };
 
-    if (verificationValue) {
-      const meta =
-        verificationMeta ||
-        (() => {
-          const newMeta = document.createElement('meta');
-          newMeta.setAttribute('name', 'google-site-verification');
-          document.head.appendChild(newMeta);
-          return newMeta;
-        })();
+    const scheduleAfterLoad = () => {
+      timeoutId = window.setTimeout(triggerLoad, 12000);
+    };
 
-      meta.setAttribute('content', verificationValue);
-    } else if (verificationMeta) {
-      verificationMeta.remove();
+    const interactionEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    interactionEvents.forEach((eventName) => {
+      window.addEventListener(eventName, triggerLoad, { once: true, passive: true });
+    });
+
+    if (document.readyState === 'complete') {
+      scheduleAfterLoad();
+    } else {
+      window.addEventListener('load', scheduleAfterLoad, { once: true });
     }
+
+    return () => {
+      if (timeoutId) window.clearTimeout(timeoutId);
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, triggerLoad);
+      });
+      window.removeEventListener('load', scheduleAfterLoad);
+    };
   }, [googleSettings]);
 
   return null;

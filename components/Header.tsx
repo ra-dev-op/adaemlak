@@ -141,9 +141,9 @@ const Header: React.FC = () => {
                 <img
                   src={`${import.meta.env.BASE_URL}ada-emlak-mobile-top-banner.gif`}
                   alt="Ada Emlak 44 44 232"
-                  className="h-[30px] w-full object-fill object-center sm:h-[34px]"
-                  width="862"
-                  height="90"
+                  className="h-auto w-full object-contain object-right"
+                  width="850"
+                  height="59"
                   loading="eager"
                   decoding="async"
                 />

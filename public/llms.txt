@@ -1,0 +1,21 @@
+# Ada Emlak
+
+Ada Emlak, İstanbul ve çevresinde ticari gayrimenkul yatırım danışmanlığı sunan; satılık arsa, bina, plaza, fabrika, depo-antrepo ve konut portföylerini yayınlayan kurumsal emlak sitesidir.
+
+## Önemli bağlantılar
+
+- [Ana sayfa](https://www.adaemlak.com.tr/)
+- [Satılık arsa ilanları](https://www.adaemlak.com.tr/arsa)
+- [Satılık bina ilanları](https://www.adaemlak.com.tr/bina)
+- [Plaza ilanları](https://www.adaemlak.com.tr/plaza)
+- [Fabrika ilanları](https://www.adaemlak.com.tr/fabrika)
+- [Depo ve antrepo ilanları](https://www.adaemlak.com.tr/depo-antrepo)
+- [Konut ilanları](https://www.adaemlak.com.tr/konut)
+- [Referanslar](https://www.adaemlak.com.tr/referanslar)
+- [İletişim](https://www.adaemlak.com.tr/iletisim)
+- [Sitemap](https://www.adaemlak.com.tr/sitemap.xml)
+
+## İletişim
+
+- Telefon: +90 532 243 55 22
+- Web: https://www.adaemlak.com.tr/

@@ -61,7 +61,7 @@ const Home: React.FC = () => {
                   <aside className="relative z-10 hidden h-full w-full flex-col lg:flex">
                     {index === 0 && (
                       <div
-                        className="mb-0 flex h-[43px] shrink-0 items-center justify-between bg-[#eea904] px-5 text-[21px] font-bold uppercase leading-none text-white"
+                        className="mb-0 flex h-[43px] shrink-0 items-center justify-between bg-[#eea904] px-5 text-[21px] font-bold uppercase leading-none text-[#202938]"
                         style={{ fontFamily: "var(--font-primary)" }}
                       >
                         <span>SON EKLENENLER</span>

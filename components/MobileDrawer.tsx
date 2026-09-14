@@ -130,8 +130,8 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose, title, ite
               src={`${import.meta.env.BASE_URL}ada-emlak-mobile-top-banner.gif`}
               alt="Ada Emlak 44 44 232"
               className="mx-auto mt-3 h-auto w-full max-w-[340px] object-contain"
-              width="862"
-              height="90"
+              width="850"
+              height="59"
               decoding="async"
             />
           </Link>

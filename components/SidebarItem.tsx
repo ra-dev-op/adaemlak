@@ -64,7 +64,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, flushSpacing = false, l
         <Link
           to={listingUrl}
           onClick={() => handleClick('sidebar_incele')}
-          className="inline-flex h-[24px] min-w-[78px] items-center justify-center border border-[#b9b9b9] bg-[#f4f4f4] px-4 text-[11px] font-bold uppercase tracking-[0.08em] text-[#777] transition-colors duration-300 hover:border-[#8f8f8f] hover:bg-white hover:text-[#555]"
+          className="inline-flex h-[24px] min-w-[78px] items-center justify-center border border-[#a9a9a9] bg-[#f4f4f4] px-4 text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#555] transition-colors duration-300 hover:border-[#7d7d7d] hover:bg-white hover:text-[#333]"
         >
           İncele
         </Link>
