@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
     />
     <div className="container mx-auto max-w-[1320px] px-4 py-8">
        {/* Breadcrumb */}
-       <div className="flex items-center text-xs text-gray-500 mb-6 font-sans uppercase tracking-wider">
+       <div className="mb-6 flex items-center font-sans text-[14px] font-medium uppercase leading-5 tracking-[0.06em] text-gray-500">
           <Link to="/" className="hover:text-gold-500 transition-colors">Ana Sayfa</Link> 
           <span className="mx-2 text-gray-300">/</span>
           <span className="text-gold-500 font-bold">İletişim</span>
@@ -66,32 +66,47 @@ const Contact: React.FC = () => {
           <div className="w-full lg:w-[70%]">
              
              {/* Header Section */}
-             <div className="mb-6 overflow-hidden rounded-[24px] border border-[#ece6d9] bg-[linear-gradient(135deg,#fffdfa_0%,#f6f1e7_100%)] p-7 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-                <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-                    <div>
-                        <div className="text-[11px] font-bold uppercase tracking-[0.24em] text-gold-600">Bizimle İletişime Geçin</div>
-                        <h1 className="mt-3 text-[#2c2c2c] font-serif font-bold text-3xl md:text-[40px] leading-tight">
+             <div className="mb-6 overflow-hidden border border-[#e9deca] bg-white/72 shadow-[0_10px_26px_rgba(52,47,38,0.05)]">
+                <div className="h-[4px] bg-[#eea904]" />
+                <div className="grid gap-8 p-7 md:p-8 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-center">
+                    <div className="min-w-0 pr-0 lg:pr-8">
+                        <div className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#c88900]">Ada Emlak İletişim</div>
+                        <h1 className="mt-3 text-[38px] font-extrabold leading-tight text-[#2c2c2c] md:text-[42px]">
                            İletişim
                         </h1>
-                        <p className="mt-3 max-w-[620px] text-[15px] leading-relaxed text-[#667085]">
+                        <p className="mt-4 max-w-[560px] text-[15px] leading-[1.9] text-[#667085]">
                            Satılık ve kiralık portföylerimiz hakkında bilgi almak, randevu oluşturmak veya yatırım sürecinizi birlikte planlamak için bize ulaşabilirsiniz.
                         </p>
                     </div>
 
-                    <div className="grid gap-3 sm:grid-cols-2 md:min-w-[320px]">
+                    <div className="grid min-w-0 gap-3">
                         <a
                             href={directMobileHref}
-                            className="rounded-[18px] border border-[#efe5d0] bg-white/90 px-4 py-4 shadow-[0_12px_24px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_28px_rgba(217,162,26,0.12)]"
+                            className="group flex min-w-0 items-center gap-4 border border-[#e4d7bf] bg-[#fffdf8] px-5 py-4 transition-all duration-300 hover:border-[#eea904] hover:bg-white"
                         >
-                            <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#a18d65]">Telefon</div>
-                            <div className="mt-2 text-[24px] font-semibold leading-none tracking-tight text-[#2d3746]">{generalSettings.headerPhone}</div>
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#ead8ad] bg-[#fff6dc] text-[#d3980b] transition-colors duration-300 group-hover:bg-[#eea904] group-hover:text-white">
+                                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                </svg>
+                            </span>
+                            <span className="min-w-0">
+                                <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-[#a18d65]">Telefon</span>
+                                <span className="mt-1 block whitespace-nowrap text-[23px] font-extrabold leading-none text-[#2d3746] [word-break:keep-all]">{generalSettings.headerPhone}</span>
+                            </span>
                         </a>
                         <a
                             href={`mailto:${generalSettings.contactEmail}`}
-                            className="rounded-[18px] border border-[#efe5d0] bg-white/90 px-4 py-4 shadow-[0_12px_24px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_28px_rgba(217,162,26,0.12)]"
+                            className="group flex min-w-0 items-center gap-4 border border-[#e4d7bf] bg-[#fffdf8] px-5 py-4 transition-all duration-300 hover:border-[#eea904] hover:bg-white"
                         >
-                            <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#a18d65]">E-Posta</div>
-                            <div className="mt-2 truncate text-[15px] font-semibold tracking-tight text-[#2d3746]">{generalSettings.contactEmail}</div>
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#ead8ad] bg-[#fff6dc] text-[#d3980b] transition-colors duration-300 group-hover:bg-[#eea904] group-hover:text-white">
+                                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 7.5v9a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 16.5v-9m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5m19.5 0v.243a2.25 2.25 0 01-.99 1.87l-7.5 5a2.25 2.25 0 01-2.52 0l-7.5-5a2.25 2.25 0 01-.99-1.87V7.5" />
+                                </svg>
+                            </span>
+                            <span className="min-w-0 flex-1">
+                                <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-[#a18d65]">E-Posta</span>
+                                <span className="mt-1 block whitespace-nowrap text-[15px] font-bold leading-none text-[#2d3746] [word-break:keep-all]">{generalSettings.contactEmail}</span>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -148,7 +163,7 @@ const Contact: React.FC = () => {
                             </div>
                             <div>
                                 <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#a18d65] mb-1">E-Mail</span>
-                                <p>{generalSettings.contactEmail}</p>
+                                <p className="whitespace-nowrap text-[clamp(12px,1.1vw,14px)] [word-break:keep-all]">{generalSettings.contactEmail}</p>
                             </div>
                           </div>
                         </div>

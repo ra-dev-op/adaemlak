@@ -64,7 +64,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     editorProps: {
       attributes: {
         class: cn(
-          'min-h-[520px] max-w-none px-6 py-5 text-[15px] leading-7 text-[#2c3338] focus:outline-none',
+          'min-h-[520px] max-w-none px-6 py-5 font-sans text-[15px] leading-7 text-[#2c3338] focus:outline-none',
           '[&_a]:font-medium [&_a]:text-[#2271b1] [&_a]:underline',
           '[&_blockquote]:my-4 [&_blockquote]:border-l-4 [&_blockquote]:border-[#72aee6] [&_blockquote]:bg-[#f6f7f7] [&_blockquote]:px-4 [&_blockquote]:py-3',
           '[&_h1]:mb-3 [&_h1]:mt-5 [&_h1]:text-[32px] [&_h1]:font-bold [&_h1]:text-[#1d2327]',
@@ -87,7 +87,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     const nextHtml = value || '';
 
     if (currentHtml !== nextHtml) {
-      editor.commands.setContent(nextHtml, false);
+      editor.commands.setContent(nextHtml, { emitUpdate: false });
     }
   }, [editor, value]);
 

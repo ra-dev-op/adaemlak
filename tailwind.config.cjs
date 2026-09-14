@@ -1,3 +1,5 @@
+const montserratStack = ['Montserrat', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'];
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -32,11 +34,12 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"SN Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['"SN Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        price: ['"SN Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        inter: ['"SN Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"SN Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: montserratStack,
+        serif: montserratStack,
+        price: montserratStack,
+        inter: montserratStack,
+        display: montserratStack,
+        mono: montserratStack,
       },
       boxShadow: {
         card: '0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)',

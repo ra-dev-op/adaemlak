@@ -33,19 +33,6 @@ const normalizeSize = (value: string) => {
   return '';
 };
 
-const normalizeFontFamily = (value: string) => {
-  const trimmed = value.trim();
-  if (!trimmed) {
-    return '';
-  }
-
-  return trimmed
-    .split(',')
-    .map((part) => part.replace(/[^a-z0-9\s"'-]/gi, '').trim())
-    .filter(Boolean)
-    .join(', ');
-};
-
 const normalizeTextAlign = (value: string) => {
   const trimmed = value.trim().toLowerCase();
   return ['left', 'center', 'right', 'justify'].includes(trimmed) ? trimmed : '';
@@ -87,13 +74,11 @@ const sanitizeNode = (node: Node, targetDocument: Document): Node | null => {
   const color = normalizeColor(element.style.color || element.getAttribute('color') || '');
   const backgroundColor = normalizeColor(element.style.backgroundColor || '');
   const fontSize = normalizeSize(element.style.fontSize || '');
-  const fontFamily = normalizeFontFamily(element.style.fontFamily || element.getAttribute('face') || '');
   const textAlign = normalizeTextAlign(element.style.textAlign || '');
 
   if (color) inlineStyles.color = color;
   if (backgroundColor) inlineStyles['background-color'] = backgroundColor;
   if (fontSize) inlineStyles['font-size'] = fontSize;
-  if (fontFamily) inlineStyles['font-family'] = fontFamily;
   if (textAlign && ['P', 'H1', 'H2', 'H3', 'H4', 'BLOCKQUOTE', 'LI', 'SPAN', 'FONT', 'MARK', 'PRE', 'CODE'].includes(tagName)) {
     inlineStyles['text-align'] = textAlign;
   }
@@ -184,11 +169,13 @@ export const stripHtmlTags = (value: string = '') => {
     return '';
   }
 
+  const htmlWithBreaks = value.replace(/<br\s*\/?>/gi, ' ');
+
   if (typeof window === 'undefined') {
-    return value.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    return htmlWithBreaks.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   }
 
   const parser = new DOMParser();
-  const parsed = parser.parseFromString(`<div>${value}</div>`, 'text/html');
+  const parsed = parser.parseFromString(`<div>${htmlWithBreaks}</div>`, 'text/html');
   return parsed.body.textContent?.replace(/\s+/g, ' ').trim() || '';
 };

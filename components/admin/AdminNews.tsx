@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useData } from '../../context/DataContext';
 import { NewsItem } from '../../types';
+import RichTextEditor from './RichTextEditor';
+import { createSlug } from '../../lib/seo';
 
 const AdminNews: React.FC = () => {
-  const { news, addNews, deleteNews } = useData();
+  const { news, addNews, updateNews, deleteNews } = useData();
   const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   
   // Advanced Form State
@@ -22,22 +25,10 @@ const AdminNews: React.FC = () => {
 
   const [slugManuallyEdited, setSlugManuallyEdited] = useState(false);
 
-  // Helper: Slug Generator
-  const generateSlug = (text: string) => {
-    return text
-      .toString()
-      .toLowerCase()
-      .replace(/\s+/g, '-')           // Replace spaces with -
-      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-      .replace(/^-+/, '')             // Trim - from start of text
-      .replace(/-+$/, '');            // Trim - from end of text
-  };
-
   // Effect: Auto-update slug when title changes (unless manually edited)
   useEffect(() => {
     if (!slugManuallyEdited && formData.title) {
-      setFormData(prev => ({ ...prev, slug: generateSlug(prev.title || '') }));
+      setFormData(prev => ({ ...prev, slug: createSlug(prev.title || '') }));
     }
   }, [formData.title, slugManuallyEdited]);
 
@@ -101,11 +92,11 @@ const AdminNews: React.FC = () => {
                 
                 // "ADA" Text
                 ctx.fillStyle = 'white';
-                ctx.font = `bold ${60 * scale}px Arial, sans-serif`;
+                ctx.font = `bold ${60 * scale}px Montserrat, Arial, sans-serif`;
                 ctx.fillText("ADA", textX, textCenterY);
 
                 // "EMLAK" Text (Below ADA)
-                ctx.font = `normal ${24 * scale}px Arial, sans-serif`;
+                ctx.font = `normal ${24 * scale}px Montserrat, Arial, sans-serif`;
                 ctx.fillText("EMLAK", textX, textCenterY + (45 * scale));
 
                 // House Icon (Simplified next to text)
@@ -151,13 +142,15 @@ const AdminNews: React.FC = () => {
     if (!formData.title) return alert('Başlık zorunludur.');
     if (!formData.imageUrl) return alert('Lütfen bir görsel yükleyiniz.');
 
+    const existingItem = editingId ? news.find((item) => item.id === editingId) : undefined;
     const newItem: NewsItem = {
-        id: Date.now().toString(),
+        id: editingId || Date.now().toString(),
         title: formData.title || '',
-        slug: formData.slug || generateSlug(formData.title),
+        slug: formData.slug || createSlug(formData.title),
         summary: formData.summary || '',
         content: formData.content || '',
-        date: new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }),
+        date: existingItem?.date || new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }),
+        publishedDateIso: existingItem?.publishedDateIso || new Date().toISOString().slice(0, 10),
         imageUrl: formData.imageUrl || '',
         metaDescription: formData.metaDescription || formData.summary?.substring(0, 160),
         keywords: formData.keywords,
@@ -165,7 +158,11 @@ const AdminNews: React.FC = () => {
         author: formData.author
     };
 
-    addNews(newItem);
+    if (editingId) {
+      updateNews(newItem);
+    } else {
+      addNews(newItem);
+    }
     setShowForm(false);
     resetForm();
   };
@@ -183,26 +180,16 @@ const AdminNews: React.FC = () => {
         author: 'Admin'
     });
     setSlugManuallyEdited(false);
+    setEditingId(null);
   };
 
-  // Mock Toolbar for Rich Text Editor
-  const EditorToolbar = () => (
-    <div className="flex gap-1 border-b border-gray-200 p-2 bg-gray-50 rounded-t-sm items-center">
-        <button type="button" className="p-1 hover:bg-gray-200 rounded font-bold text-gray-600 w-8 flex justify-center">B</button>
-        <button type="button" className="p-1 hover:bg-gray-200 rounded italic text-gray-600 w-8 flex justify-center">I</button>
-        <button type="button" className="p-1 hover:bg-gray-200 rounded underline text-gray-600 w-8 flex justify-center">U</button>
-        <div className="w-px h-4 bg-gray-300 mx-1"></div>
-        <button type="button" className="p-1 hover:bg-gray-200 rounded text-gray-600 w-8 flex justify-center text-xs font-bold">H1</button>
-        <button type="button" className="p-1 hover:bg-gray-200 rounded text-gray-600 w-8 flex justify-center text-xs font-bold">H2</button>
-        <div className="w-px h-4 bg-gray-300 mx-1"></div>
-        <button type="button" className="p-1 hover:bg-gray-200 rounded text-gray-600 w-8 flex justify-center" title="Bağlantı Ekle">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
-        </button>
-        <button type="button" className="p-1 hover:bg-gray-200 rounded text-gray-600 w-8 flex justify-center" title="Resim Ekle">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
-        </button>
-    </div>
-  );
+  const editNews = (item: NewsItem) => {
+    setEditingId(item.id);
+    setFormData(item);
+    setSlugManuallyEdited(true);
+    setShowForm(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div>
@@ -263,15 +250,13 @@ const AdminNews: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Content Editor */}
-                    <div className="bg-white rounded-sm shadow-card flex flex-col h-[500px]">
-                         <EditorToolbar />
-                         <textarea 
-                            className="flex-1 w-full bg-white p-4 outline-none resize-none font-sans text-gray-900 leading-relaxed placeholder-gray-400" 
-                            placeholder="İçeriğinizi buraya yazmaya başlayın..."
-                            value={formData.content}
-                            onChange={e => setFormData({...formData, content: e.target.value})}
-                         ></textarea>
+                    <div className="bg-white p-4 shadow-card">
+                      <RichTextEditor
+                        label="Yazı İçeriği"
+                        value={formData.content || ''}
+                        onChange={(content) => setFormData((prev) => ({ ...prev, content }))}
+                        placeholder="Blog içeriğinizi yazmaya başlayın..."
+                      />
                     </div>
 
                     {/* Excerpt / Summary */}
@@ -436,7 +421,7 @@ const AdminNews: React.FC = () => {
                             <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
                                 <span className="text-xs text-gray-400">{n.author || 'Admin'}</span>
                                 <div className="flex gap-2">
-                                    <button className="text-blue-500 hover:text-blue-700 text-xs font-bold uppercase">Düzenle</button>
+                                    <button type="button" onClick={() => editNews(n)} className="text-blue-500 hover:text-blue-700 text-xs font-bold uppercase">Düzenle</button>
                                     <button onClick={() => deleteNews(n.id)} className="text-red-500 hover:text-red-700 text-xs font-bold uppercase">Sil</button>
                                 </div>
                             </div>

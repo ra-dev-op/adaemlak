@@ -21,7 +21,7 @@ const References: React.FC = () => {
     />
     <div className="container mx-auto max-w-[1320px] px-4 py-8">
        {/* Breadcrumb */}
-       <div className="flex items-center text-xs text-gray-500 mb-6 font-sans uppercase tracking-wider">
+       <div className="mb-6 flex items-center font-sans text-[14px] font-medium uppercase leading-5 tracking-[0.06em] text-gray-500">
           <Link to="/" className="hover:text-gold-500 transition-colors">Ana Sayfa</Link> 
           <span className="mx-2 text-gray-300">/</span>
           <span className="text-gold-500 font-bold">Referanslarımız</span>

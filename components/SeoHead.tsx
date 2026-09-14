@@ -106,6 +106,16 @@ const SeoHead: React.FC<SeoHeadProps> = ({
     updateMeta('publisher', seoSettings.siteTitle);
 
     updateLink('canonical', currentUrl);
+    updateLink('alternate', currentUrl, { hreflang: 'tr-TR' });
+
+    let defaultLanguageLink = document.querySelector('link[rel="alternate"][hreflang="x-default"]') as HTMLLinkElement | null;
+    if (!defaultLanguageLink) {
+      defaultLanguageLink = document.createElement('link');
+      defaultLanguageLink.rel = 'alternate';
+      defaultLanguageLink.hreflang = 'x-default';
+      document.head.appendChild(defaultLanguageLink);
+    }
+    defaultLanguageLink.href = currentUrl;
     updateLink('icon', seoSettings.faviconUrl, { type: 'image/svg+xml' });
     updateLink('shortcut icon', seoSettings.faviconUrl);
 

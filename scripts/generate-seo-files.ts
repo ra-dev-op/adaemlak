@@ -61,20 +61,27 @@ const escapeXml = (value: string) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 
+const toIsoDate = (value?: string) => {
+  if (!value) return undefined;
+  if (/^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 10);
+  const match = value.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  return match ? `${match[3]}-${match[2].padStart(2, '0')}-${match[1].padStart(2, '0')}` : undefined;
+};
+
 const withBasePath = (routePath: string) => `${basePath}${routePath}`.replace(/\/{2,}/g, '/');
 
 const listingRoutes = LIVE_MAIN_LISTINGS.filter((listing) => listing.status === 'active').map((listing) => ({
   path: getListingUrl(listing),
   priority: '0.8',
   changefreq: 'weekly',
-  lastmod: listing.createdDate || undefined,
+  lastmod: toIsoDate(listing.createdDate || listing.updateDate),
 }));
 
 const uniqueEntries = Array.from(
   new Map(
     [...staticRoutes, ...categoryRoutes, ...blogRoutes, ...listingRoutes].map((entry) => [entry.path, entry]),
   ).values(),
-);
+) as Array<{ path: string; priority: string; changefreq: string; lastmod?: string }>;
 
 const xmlLines = [
   '<?xml version="1.0" encoding="UTF-8"?>',

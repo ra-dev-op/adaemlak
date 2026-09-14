@@ -14,7 +14,7 @@ import {
 } from '../types';
 import { MAIN_LISTINGS, NEWS_ITEMS } from '../constants';
 import { DEFAULT_GENERAL_SETTINGS, DEFAULT_SEO_SETTINGS } from '../config/siteDefaults';
-import { fetchAdminBootstrap, fetchPublicBootstrap, persistAdminState, submitContactMessage } from '../lib/api';
+import { fetchAdminBootstrap, fetchListingAnalytics, fetchPublicBootstrap, persistAdminState, submitContactMessage } from '../lib/api';
 import { isAdminAuthenticated } from '../config/adminAuth';
 
 interface DataContextType {
@@ -34,6 +34,7 @@ interface DataContextType {
   deleteListing: (id: string) => void;
   updateHomepageOrder: (id: string, featured: boolean, order: number | null) => void;
   addNews: (newsItem: NewsItem) => void;
+  updateNews: (newsItem: NewsItem) => void;
   deleteNews: (id: string) => void;
   addMessage: (message: Message) => void;
   deleteMessage: (id: string) => void;
@@ -135,6 +136,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [listingAnalytics, setListingAnalytics] = useState<ListingAnalytics[]>([]);
 
   const latestStateRef = useRef<AdminState>(initialState);
+  const persistQueueRef = useRef<Promise<unknown>>(Promise.resolve());
 
   useEffect(() => {
     latestStateRef.current = {
@@ -164,8 +166,12 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
 
     try {
-      const adminState = await fetchAdminBootstrap();
+      const [adminState, analyticsResponse] = await Promise.all([
+        fetchAdminBootstrap(),
+        fetchListingAnalytics(),
+      ]);
       applyAdminState(adminState);
+      setListingAnalytics(analyticsResponse.analytics || []);
     } catch (error) {
       console.error('Admin bootstrap could not be loaded:', error);
     }
@@ -211,47 +217,13 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     latestStateRef.current = nextState;
 
-    void persistAdminState(nextState).catch((error) => {
-      console.error('Admin state could not be persisted:', error);
-    });
+    persistQueueRef.current = persistQueueRef.current
+      .catch(() => undefined)
+      .then(() => persistAdminState(nextState))
+      .catch((error) => {
+        console.error('Admin state could not be persisted:', error);
+      });
   };
-
-  useEffect(() => {
-    const analyticsData: ListingAnalytics[] = listings.map((listing) => {
-      const daily = Math.floor(Math.random() * 50) + 5;
-      const trendDir = Math.random() > 0.5 ? 'up' : 'down';
-
-      return {
-        listingId: listing.id,
-        dailyViews: daily,
-        weeklyViews: daily * (Math.floor(Math.random() * 5) + 3) + Math.floor(Math.random() * 20),
-        monthlyViews: daily * 25 + Math.floor(Math.random() * 200),
-        totalViews: daily * 150 + Math.floor(Math.random() * 1000),
-        dailyCardClicks: 0,
-        weeklyCardClicks: 0,
-        monthlyCardClicks: 0,
-        totalCardClicks: 0,
-        dailyPhoneClicks: 0,
-        weeklyPhoneClicks: 0,
-        monthlyPhoneClicks: 0,
-        totalPhoneClicks: 0,
-        dailyGalleryOpens: 0,
-        weeklyGalleryOpens: 0,
-        monthlyGalleryOpens: 0,
-        totalGalleryOpens: 0,
-        dailyUniqueVisitors: 0,
-        weeklyUniqueVisitors: 0,
-        monthlyUniqueVisitors: 0,
-        totalUniqueVisitors: 0,
-        interestScore: 0,
-        phoneConversionRate: 0,
-        trend: trendDir as 'up' | 'down',
-        trendPercentage: Math.floor(Math.random() * 30) + 1,
-      };
-    });
-
-    setListingAnalytics(analyticsData);
-  }, [listings.length]);
 
   const featuredListings = useMemo(() => {
     return listings
@@ -382,6 +354,14 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
   };
 
+  const updateNews = (newsItem: NewsItem) => {
+    setNews((prev) => {
+      const next = prev.map((item) => (item.id === newsItem.id ? newsItem : item));
+      syncAdminState({ news: next });
+      return next;
+    });
+  };
+
   const addMessage = (message: Message) => {
     setMessages((prev) => [message, ...prev]);
 
@@ -451,6 +431,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         deleteListing,
         updateHomepageOrder,
         addNews,
+        updateNews,
         deleteNews,
         addMessage,
         deleteMessage,

@@ -37,7 +37,6 @@ const AdminLayout: React.FC = () => {
     { label: 'Mesajlar', path: '/admin/messages', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
     { label: 'SEO Ayarları', path: '/admin/seo', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
     { label: 'Google', path: '/admin/google', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-    { label: 'Reklam', path: '/admin/ads', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' },
     { label: 'Ayarlar', path: '/admin/settings', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
   ];
 
@@ -59,48 +58,60 @@ const AdminLayout: React.FC = () => {
         </button>
       </div>
 
-      {sidebarOpen && <div className="fixed inset-0 z-20 bg-black/40 lg:hidden" onClick={() => setSidebarOpen(false)}></div>}
+      {sidebarOpen && <div className="fixed inset-0 z-20 bg-slate-900/35 backdrop-blur-[2px] lg:hidden" onClick={() => setSidebarOpen(false)}></div>}
 
       {/* Sidebar */}
-      <div className={`fixed z-30 flex h-full w-72 flex-col border-r border-gray-800 bg-[#1a1a1a] text-gray-300 shadow-2xl transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
-        <div className="h-20 flex items-center justify-center border-b border-gray-800/80">
+      <div className={`fixed z-30 flex h-full w-72 flex-col border-r border-[#eadfca] bg-[#fbf8f1] text-[#243041] shadow-[18px_0_55px_rgba(32,41,56,0.08)] transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
+        <div className="relative flex h-24 items-center justify-center border-b border-[#eadfca] bg-[linear-gradient(135deg,#fffaf0_0%,#ffffff_55%,#f6efe0_100%)]">
+            <div className="absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-gold-300/70 to-transparent" />
             <Link to="/" className="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
-               <div className="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center text-[#1a1a1a] font-bold text-xl">A</div>
-               <span className="font-sans font-bold text-lg tracking-tight text-white">ADA PANEL</span>
+               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gold-500 text-xl font-extrabold text-white shadow-[0_12px_26px_rgba(238,169,4,0.28)]">A</div>
+               <div>
+                <span className="block text-lg font-extrabold tracking-tight text-[#202938]">ADA PANEL</span>
+                <span className="mt-0.5 block text-[9px] font-extrabold uppercase tracking-[0.28em] text-gold-600">Yönetim</span>
+               </div>
             </Link>
         </div>
         
-        <nav className="flex-1 py-8 px-0 space-y-1">
-            <div className="px-6 mb-4 text-[10px] uppercase tracking-widest font-bold text-gray-500">Menü</div>
+        <nav className="flex-1 space-y-2 px-4 py-7">
+            <div className="mb-4 flex items-center justify-between px-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.26em] text-[#a9905a]">Menü</span>
+              <span className="h-px flex-1 bg-[#eadfca] ml-4" />
+            </div>
             {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
                     <Link 
                         key={item.path} 
                         to={item.path} 
-                        className={`flex items-center px-6 py-3.5 transition-all duration-200 group relative
+                        className={`group relative flex items-center rounded-2xl px-4 py-3.5 transition-all duration-200
                             ${isActive 
-                                ? 'bg-white/5 text-white' 
-                                : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                ? 'bg-white text-[#202938] shadow-[0_14px_28px_rgba(32,41,56,0.08)] ring-1 ring-[#f0dfb6]' 
+                                : 'text-[#6b7280] hover:bg-white/70 hover:text-[#202938]'
                             }
                         `}
                     >
                         {/* Active Indicator Bar */}
-                        {isActive && <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold-500 shadow-[0_0_10px_rgba(232,175,54,0.5)]"></div>}
+                        {isActive && <div className="absolute -left-4 top-1/2 h-9 w-1 -translate-y-1/2 rounded-r-full bg-gold-500 shadow-[0_0_16px_rgba(238,169,4,0.42)]"></div>}
                         
-                        <svg className={`w-5 h-5 mr-3 transition-colors ${isActive ? 'text-gold-500 fill-current/10' : 'text-gray-500 group-hover:text-gray-300'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={isActive ? 2 : 1.5}>
+                        <span className={`mr-3 inline-flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${isActive ? 'bg-gold-50 text-gold-600 ring-1 ring-gold-100' : 'bg-white/70 text-[#9aa3b2] ring-1 ring-[#eee5d4] group-hover:text-gold-600'}`}>
+                          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={isActive ? 2 : 1.6}>
                             <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                        </svg>
-                        <span className={`text-[13px] font-medium tracking-wide ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
+                          </svg>
+                        </span>
+                        <span className={`text-[13px] tracking-wide ${isActive ? 'font-extrabold' : 'font-semibold'}`}>{item.label}</span>
+                        {isActive && <span className="ml-auto h-2 w-2 rounded-full bg-gold-500" />}
                     </Link>
                 );
             })}
         </nav>
         
-        <div className="p-6 border-t border-gray-800/80">
-            <button onClick={handleLogout} className="flex items-center text-gray-400 hover:text-red-400 transition-colors w-full px-2 group">
-                <svg className="w-5 h-5 mr-3 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
-                <span className="font-medium text-sm">Çıkış Yap</span>
+        <div className="border-t border-[#eadfca] p-4">
+            <button onClick={handleLogout} className="group flex w-full items-center rounded-2xl px-4 py-3 text-[#6b7280] transition-colors hover:bg-red-50 hover:text-red-600">
+                <span className="mr-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#eee5d4] transition-transform group-hover:-translate-x-1">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                </span>
+                <span className="text-sm font-bold">Çıkış Yap</span>
             </button>
         </div>
       </div>

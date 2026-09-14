@@ -14,6 +14,17 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  preview: {
+    port: 4310,
+    host: '0.0.0.0',
+    proxy: {
+      '/adaemlak/api': {
+        target: 'http://127.0.0.1:3205',
+        changeOrigin: true,
+        rewrite: (requestPath) => requestPath.replace(/^\/adaemlak\/api/, '/api'),
+      },
+    },
+  },
   plugins: [react()],
   resolve: {
     alias: {

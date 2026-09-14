@@ -1,13 +1,13 @@
 {
   "name": "ADA EMLAK",
   "short_name": "ADA EMLAK",
-  "start_url": "/adaemlak/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#f9f9f9",
   "theme_color": "#e8af36",
   "icons": [
     {
-      "src": "/adaemlak/favicon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /adaemlak/admin
-Disallow: /adaemlak/yk-panel-giris
-Disallow: /adaemlak/arama
+Disallow: /admin
+Disallow: /yk-panel-giris
+Disallow: /arama
 
-Sitemap: http://46.245.164.65/adaemlak/sitemap.xml
+Sitemap: https://www.adaemlak.com.tr/sitemap.xml

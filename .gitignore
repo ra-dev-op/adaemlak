@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+tmp/
+output/
+ADA_EMLAK_PROJE_DURUM_RAPORU.md
 
 # Editor directories and files
 .vscode/*

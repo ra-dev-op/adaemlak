@@ -37,9 +37,7 @@ interface ToolbarProps {
 }
 
 const fonts = [
-  { name: 'Sans', value: 'Inter, sans-serif' },
-  { name: 'Serif', value: 'Georgia, serif' },
-  { name: 'Mono', value: 'JetBrains Mono, monospace' },
+  { name: 'Montserrat', value: 'Montserrat, sans-serif' },
 ];
 
 const fontSizes = ['12px', '14px', '16px', '18px', '20px', '24px', '28px', '32px'];
@@ -100,7 +98,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ editor, isWordWrap, toggleWordWrap })
             className="bg-transparent text-xs font-medium text-gray-700 outline-none"
             title="Yazı Tipi"
           >
-            <option value="">Varsayılan Font</option>
+            <option value="">Montserrat</option>
             {fonts.map((font) => (
               <option key={font.name} value={font.value}>
                 {font.name}

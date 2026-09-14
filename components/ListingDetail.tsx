@@ -1,7 +1,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import SidebarItem from './SidebarItem';
+import CompanyCard from './CompanyCard';
 import { useData } from '../context/DataContext';
 import SeoHead from './SeoHead';
 import { EMPTY_LISTING_DETAILS, getPropertyFieldSet, PROPERTY_FIELD_LABELS } from '../config/propertyFields';
@@ -91,6 +91,11 @@ const normalizeListingLookupId = (value = '') =>
     .trim()
     .replace(/^ADA-/i, '');
 
+const splitDetailsIntoColumns = <T,>(items: T[]) => {
+  const midpoint = Math.ceil(items.length / 2);
+  return [items.slice(0, midpoint), items.slice(midpoint)];
+};
+
 const ListingDetail: React.FC = () => {
   const { id } = useParams();
   const { listings, sidebarListings, seoSettings } = useData();
@@ -172,11 +177,11 @@ const ListingDetail: React.FC = () => {
       return value !== '' && value !== '-' && value !== '0';
     });
 
-  const mappedKeys = new Set(basePropertyDetails.map((detail) => detail.key));
+  const mappedKeys = new Set<string>(basePropertyDetails.map((detail) => String(detail.key)));
   const extraPropertyDetails = (Object.entries(details) as [keyof typeof details, string][])
     .filter(([key, value]) => {
       const normalized = String(value || '').trim();
-      return !mappedKeys.has(key) && normalized !== '' && normalized !== '-' && normalized !== '0' && PROPERTY_FIELD_LABELS[key];
+      return !mappedKeys.has(String(key)) && normalized !== '' && normalized !== '-' && normalized !== '0' && PROPERTY_FIELD_LABELS[key];
     })
     .map(([key, value]) => ({
       key,
@@ -184,7 +189,7 @@ const ListingDetail: React.FC = () => {
       value,
     }));
 
-  const propertyDetails = listing.detailRows && listing.detailRows.length > 0
+  const propertyDetails: Array<{ label: string; value: string }> = listing.detailRows && listing.detailRows.length > 0
     ? listing.detailRows
         .filter((detail: { label: string; value: string }) => {
           const value = String(detail.value || '').trim();
@@ -196,10 +201,11 @@ const ListingDetail: React.FC = () => {
           value: detail.value,
         }))
     : [...basePropertyDetails, ...extraPropertyDetails];
+  const [leftPropertyDetails, rightPropertyDetails] = splitDetailsIntoColumns(propertyDetails);
 
   const consultantPhone = '+90 532 243 55 22';
   const consultantPhoneHref = 'tel:+905322435522';
-  const consultantEmail = 'ykasa@adaemlak.com.tr';
+  const consultantWhatsappHref = `https://wa.me/905322435522?text=${encodeURIComponent(`${listing.ilanNo} numaralı ilan hakkında bilgi almak istiyorum.`)}`;
 
   useEffect(() => {
     if (!isLightboxOpen) {
@@ -273,8 +279,13 @@ const ListingDetail: React.FC = () => {
        />
 
        {/* Breadcrumb */}
-       <div className="flex items-center text-xs text-gray-500 mb-6 font-sans uppercase tracking-wider overflow-x-auto whitespace-nowrap">
-          <Link to="/" className="hover:text-gold-500 transition-colors">Ana Sayfa</Link> 
+       <div className="mb-6 flex items-center overflow-x-auto whitespace-nowrap font-sans text-[14px] font-medium uppercase leading-5 tracking-[0.06em] text-gray-500">
+          <Link to="/" className="inline-flex items-center gap-1.5 transition-colors hover:text-gold-500">
+            <svg className="h-4 w-4 text-[#eea904] lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            <span>Ana Sayfa</span>
+          </Link> 
           <span className="mx-2 text-gray-300">/</span>
           <span className="text-gray-600 font-bold">{listing.category}</span>
           <span className="mx-2 text-gray-300">/</span>
@@ -285,9 +296,96 @@ const ListingDetail: React.FC = () => {
           
           {/* LEFT COLUMN */}
           <div className="w-full lg:w-[66%]">
+             <div
+               className="mb-8 overflow-hidden text-[#666]"
+               style={{
+                 backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                 backgroundRepeat: 'no-repeat',
+                 backgroundPosition: 'center center',
+                 backgroundSize: '100% 100%',
+                 fontFamily: "var(--font-primary)",
+               }}
+             >
+                <div className="flex min-h-[50px] min-w-0 flex-col bg-[#eea904] px-4 py-3 text-white sm:px-5 lg:flex-row lg:items-center lg:justify-between lg:px-6">
+                   <div className="flex min-w-0 flex-col gap-2 text-[18px] font-bold leading-tight sm:text-[20px] lg:flex-row lg:items-center lg:gap-5 lg:text-[21px]">
+                      <span>{listing.type || listing.category}</span>
+                      <span className="min-w-0">{listing.location}</span>
+                   </div>
+                   <div className="mt-2 shrink-0 whitespace-nowrap text-[clamp(20px,2.2vw,25px)] font-bold leading-none sm:text-[24px] lg:mt-0 [word-break:keep-all]">
+                      {listing.price}
+                   </div>
+                </div>
+
+                <div className="px-5 pb-4 pt-6 md:px-6">
+                  <h1 className="mb-5 text-[20px] font-bold leading-tight text-[#6a6a6a] md:text-[21px]">
+                    {listing.title}
+                  </h1>
+
+                  <div
+                    className="relative h-[260px] cursor-zoom-in overflow-hidden border border-[#666] bg-[#e9e9e9] p-[5px] md:h-[335px]"
+                    onClick={() => handleGalleryOpen('detail_main_image')}
+                  >
+                    <img
+                      src={galleryImages[activeImageIndex]}
+                      alt={listing.title}
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                    />
+                    <ImageWatermark />
+                  </div>
+
+                  <div className="mt-3 flex items-center gap-2 bg-[#efefef] px-2 py-2">
+                    <button
+                      type="button"
+                      onClick={() => setThumbnailPage((prev) => Math.max(prev - 1, 0))}
+                      disabled={thumbnailPage === 0}
+                      className="flex h-[54px] w-5 items-center justify-center text-[#b8b8b8] transition-colors hover:text-[#555] disabled:cursor-not-allowed disabled:opacity-40"
+                      aria-label="Önceki küçük görseller"
+                    >
+                      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+
+                    <div className="grid min-w-0 flex-1 grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8">
+                      {visibleThumbnails.map((img: string, idx: number) => {
+                        const actualIndex = thumbnailPage * thumbnailsPerPage + idx;
+                        const isActive = actualIndex === activeImageIndex;
+
+                        return (
+                          <button
+                            key={`${img}-${actualIndex}`}
+                            type="button"
+                            onClick={() => setActiveImageIndex(actualIndex)}
+                            className={`h-[54px] overflow-hidden border bg-white p-[4px] transition-colors ${
+                              isActive ? 'border-[#666]' : 'border-[#d1d1d1] hover:border-[#8b8b8b]'
+                            }`}
+                          >
+                            <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setThumbnailPage((prev) => Math.min(prev + 1, totalThumbnailPages - 1))}
+                      disabled={thumbnailPage === totalThumbnailPages - 1}
+                      className="flex h-[54px] w-5 items-center justify-center text-[#444] transition-colors hover:text-[#000] disabled:cursor-not-allowed disabled:opacity-40"
+                      aria-label="Sonraki küçük görseller"
+                    >
+                      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+             </div>
              
              {/* Header */}
-             <div className="mb-6">
+             <div className="hidden">
                 <h1 className="text-[#2c2c2c] font-serif font-bold text-2xl md:text-3xl leading-tight mb-2">{listing.title}</h1>
                 <div className="flex items-center text-gray-500 text-sm font-medium mt-2">
                    <svg className="mr-2 h-4 w-4 shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}>
@@ -300,7 +398,7 @@ const ListingDetail: React.FC = () => {
                 </div>
              </div>
 
-             <div className="mb-6 overflow-hidden rounded-[16px] border border-[#ebcf8d] bg-[linear-gradient(135deg,#d99e11_0%,#efb126_46%,#d5960d_100%)] shadow-[0_16px_34px_rgba(205,150,16,0.18)]">
+             <div className="hidden">
                 <div className="flex flex-col gap-4 px-5 py-4 text-white md:flex-row md:items-center md:justify-between md:px-6">
                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
                       <span className="inline-flex w-fit items-center rounded-full bg-white/14 px-4 py-1.5 text-base font-bold uppercase tracking-[0.045em] backdrop-blur-sm md:text-[17px]">
@@ -320,7 +418,7 @@ const ListingDetail: React.FC = () => {
                       <div className="flex flex-wrap items-end gap-3 md:justify-end">
                          <div className="flex flex-col items-start md:items-end">
                             <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#3f3321]/70">Satış Fiyatı</div>
-                            <div className="mt-1 font-price text-[30px] font-bold leading-none tracking-tight text-[#2a241c] md:text-[38px]">
+                            <div className="mt-1 whitespace-nowrap font-price text-[clamp(26px,3vw,38px)] font-bold leading-none tracking-normal text-[#2a241c] [word-break:keep-all]">
                                {listing.price}
                             </div>
                          </div>
@@ -347,7 +445,7 @@ const ListingDetail: React.FC = () => {
              </div>
 
              {/* Gallery */}
-             <div className="mb-8 overflow-hidden rounded-[8px] border border-[#d9dde3] bg-white shadow-[0_14px_28px_rgba(15,23,42,0.08)]">
+             <div className="hidden">
                 <div
                   className="relative aspect-[16/10] overflow-hidden border-b border-[#dfe4ea] bg-[#eef2f6] cursor-zoom-in group"
                   onClick={() => handleGalleryOpen('detail_main_image')}
@@ -444,20 +542,20 @@ const ListingDetail: React.FC = () => {
                 </div>
              </div>
 
-             <div className="mb-8 overflow-hidden rounded-[18px] border border-[#ece6d6] bg-[linear-gradient(135deg,#fffdf8_0%,#f8f4ea_100%)] shadow-[0_16px_32px_rgba(15,23,42,0.06)]">
-                <div className="flex flex-col gap-4 px-5 py-5 md:flex-row md:items-center md:justify-between md:px-6">
-                   <div className="flex items-center gap-4">
+             <div className="mb-8 min-w-0 overflow-hidden rounded-[18px] border border-[#ece6d6] bg-[linear-gradient(135deg,#fffdf8_0%,#f8f4ea_100%)] shadow-[0_16px_32px_rgba(15,23,42,0.06)]">
+                <div className="flex min-w-0 flex-col gap-4 px-4 py-5 sm:px-5 lg:flex-row lg:items-center lg:justify-between lg:px-6">
+                   <div className="flex min-w-0 items-center gap-4">
                       <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d9a21a_0%,#f0bc3c_100%)] text-lg font-bold tracking-[0.08em] text-white shadow-[0_10px_20px_rgba(217,162,26,0.28)]">
                          YK
                       </div>
-                      <div>
+                      <div className="min-w-0">
                          <div className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#a08c62]">Tek Yetkili</div>
-                         <div className="mt-1 text-[26px] font-semibold tracking-tight text-[#2b2f36]">Yakup Kasa</div>
-                         <div className="mt-1 text-[14px] font-medium text-[#7b8088]">İlan hakkında doğrudan bilgi ve hızlı geri dönüş</div>
+                         <div className="mt-1 text-[23px] font-semibold tracking-tight text-[#2b2f36] sm:text-[26px]">Yakup Kasa</div>
+                         <div className="mt-1 break-words text-[14px] font-medium text-[#7b8088]">İlan hakkında doğrudan bilgi ve hızlı geri dönüş</div>
                       </div>
                    </div>
 
-                   <div className="grid w-full gap-3 md:max-w-[330px] md:justify-items-end xl:max-w-none xl:grid-cols-2">
+                   <div className="grid min-w-0 w-full gap-3 lg:max-w-[330px] lg:justify-items-end xl:max-w-none xl:grid-cols-2">
                       <a
                         href={consultantPhoneHref}
                         onClick={() => handlePhoneClick('detail_consultant_card')}
@@ -475,56 +573,59 @@ const ListingDetail: React.FC = () => {
                       </a>
 
                       <a
-                        href={`mailto:${consultantEmail}`}
+                        href={consultantWhatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => handlePhoneClick('detail_consultant_whatsapp')}
                         className="group flex w-full min-w-0 items-center gap-3 rounded-full border border-[#e7d7ab] bg-white px-4 py-3 text-left shadow-[0_10px_22px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-500/60 hover:shadow-[0_16px_28px_rgba(217,162,26,0.14)] xl:min-w-[250px]"
                       >
                         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold-50 text-gold-600 transition-colors duration-300 group-hover:bg-gold-500 group-hover:text-white">
-                           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 7.5v9a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 16.5v-9m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5m19.5 0v.243a2.25 2.25 0 01-.99 1.87l-7.5 5a2.25 2.25 0 01-2.52 0l-7.5-5a2.25 2.25 0 01-.99-1.87V7.5" />
+                           <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.26-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91a9.84 9.84 0 0 0-2.91-7Zm-7 15.23h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.25-4.37c0-4.54 3.7-8.23 8.24-8.23a8.18 8.18 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23Zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z" />
                            </svg>
                         </span>
-                        <span className="min-w-0">
-                           <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#a08c62]">E-Posta</span>
-                           <span className="mt-0.5 block truncate text-[15px] font-semibold tracking-tight text-[#27303d]">{consultantEmail}</span>
+                        <span className="min-w-0 flex-1">
+                           <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-[#a08c62]">WhatsApp</span>
+                           <span className="mt-0.5 block whitespace-nowrap text-[17px] font-semibold leading-snug tracking-tight text-[#27303d] [word-break:keep-all]">{consultantPhone}</span>
                         </span>
                       </a>
                    </div>
                 </div>
              </div>
 
-             {/* Details Table */}
-             <div className="mb-10">
-                <h3 className="mb-4 border-b border-gray-100 pb-2 text-xl font-bold tracking-tight text-[#2f2f2f]">Özellikler</h3>
+             {/* Legacy Details + Description */}
+             <div
+               className="mb-10 overflow-hidden text-[#333]"
+               style={{
+                 backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                 backgroundRepeat: 'no-repeat',
+                 backgroundPosition: 'center center',
+                 backgroundSize: '100% 100%',
+                 fontFamily: "var(--font-primary)",
+               }}
+             >
                 {propertyDetails.length > 0 ? (
-                <div className="grid grid-cols-1 gap-x-8 gap-y-0 bg-white p-6 rounded-sm shadow-card border border-gray-100 md:grid-cols-2">
-                    {propertyDetails.map((detail, index) => (
-                      <div
-                        key={index}
-                        className="border-b border-[#f0f1f3] px-2 py-4 transition-colors hover:bg-gray-50/60"
-                      >
-                         <div className="grid grid-cols-[118px_auto_minmax(0,1fr)] items-center gap-x-2 sm:grid-cols-[148px_auto_minmax(0,1fr)]">
-                           <span className="text-[15px] font-medium tracking-tight text-[#6b7280]">{detail.label}</span>
-                           <span className="text-[15px] font-medium text-[#9aa1ab]">:</span>
-                           <span className="min-w-0 text-[17px] font-semibold tracking-tight text-[#1f2937]">
-                             {detail.value}
-                           </span>
-                         </div>
+                  <div className="grid min-w-0 grid-cols-1 gap-x-12 border-b-[5px] border-white px-4 py-5 text-[13px] font-medium leading-[1.42] text-[#2f2f2f] sm:px-5 sm:text-[14px] lg:grid-cols-2 lg:px-6">
+                    {[leftPropertyDetails, rightPropertyDetails].map((column, columnIndex) => (
+                      <div key={columnIndex} className="space-y-[3px]">
+                        {column.map((detail, index) => (
+                          <div
+                            key={`${detail.label}-${index}`}
+                            className="grid grid-cols-[118px_10px_minmax(0,1fr)] items-start gap-0 sm:grid-cols-[165px_12px_minmax(0,1fr)] md:grid-cols-[130px_12px_minmax(0,1fr)] xl:grid-cols-[165px_12px_minmax(0,1fr)]"
+                          >
+                            <span className="font-semibold uppercase text-[#343434]">{detail.label}</span>
+                            <span className="font-medium text-[#444]">:</span>
+                            <span className="min-w-0 break-words font-bold text-[#242424]">{detail.value}</span>
+                          </div>
+                        ))}
                       </div>
                     ))}
-                </div>
-                ) : (
-                <div className="rounded-sm border border-gray-100 bg-white p-6 text-sm text-gray-500 shadow-card">
-                    Bu ilan için detay bilgisi girilmemiş.
-                </div>
-                )}
-             </div>
+                  </div>
+                ) : null}
 
-             {/* Description */}
-             <div className="mb-10">
-                <h3 className="text-lg font-serif font-bold text-[#333] mb-4 border-b border-gray-100 pb-2">Açıklama</h3>
-                <div className="bg-white p-6 rounded-sm shadow-card border border-gray-100">
+                <div className="min-w-0 px-4 py-5 text-[18px] font-semibold leading-[1.18] text-[#333] sm:px-5 sm:text-[20px] lg:px-6 lg:leading-[1.08]">
                     <div
-                      className="text-gray-600 font-sans leading-relaxed text-[15px] [&_a]:font-medium [&_a]:text-[#23408f] [&_a]:underline [&_blockquote]:my-4 [&_blockquote]:border-l-4 [&_blockquote]:border-gold-400 [&_blockquote]:bg-[#fffaf0] [&_blockquote]:px-4 [&_blockquote]:py-3 [&_blockquote]:text-[16px] [&_blockquote]:font-medium [&_blockquote]:text-[#5b4a27] [&_code]:rounded [&_code]:bg-[#f3f4f6] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[14px] [&_code]:text-[#1f2937] [&_h1]:mb-3 [&_h1]:mt-6 [&_h1]:text-[30px] [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:text-[#243041] [&_h2]:mb-3 [&_h2]:mt-5 [&_h2]:text-[28px] [&_h2]:font-bold [&_h2]:leading-tight [&_h2]:text-[#243041] [&_h3]:mb-3 [&_h3]:mt-5 [&_h3]:text-[25px] [&_h3]:font-bold [&_h3]:leading-tight [&_h3]:text-[#243041] [&_h4]:mb-2 [&_h4]:mt-4 [&_h4]:text-[20px] [&_h4]:font-semibold [&_h4]:leading-snug [&_h4]:text-[#374355] [&_li]:ml-5 [&_li]:list-disc [&_mark]:rounded-[2px] [&_mark]:px-1 [&_ol]:ml-5 [&_ol]:list-decimal [&_p]:mb-3 [&_pre]:my-4 [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-[#1f2937] [&_pre]:p-4 [&_pre]:font-mono [&_pre]:text-[14px] [&_pre]:text-white [&_s]:line-through [&_strong]:font-semibold"
+                      className="min-w-0 max-w-full [overflow-wrap:anywhere] [&_*]:max-w-full [&_a]:break-all [&_a]:font-semibold [&_a]:text-[#333] [&_a]:underline [&_br]:block [&_h1]:mb-4 [&_h1]:text-[20px] [&_h1]:font-bold [&_h1]:leading-[1.15] [&_h2]:mb-4 [&_h2]:text-[20px] [&_h2]:font-bold [&_h2]:leading-[1.15] [&_h3]:mb-4 [&_h3]:text-[19px] [&_h3]:font-bold [&_h3]:leading-[1.15] [&_h4]:mb-4 [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.15] [&_li]:ml-5 [&_li]:list-disc [&_li]:font-semibold [&_ol]:ml-5 [&_ol]:list-decimal [&_p]:mb-3 [&_p]:font-semibold [&_p]:leading-[1.18] [&_pre]:max-w-full [&_pre]:overflow-x-auto [&_pre]:font-semibold [&_span[style*='red']]:font-extrabold [&_span[style*='red']]:text-red-600 [&_strong]:font-extrabold sm:[&_h1]:text-[22px] sm:[&_h2]:text-[22px] sm:[&_h3]:text-[21px] sm:[&_h4]:text-[20px] lg:[&_h1]:leading-[1.08] lg:[&_h2]:leading-[1.08] lg:[&_h3]:leading-[1.08] lg:[&_h4]:leading-[1.08] lg:[&_p]:leading-[1.08]"
                       dangerouslySetInnerHTML={{ __html: richDescriptionHtml }}
                     />
                 </div>
@@ -546,22 +647,18 @@ const ListingDetail: React.FC = () => {
           {/* RIGHT SIDEBAR */}
           <div className="w-full lg:w-[34%]">
              <div className="sticky top-24 space-y-6">
-                <div className="rounded-[18px] border border-[#eceef2] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-4 shadow-[0_16px_34px_rgba(15,23,42,0.06)]">
-                   {sidebarListings.slice(0, 3).map((item) => (
-                      <SidebarItem key={item.id} item={item} largeImage />
-                   ))}
-                </div>
+                <CompanyCard />
              </div>
           </div>
        </div>
     </div>
 
     {isLightboxOpen && (
-      <div className="fixed inset-0 z-[120] flex items-center justify-center bg-[#191a1c]/94 p-4 backdrop-brightness-[0.34]" onClick={() => setIsLightboxOpen(false)}>
+      <div className="fixed inset-0 z-[120] flex items-center justify-center bg-[#151515]/88 p-2 backdrop-brightness-[0.42] md:p-4" onClick={() => setIsLightboxOpen(false)}>
         <button
           type="button"
           onClick={() => setIsLightboxOpen(false)}
-          className="absolute right-5 top-4 inline-flex items-center gap-2 rounded-sm bg-black/55 px-3 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-black/75"
+          className="absolute right-5 top-4 z-10 inline-flex items-center gap-2 rounded-full bg-black/60 px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-black/80"
           aria-label="Kapat"
         >
           <span>Kapat</span>
@@ -578,7 +675,7 @@ const ListingDetail: React.FC = () => {
                 event.stopPropagation();
                 handleImageChange(activeImageIndex - 1);
               }}
-              className="absolute left-3 top-1/2 inline-flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-sm bg-black/38 text-white transition-colors hover:bg-black/58"
+              className="absolute left-3 top-1/2 z-10 inline-flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white transition-colors hover:bg-black/65"
               aria-label="Önceki resim"
             >
               <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
@@ -591,7 +688,7 @@ const ListingDetail: React.FC = () => {
                 event.stopPropagation();
                 handleImageChange(activeImageIndex + 1);
               }}
-              className="absolute right-3 top-1/2 inline-flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-sm bg-black/38 text-white transition-colors hover:bg-black/58"
+              className="absolute right-3 top-1/2 z-10 inline-flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-white transition-colors hover:bg-black/65"
               aria-label="Sonraki resim"
             >
               <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7}>
@@ -601,7 +698,7 @@ const ListingDetail: React.FC = () => {
           </>
         )}
 
-        <div className="relative max-h-[90vh] w-full max-w-[1180px] overflow-hidden border border-white/10 bg-black/35 shadow-[0_30px_80px_rgba(0,0,0,0.45)]" onClick={(event) => event.stopPropagation()}>
+        <div className="relative max-h-[96vh] w-[calc(100vw-16px)] max-w-[1760px] overflow-hidden border border-white/10 bg-black/35 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:w-[calc(100vw-32px)]" onClick={(event) => event.stopPropagation()}>
           <div className="flex items-center justify-between border-b border-white/10 bg-black/70 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-white/80">
             <span>{listing.ilanNo}</span>
             <span>{activeImageIndex + 1}/{galleryImages.length}</span>
@@ -609,7 +706,7 @@ const ListingDetail: React.FC = () => {
           <img
             src={galleryImages[activeImageIndex]}
             alt={listing.title}
-            className="max-h-[calc(90vh-44px)] w-full cursor-pointer object-contain bg-[#111]"
+            className="h-[calc(94vh-44px)] w-full cursor-pointer bg-[#111] object-contain md:h-[calc(96vh-44px)]"
             decoding="async"
             onClick={() => {
               if (galleryImages.length > 1) {

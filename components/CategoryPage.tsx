@@ -11,7 +11,7 @@ import { stripHtmlTags } from '../lib/richText';
 const CategoryPage: React.FC = () => {
   const params = useParams();
   const location = useLocation();
-  const { listings, recentListings, adSettings, seoSettings } = useData();
+  const { listings, recentListings, seoSettings } = useData();
   const searchQuery = new URLSearchParams(location.search).get('q')?.trim() ?? '';
 
   const pageData = useMemo(() => {
@@ -113,10 +113,11 @@ const CategoryPage: React.FC = () => {
     };
   }, [params, location.pathname, searchQuery, listings, seoSettings]);
 
-  const sidebarRecentListings = recentListings.slice(0, 12);
+  const sidebarRecentListings = recentListings.slice(0, pageData.filteredListings.length || 1);
   const categoryPairedRows = Array.from({
-    length: Math.max(pageData.filteredListings.length || 1, sidebarRecentListings.length),
+    length: sidebarRecentListings.length,
   });
+  const remainingCategoryListings = pageData.filteredListings.slice(sidebarRecentListings.length);
 
   const emptyState = (
     <div className="rounded-[14px] border border-gray-100 bg-white p-10 text-center text-gray-500 shadow-card">
@@ -147,46 +148,49 @@ const CategoryPage: React.FC = () => {
       />
       <FilterBar />
       <div className="container mx-auto max-w-[1320px] px-4 py-8">
-        <div className="mb-6 flex items-center text-xs font-sans uppercase tracking-wider text-gray-500">
+        <div className="mb-6 flex items-center font-sans text-[14px] font-medium uppercase leading-5 tracking-[0.06em] text-gray-500">
           <Link to="/" className="transition-colors hover:text-gold-500">Ana Sayfa</Link>
           <span className="mx-2 text-gray-300">/</span>
           <span className="font-bold text-gold-500">{pageData.pageTitle}</span>
         </div>
 
-        <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,66fr)_minmax(0,34fr)] lg:grid-rows-[68px_auto] lg:gap-x-8 lg:gap-y-6">
-          <div className="mb-6 flex items-end justify-between border-b border-gray-200 pb-2 lg:col-start-1 lg:row-start-1 lg:mb-0 lg:h-[68px]">
+        <div>
+          <div className="mb-6 flex items-end justify-between border-b border-gray-200 pb-2">
             <h1 className="text-2xl font-serif font-bold leading-tight text-[#2c2c2c]">
               {pageData.pageTitle}
             </h1>
             <span className="text-sm font-bold text-gray-400">{pageData.filteredListings.length} İlan</span>
           </div>
 
-          <div className="mb-0 flex h-[68px] items-center justify-between bg-[linear-gradient(135deg,#e5a61b_0%,#f0b52f_55%,#de9f14_100%)] px-6 py-5 font-sans text-xl font-bold uppercase tracking-[0.06em] text-white shadow-[0_14px_28px_rgba(232,175,54,0.22)] lg:col-start-2 lg:row-start-1">
-            <span>SON EKLENENLER</span>
-            <span className="text-sm font-medium normal-case tracking-normal text-white/75">Güncel</span>
-          </div>
-
-          <div className="w-full lg:hidden">
-            {pageData.filteredListings.length > 0 ? (
-              <div className="space-y-6">
-                {pageData.filteredListings.map((listing) => (
-                  <ListingCard key={listing.id} listing={listing} />
-                ))}
-              </div>
-            ) : (
-              emptyState
-            )}
-          </div>
-
-          <div className="mt-8 w-full lg:hidden">
-            <div className="border border-t-0 border-[#eceff3] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)]">
-              {sidebarRecentListings.map((item) => (
-                <SidebarItem key={item.id} item={item} />
-              ))}
+          <div className="lg:hidden">
+            <div className="w-full">
+              {pageData.filteredListings.length > 0 ? (
+                <div className="space-y-6">
+                  {pageData.filteredListings.map((listing, index) => (
+                    <ListingCard key={listing.id} listing={listing} priority={index === 0} />
+                  ))}
+                </div>
+              ) : (
+                emptyState
+              )}
             </div>
+
           </div>
 
-          <div className="hidden lg:col-span-2 lg:row-start-2 lg:grid lg:gap-y-8">
+          <div className="relative hidden space-y-8 lg:block">
+            {sidebarRecentListings.length > 0 && (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute bottom-0 right-0 top-[43px] w-[calc(34%-10.88px)] border border-t-0 border-[#e5ded3]"
+                style={{
+                  backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center top',
+                  backgroundSize: '100% 100%',
+                }}
+              />
+            )}
+
             {categoryPairedRows.map((_, index) => {
               const listing = pageData.filteredListings[index];
               const recentListing = sidebarRecentListings[index];
@@ -195,7 +199,7 @@ const CategoryPage: React.FC = () => {
                 <div key={`${listing?.id ?? 'empty'}-${recentListing?.id ?? 'empty'}-${index}`} className="grid grid-cols-[minmax(0,66fr)_minmax(0,34fr)] items-stretch gap-x-8">
                   <div>
                     {listing ? (
-                      <ListingCard listing={listing} flushSpacing />
+                      <ListingCard listing={listing} flushSpacing priority={index === 0} />
                     ) : index === 0 && pageData.filteredListings.length === 0 ? (
                       <div className="h-full">{emptyState}</div>
                     ) : (
@@ -203,39 +207,60 @@ const CategoryPage: React.FC = () => {
                     )}
                   </div>
 
-                  <div>
+                  <aside className="relative z-10 flex h-full flex-col">
                     {recentListing ? (
-                      <SidebarItem item={recentListing} flushSpacing />
+                      <>
+                        {index === 0 && (
+                          <div
+                            className="flex h-[43px] shrink-0 items-center bg-[#eea904] px-5 text-[21px] font-bold uppercase leading-none text-white"
+                            style={{ fontFamily: "var(--font-primary)" }}
+                          >
+                            SON EKLENENLER
+                          </div>
+                        )}
+                        <div
+                          className="flex-1 border border-t-0 border-[#e5ded3] px-5 py-5 lg:!border-0 lg:!bg-none"
+                          style={{
+                            backgroundImage: `url(${import.meta.env.BASE_URL}textures/detaybg.jpg)`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center top',
+                            backgroundSize: '100% 100%',
+                          }}
+                        >
+                          <SidebarItem item={recentListing} flushSpacing />
+                        </div>
+                        {index === sidebarRecentListings.length - 1 && (
+                          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 z-20 h-[40px] bg-[#eea904]" />
+                        )}
+                      </>
                     ) : (
                       <div className="h-full" />
                     )}
-                  </div>
+                  </aside>
                 </div>
               );
             })}
-
           </div>
-        </div>
 
-        <div className="mt-8">
-          {adSettings.isActive && adSettings.imageUrl ? (
-            <div className="overflow-hidden border border-gray-100 bg-white shadow-sm">
-              {adSettings.linkUrl ? (
-                <a href={adSettings.linkUrl} target="_blank" rel="noopener noreferrer" className="group relative block">
-                  <img src={adSettings.imageUrl} alt="Reklam" className="h-[120px] w-full object-cover md:h-[150px]" loading="lazy" decoding="async" />
-                  <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5"></div>
-                </a>
-              ) : (
-                <img src={adSettings.imageUrl} alt="Reklam" className="h-[120px] w-full object-cover md:h-[150px]" loading="lazy" decoding="async" />
-              )}
-              <div className="bg-gray-50 px-3 py-1 text-right font-sans text-[9px] text-gray-300">REKLAM</div>
+          {remainingCategoryListings.length > 0 && (
+            <div className={`hidden space-y-8 lg:block ${sidebarRecentListings.length > 0 ? 'mt-8' : ''}`}>
+              {remainingCategoryListings.map((listing) => (
+                <div key={listing.id} className="grid grid-cols-[minmax(0,66fr)_minmax(0,34fr)] gap-x-8">
+                  <ListingCard listing={listing} flushSpacing />
+                  <div aria-hidden="true" />
+                </div>
+              ))}
             </div>
-          ) : (
-            <div className="flex h-[120px] items-center justify-center border border-gray-100 bg-white p-4 font-serif italic text-gray-300 shadow-sm md:h-[150px]">
-              Reklam Alanı
+          )}
+
+          {pageData.filteredListings.length === 0 && sidebarRecentListings.length === 0 && (
+            <div className="hidden lg:grid lg:grid-cols-[minmax(0,66fr)_minmax(0,34fr)] lg:gap-x-8">
+              {emptyState}
+              <div aria-hidden="true" />
             </div>
           )}
         </div>
+
       </div>
     </>
   );

@@ -61,7 +61,14 @@ const EntryGate: React.FC = () => {
       setIsRequired(false);
     } catch (submitError) {
       console.error('Entry gate form could not be submitted:', submitError);
-      setError(submitError instanceof Error ? submitError.message : 'Form gönderilemedi. Lütfen tekrar deneyin.');
+      const isConnectionError = submitError instanceof TypeError;
+      setError(
+        isConnectionError
+          ? 'Sunucu bağlantısı kurulamadı. Lütfen kısa bir süre sonra tekrar deneyin.'
+          : submitError instanceof Error
+            ? submitError.message
+            : 'Form gönderilemedi. Lütfen tekrar deneyin.',
+      );
     } finally {
       setIsSubmitting(false);
     }

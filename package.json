@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "tsx scripts/generate-seo-files.ts && tsx scripts/generate-seed-data.ts",
-    "build": "vite build",
+    "build": "vite build && tsx scripts/generate-route-html.ts",
     "preview": "vite preview",
     "server": "node server/index.mjs"
   },

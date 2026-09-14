@@ -5271,16 +5271,16 @@
     "titleSeparator": "|",
     "siteDescription": "İstanbul genelinde satılık arsa, bina, plaza, fabrika, depo ve lüks konut portföyleri için Ada Emlak uzmanlığıyla güvenli gayrimenkul çözümleri.",
     "siteKeywords": "ada emlak, istanbul emlak, satılık arsa, satılık bina, ticari gayrimenkul, depo antrepo, lüks konut, yatırım gayrimenkul",
-    "baseUrl": "http://46.245.164.65/adaemlak",
-    "faviconUrl": "http://46.245.164.65/adaemlak/favicon.svg",
-    "logoUrl": "https://www.adaemlak.com.tr/UserFiles/images/Logolar/adaemlakcomtr.png",
+    "baseUrl": "https://www.adaemlak.com.tr",
+    "faviconUrl": "https://www.adaemlak.com.tr/favicon.svg",
+    "logoUrl": "https://www.adaemlak.com.tr/ada-emlak-logo.png",
     "contactAddress": "Özkul Sokak Köşem Apt. A Blok Daire:4 34740 Bakırköy / İSTANBUL",
-    "contactPhone": "0212 466 32 11",
+    "contactPhone": "+90 532 243 55 22",
     "socialFacebook": "https://facebook.com/adaemlak",
     "socialInstagram": "https://instagram.com/adaemlak",
     "socialTwitter": "https://twitter.com/adaemlak",
-    "robotsTxt": "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /yk-panel-giris\nDisallow: /arama\n\nSitemap: http://46.245.164.65/adaemlak/sitemap.xml",
-    "sitemapUrl": "http://46.245.164.65/adaemlak/sitemap.xml"
+    "robotsTxt": "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /yk-panel-giris\nDisallow: /arama\n\nSitemap: https://www.adaemlak.com.tr/sitemap.xml",
+    "sitemapUrl": "https://www.adaemlak.com.tr/sitemap.xml"
   },
   "generalSettings": {
     "companyName": "ADA EMLAK İNŞAAT SANAYİ ve DIŞ. TİC. LTD. ŞTİ.",

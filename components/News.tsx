@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SidebarItem from './SidebarItem';
 import { useData } from '../context/DataContext';
 import CompanyCard from './CompanyCard';
 import SeoHead from './SeoHead';
+import DesktopRecentListings from './DesktopRecentListings';
 
 const News: React.FC = () => {
   const { news, sidebarListings, seoSettings } = useData();
@@ -29,7 +29,7 @@ const News: React.FC = () => {
 
     <div className="container mx-auto max-w-[1320px] px-4 py-8">
        {/* Breadcrumb */}
-       <div className="flex items-center text-xs text-gray-500 mb-6 font-sans uppercase tracking-wider">
+       <div className="mb-6 flex items-center font-sans text-[14px] font-medium uppercase leading-5 tracking-[0.06em] text-gray-500">
           <Link to="/" className="hover:text-gold-500 transition-colors">Ana Sayfa</Link> 
           <span className="mx-2 text-gray-300">/</span>
           {/* Label remains 'Haberler' but links to '/blog' */}
@@ -106,16 +106,7 @@ const News: React.FC = () => {
                 
                 <CompanyCard />
 
-                <div className="rounded-[16px] bg-[linear-gradient(135deg,#e5a61b_0%,#f0b52f_55%,#de9f14_100%)] text-white font-sans font-bold text-xl py-5 px-6 uppercase shadow-[0_14px_28px_rgba(232,175,54,0.22)] tracking-[0.06em] flex items-center justify-between">
-                   <span>SON EKLENENLER</span>
-                   <span className="text-white/75 text-sm normal-case font-medium tracking-normal">Güncel</span>
-                </div>
-                
-                <div className="rounded-[20px] border border-[#eceff3] bg-[linear-gradient(180deg,#ffffff_0%,#fbfcfd_100%)] p-5 shadow-[0_18px_36px_rgba(15,23,42,0.06)]">
-                   {sidebarListings.slice(0, 3).map((item) => (
-                      <SidebarItem key={item.id} item={item} largeImage />
-                   ))}
-                </div>
+                <DesktopRecentListings items={sidebarListings.slice(0, 3)} />
 
              </div>
           </div>

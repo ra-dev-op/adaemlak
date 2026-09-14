@@ -584,7 +584,7 @@ const AdminListings: React.FC = () => {
                 ctx.rotate((-28 * Math.PI) / 180);
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.font = `700 ${watermarkFontSize}px Arial, sans-serif`;
+                ctx.font = `700 ${watermarkFontSize}px Montserrat, Arial, sans-serif`;
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.14)';
                 ctx.fillText('ADA EMLAK', 0, 0);
                 ctx.restore();

@@ -1,6 +1,6 @@
 import { GeneralSettings, SeoSettings } from '../types';
 
-export const SITE_BASE_URL = 'http://46.245.164.65/adaemlak';
+export const SITE_BASE_URL = (import.meta.env?.VITE_PUBLIC_SITE_URL || 'https://www.adaemlak.com.tr').replace(/\/$/, '');
 
 export const DEFAULT_SEO_SETTINGS: SeoSettings = {
   siteTitle: 'ADA EMLAK',
@@ -11,9 +11,9 @@ export const DEFAULT_SEO_SETTINGS: SeoSettings = {
     'ada emlak, istanbul emlak, satılık arsa, satılık bina, ticari gayrimenkul, depo antrepo, lüks konut, yatırım gayrimenkul',
   baseUrl: SITE_BASE_URL,
   faviconUrl: `${SITE_BASE_URL}/favicon.svg`,
-  logoUrl: 'https://www.adaemlak.com.tr/UserFiles/images/Logolar/adaemlakcomtr.png',
+  logoUrl: `${SITE_BASE_URL}/ada-emlak-logo.png`,
   contactAddress: 'Özkul Sokak Köşem Apt. A Blok Daire:4 34740 Bakırköy / İSTANBUL',
-  contactPhone: '0212 466 32 11',
+  contactPhone: '+90 532 243 55 22',
   socialFacebook: 'https://facebook.com/adaemlak',
   socialInstagram: 'https://instagram.com/adaemlak',
   socialTwitter: 'https://twitter.com/adaemlak',

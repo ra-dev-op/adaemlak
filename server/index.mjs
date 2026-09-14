@@ -17,6 +17,8 @@ const ADMIN_USERNAME = process.env.ADAEMLAK_ADMIN_USERNAME || 'adaemlakyk';
 const ADMIN_PASSWORD = process.env.ADAEMLAK_ADMIN_PASSWORD || '60729663.Yk';
 const TOKEN_SECRET = process.env.ADAEMLAK_TOKEN_SECRET || 'adaemlak-server-token-secret';
 const TOKEN_TTL_MS = 1000 * 60 * 60 * 12;
+const DEFAULT_PUBLIC_SITE_URL = 'https://www.adaemlak.com.tr';
+const LEGACY_PREVIEW_ORIGIN = 'http://46.245.164.65/adaemlak';
 
 fs.mkdirSync(DB_DIR, { recursive: true });
 
@@ -454,6 +456,78 @@ const getState = async () => {
   return JSON.parse(row.payload);
 };
 
+const normalizePublicSeoSettings = (state) => {
+  const current = state.seoSettings || {};
+  const currentBaseUrl = String(current.baseUrl || '').replace(/\/$/, '');
+  const shouldMigrate = !currentBaseUrl || currentBaseUrl === LEGACY_PREVIEW_ORIGIN;
+  const baseUrl = shouldMigrate ? DEFAULT_PUBLIC_SITE_URL : currentBaseUrl;
+
+  return {
+    ...state,
+    seoSettings: {
+      ...current,
+      baseUrl,
+      faviconUrl:
+        !current.faviconUrl || String(current.faviconUrl).startsWith(LEGACY_PREVIEW_ORIGIN)
+          ? `${baseUrl}/favicon.svg`
+          : current.faviconUrl,
+      sitemapUrl:
+        !current.sitemapUrl || String(current.sitemapUrl).startsWith(LEGACY_PREVIEW_ORIGIN)
+          ? `${baseUrl}/sitemap.xml`
+          : current.sitemapUrl,
+      robotsTxt: String(current.robotsTxt || '')
+        .replaceAll(LEGACY_PREVIEW_ORIGIN, baseUrl)
+        .replace(/Disallow:\s*\/adaemlak\//g, 'Disallow: /'),
+    },
+  };
+};
+
+const escapeXml = (value) =>
+  String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+
+const slugify = (value) =>
+  String(value || '')
+    .replace(/[çğıöşüÇĞİIÖŞÜ]/g, (character) => ({ ç: 'c', ğ: 'g', ı: 'i', ö: 'o', ş: 's', ü: 'u', Ç: 'c', Ğ: 'g', İ: 'i', I: 'i', Ö: 'o', Ş: 's', Ü: 'u' })[character] || character)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const listingPath = (listing) => `/ilan/${slugify(listing.ilanNo || listing.id)}-${slugify(listing.title)}`;
+
+const buildDynamicSitemap = (state) => {
+  const normalizedState = normalizePublicSeoSettings(state);
+  const baseUrl = normalizedState.seoSettings.baseUrl.replace(/\/$/, '');
+  const staticPaths = ['/', '/hakkimizda', '/referanslar', '/iletisim', '/blog', '/kvkk', '/gizlilik-politikasi', '/cerez-politikasi', '/acik-riza-metni', '/veri-sahibi-basvuru-formu', '/kullanim-kosullari'];
+  const categoryPaths = ['/arsa', '/bina', '/plaza', '/fabrika', '/is-yeri', '/luks-konut'];
+  const listingEntries = (normalizedState.listings || [])
+    .filter((listing) => listing.status === 'active')
+    .map((listing) => ({ path: listingPath(listing), lastmod: listing.createdDate || listing.updateDate }));
+  const blogEntries = (normalizedState.news || [])
+    .filter((item) => item.status !== 'draft' && item.slug)
+    .map((item) => ({ path: `/blog/${item.slug}`, lastmod: item.publishedDateIso || item.date }));
+  const entries = [
+    ...staticPaths.map((pathValue) => ({ path: pathValue })),
+    ...categoryPaths.map((pathValue) => ({ path: pathValue })),
+    ...listingEntries,
+    ...blogEntries,
+  ];
+
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...entries.map((entry) => {
+      const lastmod = entry.lastmod && /^\d{4}-\d{2}-\d{2}/.test(entry.lastmod) ? `<lastmod>${escapeXml(entry.lastmod.slice(0, 10))}</lastmod>` : '';
+      return `<url><loc>${escapeXml(`${baseUrl}${entry.path}`)}</loc>${lastmod}</url>`;
+    }),
+    '</urlset>',
+  ].join('\n');
+};
+
 const saveState = async (state) => {
   await dbRun('UPDATE app_state SET payload = ?, updated_at = ? WHERE id = 1', [
     JSON.stringify(state),
@@ -510,7 +584,9 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 app.use((req, res, next) => {
-  res.setHeader('X-Powered-By', 'AdaEmlak-API');
+  res.removeHeader('X-Powered-By');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   next();
 });
 
@@ -596,8 +672,22 @@ app.get('/api/health', async (_req, res) => {
 });
 
 app.get('/api/bootstrap', async (_req, res) => {
-  const state = await getState();
+  const state = normalizePublicSeoSettings(await getState());
+  res.setHeader('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
   res.json(sanitizePublicState(state));
+});
+
+app.get('/robots.txt', async (_req, res) => {
+  const state = normalizePublicSeoSettings(await getState());
+  const fallback = `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /yk-panel-giris\nDisallow: /arama\n\nSitemap: ${state.seoSettings.baseUrl}/sitemap.xml\n`;
+  res.type('text/plain').setHeader('Cache-Control', 'public, max-age=300');
+  res.send(state.seoSettings.robotsTxt || fallback);
+});
+
+app.get('/sitemap.xml', async (_req, res) => {
+  const state = await getState();
+  res.type('application/xml').setHeader('Cache-Control', 'public, max-age=300');
+  res.send(buildDynamicSitemap(state));
 });
 
 app.get('/api/entry-lead/status', async (req, res) => {
@@ -734,7 +824,7 @@ app.post('/api/admin/login', async (req, res) => {
 });
 
 app.get('/api/admin/bootstrap', requireAdminAuth, async (_req, res) => {
-  const state = await getState();
+  const state = normalizePublicSeoSettings(await getState());
   res.json(state);
 });
 
@@ -758,7 +848,7 @@ app.get('/api/admin/listing-analytics/:id', requireAdminAuth, async (req, res) =
 
 app.put('/api/admin/state', requireAdminAuth, async (req, res) => {
   const fallback = await getState();
-  const nextState = normalizeState(req.body, fallback);
+  const nextState = normalizePublicSeoSettings(normalizeState(req.body, fallback));
   await saveState(nextState);
   res.json({ success: true });
 });

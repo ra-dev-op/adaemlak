@@ -55,11 +55,22 @@ from pathlib import Path
 path = Path("/etc/nginx/sites-enabled/default")
 content = path.read_text()
 needle = """    location /adaemlak/ {\n        alias /var/www/adaemlak/;\n        try_files $uri $uri/ /adaemlak/index.html;\n    }\n"""
+replacement = """    location /adaemlak/ {\n        alias /var/www/adaemlak/;\n        add_header Cache-Control \"no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0\" always;\n        try_files $uri $uri/ /adaemlak/index.html;\n    }\n"""
 block = """    location /adaemlak/api/ {\n        proxy_pass http://127.0.0.1:3205/api/;\n        proxy_http_version 1.1;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header X-Forwarded-Proto $scheme;\n    }\n\n"""
+
+seo_block = """    location = /adaemlak/robots.txt {\n        proxy_pass http://127.0.0.1:3205/robots.txt;\n    }\n\n    location = /adaemlak/sitemap.xml {\n        proxy_pass http://127.0.0.1:3205/sitemap.xml;\n    }\n\n"""
+
+cache_block = """    location ~* ^/adaemlak/.+\\.(?:css|js|gif|png|jpg|jpeg|svg|webp|woff2)$ {\n        root /var/www;\n        expires 30d;\n        add_header Cache-Control \"public, immutable\";\n    }\n\n"""
 
 if "location /adaemlak/api/" not in content and needle in content:
     content = content.replace(needle, block + needle)
-    path.write_text(content)
+if "location = /adaemlak/robots.txt" not in content and needle in content:
+    content = content.replace(needle, seo_block + needle)
+if "location ~* ^/adaemlak/.+" not in content and needle in content:
+    content = content.replace(needle, cache_block + needle)
+if needle in content:
+    content = content.replace(needle, replacement)
+path.write_text(content)
 PY
 
 chown -R root:root "${APP_DIR}"
@@ -68,5 +79,6 @@ chown -R www-data:www-data "${DB_DIR}" "${STATIC_DIR}"
 
 systemctl daemon-reload
 systemctl enable --now adaemlak-api
+systemctl restart adaemlak-api
 nginx -t
 systemctl reload nginx

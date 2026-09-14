@@ -43,7 +43,7 @@ const Login: React.FC = () => {
       <div className="bg-white p-8 rounded-sm shadow-card w-full max-w-md border-t-4 border-gold-500">
         <div className="text-center mb-8">
             <Link to="/" className="inline-block">
-              <img src="https://www.adaemlak.com.tr/UserFiles/images/Logolar/adaemlakcomtr.png" alt="Logo" className="h-16 mx-auto mb-4 object-contain transition-transform duration-300 hover:scale-[1.02]" />
+              <img src={`${import.meta.env.BASE_URL}ada-emlak-logo.png`} alt="Ada Emlak" width="151" height="81" className="h-16 mx-auto mb-4 object-contain transition-transform duration-300 hover:scale-[1.02]" />
             </Link>
             <h2 className="text-2xl font-serif font-bold text-gray-700">Yönetim Paneli</h2>
         </div>

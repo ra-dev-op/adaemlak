@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScriptInjector from './components/ScriptInjector';
-import EntryGate from './components/EntryGate';
 import { DataProvider } from './context/DataContext';
 import { ADMIN_LOGIN_PATH } from './config/adminAuth';
 
@@ -27,7 +26,6 @@ const AdminPerformance = lazy(() => import('./components/admin/AdminPerformance'
 const AdminNews = lazy(() => import('./components/admin/AdminNews'));
 const AdminMessages = lazy(() => import('./components/admin/AdminMessages'));
 const AdminGoogle = lazy(() => import('./components/admin/AdminGoogle'));
-const AdminAds = lazy(() => import('./components/admin/AdminAds'));
 const AdminSeo = lazy(() => import('./components/admin/AdminSeo'));
 const AdminSettings = lazy(() => import('./components/admin/AdminSettings'));
 
@@ -58,12 +56,11 @@ function ScrollToTop() {
 
 const PublicLayout = () => (
   <>
-    <EntryGate />
     <Header />
     <Navbar />
-    <div className="min-h-[60vh] pb-24 lg:pb-0">
+    <main className="min-h-[60vh] pb-24 lg:pb-0">
         <Outlet />
-    </div>
+    </main>
     <div className="hidden lg:block">
       <Footer />
     </div>
@@ -76,7 +73,7 @@ function App() {
   return (
     <DataProvider>
       <ScriptInjector />
-      <div className="min-h-screen font-sans text-gray-700 bg-[#f9f9f9]">
+      <div className="min-h-screen bg-transparent font-sans text-gray-700">
         <BrowserRouter basename={routerBaseName}>
           <ScrollToTop />
           <Suspense fallback={<PageLoader />}>
@@ -120,7 +117,6 @@ function App() {
                 <Route path="news" element={<AdminNews />} />
                 <Route path="messages" element={<AdminMessages />} />
                 <Route path="google" element={<AdminGoogle />} />
-                <Route path="ads" element={<AdminAds />} />
                 <Route path="seo" element={<AdminSeo />} />
                 <Route path="settings" element={<AdminSettings />} />
               </Route>

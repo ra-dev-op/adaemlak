@@ -17,7 +17,7 @@ const CompanyCard: React.FC = () => {
                 <div className="flex flex-col items-center text-center">
                     <Link to="/" className="inline-flex rounded-[20px] border border-[#f1ede4] bg-white px-6 py-4 shadow-[0_14px_30px_rgba(15,23,42,0.06)] transition-transform duration-300 hover:scale-[1.02]">
                         <img 
-                            src="https://www.adaemlak.com.tr/UserFiles/images/Logolar/adaemlakcomtr.png" 
+                            src={`${import.meta.env.BASE_URL}ada-emlak-logo.png`}
                             alt="Ada Emlak" 
                             className="h-[72px] object-contain"
                         />
@@ -54,9 +54,9 @@ const CompanyCard: React.FC = () => {
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold-100 bg-[linear-gradient(180deg,#fffdfa_0%,#fff4d9_100%)] text-gold-600 shadow-sm">
                         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                         <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#a18d65]">E-Posta</div>
-                        <div className="mt-1 truncate text-[15px] font-semibold tracking-tight text-[#2d3746]">{generalSettings.contactEmail}</div>
+                        <div className="mt-1 whitespace-nowrap text-[clamp(12px,1.05vw,14px)] font-semibold leading-snug tracking-normal text-[#2d3746] [word-break:keep-all]">{generalSettings.contactEmail}</div>
                     </div>
                 </a>
 

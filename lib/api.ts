@@ -1,7 +1,7 @@
 import { getAdminToken } from '../config/adminAuth';
 import { AdminState, ListingAnalytics, ListingAnalyticsDetail, Message, PublicBootstrap } from '../types';
 
-const API_BASE = import.meta.env.PROD ? '/adaemlak/api' : '/api';
+const API_BASE = `${import.meta.env.BASE_URL}api`.replace(/\/$/, '');
 export type ListingAnalyticsEventType = 'view' | 'card_click' | 'phone_click' | 'gallery_open';
 
 const parseResponse = async <T,>(response: Response): Promise<T> => {
