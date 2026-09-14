@@ -90,7 +90,7 @@ const renderHtml = (meta: RouteMeta) => {
 
 const homeRoute: RouteMeta = {
   route: '/',
-  title: 'ADA EMLAK | İstanbul Gayrimenkul Yatırım Danışmanlığı',
+  title: 'Ada Emlak | İstanbul Ticari Gayrimenkul ve Yatırım Danışmanlığı',
   description: DEFAULT_SEO_SETTINGS.siteDescription,
   image: DEFAULT_SEO_SETTINGS.logoUrl,
   summaryItems: [

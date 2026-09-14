@@ -13,9 +13,9 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <h1 className="sr-only">İstanbul Gayrimenkul Yatırım Danışmanlığı ve Güncel Emlak İlanları</h1>
+      <h1 className="sr-only">İstanbul Ticari Gayrimenkul ve Yatırım Danışmanlığı</h1>
       <SeoHead 
-        title="İstanbul Gayrimenkul Yatırım Danışmanlığı"
+        title="İstanbul Ticari Gayrimenkul ve Yatırım Danışmanlığı"
         description={seoSettings.siteDescription}
         keywords={seoSettings.siteKeywords}
         schema={{

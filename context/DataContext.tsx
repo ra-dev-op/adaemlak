@@ -13,7 +13,7 @@ import {
   SidebarListing,
 } from '../types';
 import { MAIN_LISTINGS, NEWS_ITEMS } from '../constants';
-import { DEFAULT_GENERAL_SETTINGS, DEFAULT_SEO_SETTINGS } from '../config/siteDefaults';
+import { DEFAULT_GENERAL_SETTINGS, DEFAULT_SEO_SETTINGS, SEARCH_CONSOLE_META } from '../config/siteDefaults';
 import { fetchAdminBootstrap, fetchListingAnalytics, fetchPublicBootstrap, persistAdminState, submitContactMessage } from '../lib/api';
 import { isAdminAuthenticated } from '../config/adminAuth';
 
@@ -53,7 +53,7 @@ const INITIAL_MESSAGES: Message[] = [];
 const initialGoogleSettings: GoogleSettings = {
   analyticsId: 'UA-28215240-1',
   tagManagerId: '',
-  searchConsoleMeta: '',
+  searchConsoleMeta: SEARCH_CONSOLE_META,
   adsConversionId: '',
   adsLabel: '',
 };

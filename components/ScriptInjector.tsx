@@ -97,9 +97,15 @@ const ScriptInjector: React.FC = () => {
     }
 
     const verificationMeta = document.querySelector('meta[name="google-site-verification"]');
-    const match = googleSettings.searchConsoleMeta.match(/content="([^"]*)"/);
+    const verificationValue = (() => {
+      const rawValue = googleSettings.searchConsoleMeta.trim();
+      const contentMatch = rawValue.match(/content=["']([^"']*)["']/);
+      const assignmentMatch = rawValue.match(/google-site-verification=([^\s"'<>]+)/);
 
-    if (match && match[1]) {
+      return contentMatch?.[1] || assignmentMatch?.[1] || (!rawValue.includes('<') ? rawValue : '');
+    })();
+
+    if (verificationValue) {
       const meta =
         verificationMeta ||
         (() => {
@@ -109,7 +115,7 @@ const ScriptInjector: React.FC = () => {
           return newMeta;
         })();
 
-      meta.setAttribute('content', match[1]);
+      meta.setAttribute('content', verificationValue);
     } else if (verificationMeta) {
       verificationMeta.remove();
     }

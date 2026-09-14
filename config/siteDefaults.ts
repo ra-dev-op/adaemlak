@@ -1,12 +1,14 @@
 import { GeneralSettings, SeoSettings } from '../types';
 
 export const SITE_BASE_URL = (import.meta.env?.VITE_PUBLIC_SITE_URL || 'https://www.adaemlak.com.tr').replace(/\/$/, '');
+export const SEARCH_CONSOLE_VERIFICATION = 'YM2OfHdcsErA0hNnMK2KitHIFo6BW_SS9yHq9iPztwM';
+export const SEARCH_CONSOLE_META = `<meta name="google-site-verification" content="${SEARCH_CONSOLE_VERIFICATION}" />`;
 
 export const DEFAULT_SEO_SETTINGS: SeoSettings = {
-  siteTitle: 'ADA EMLAK',
+  siteTitle: 'Ada Emlak',
   titleSeparator: '|',
   siteDescription:
-    'İstanbul genelinde satılık arsa, bina, plaza, fabrika, depo ve lüks konut portföyleri için Ada Emlak uzmanlığıyla güvenli gayrimenkul çözümleri.',
+    'İstanbul’da satılık arsa, bina, plaza, fabrika, depo ve konut portföyleri. Ada Emlak ile ticari gayrimenkul yatırımlarında güvenli danışmanlık.',
   siteKeywords:
     'ada emlak, istanbul emlak, satılık arsa, satılık bina, ticari gayrimenkul, depo antrepo, lüks konut, yatırım gayrimenkul',
   baseUrl: SITE_BASE_URL,

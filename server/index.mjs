@@ -19,6 +19,9 @@ const TOKEN_SECRET = process.env.ADAEMLAK_TOKEN_SECRET || 'adaemlak-server-token
 const TOKEN_TTL_MS = 1000 * 60 * 60 * 12;
 const DEFAULT_PUBLIC_SITE_URL = 'https://www.adaemlak.com.tr';
 const LEGACY_PREVIEW_ORIGIN = 'http://46.245.164.65/adaemlak';
+const SEARCH_CONSOLE_META = '<meta name="google-site-verification" content="YM2OfHdcsErA0hNnMK2KitHIFo6BW_SS9yHq9iPztwM" />';
+const LEGACY_SITE_DESCRIPTION = 'İstanbul genelinde satılık arsa, bina, plaza, fabrika, depo ve lüks konut portföyleri için Ada Emlak uzmanlığıyla güvenli gayrimenkul çözümleri.';
+const DEFAULT_SITE_DESCRIPTION = 'İstanbul’da satılık arsa, bina, plaza, fabrika, depo ve konut portföyleri. Ada Emlak ile ticari gayrimenkul yatırımlarında güvenli danışmanlık.';
 
 fs.mkdirSync(DB_DIR, { recursive: true });
 
@@ -56,12 +59,45 @@ const normalizeState = (payload, fallback) => ({
   messages: Array.isArray(payload?.messages) ? payload.messages : fallback.messages,
   googleSettings:
     payload?.googleSettings && typeof payload.googleSettings === 'object'
-      ? { analyticsId: 'UA-28215240-1', tagManagerId: '', searchConsoleMeta: '', adsConversionId: '', adsLabel: '', ...payload.googleSettings }
-      : { analyticsId: 'UA-28215240-1', tagManagerId: '', searchConsoleMeta: '', adsConversionId: '', adsLabel: '', ...(fallback.googleSettings || {}) },
+      ? { analyticsId: 'UA-28215240-1', tagManagerId: '', searchConsoleMeta: SEARCH_CONSOLE_META, adsConversionId: '', adsLabel: '', ...payload.googleSettings }
+      : { analyticsId: 'UA-28215240-1', tagManagerId: '', searchConsoleMeta: SEARCH_CONSOLE_META, adsConversionId: '', adsLabel: '', ...(fallback.googleSettings || {}) },
   seoSettings: payload?.seoSettings && typeof payload.seoSettings === 'object' ? payload.seoSettings : fallback.seoSettings,
   generalSettings: payload?.generalSettings && typeof payload.generalSettings === 'object' ? payload.generalSettings : fallback.generalSettings,
   adSettings: payload?.adSettings && typeof payload.adSettings === 'object' ? payload.adSettings : fallback.adSettings,
 });
+
+const migrateSeoAndGoogleSettings = (currentState) => {
+  const currentSeo = currentState?.seoSettings || {};
+  const currentGoogle = currentState?.googleSettings || {};
+  let hasChanged = false;
+
+  const nextSeo = { ...currentSeo };
+  const nextGoogle = { ...currentGoogle };
+
+  if (!nextGoogle.searchConsoleMeta) {
+    nextGoogle.searchConsoleMeta = SEARCH_CONSOLE_META;
+    hasChanged = true;
+  }
+
+  if (!nextSeo.siteDescription || nextSeo.siteDescription === LEGACY_SITE_DESCRIPTION) {
+    nextSeo.siteDescription = DEFAULT_SITE_DESCRIPTION;
+    hasChanged = true;
+  }
+
+  if (!nextSeo.siteTitle || nextSeo.siteTitle === 'ADA EMLAK') {
+    nextSeo.siteTitle = 'Ada Emlak';
+    hasChanged = true;
+  }
+
+  return {
+    hasChanged,
+    state: {
+      ...currentState,
+      seoSettings: nextSeo,
+      googleSettings: nextGoogle,
+    },
+  };
+};
 
 const mergeListingDetailsFromSeed = (currentState, seedState) => {
   const seedListingMap = new Map((seedState?.listings || []).map((listing) => [listing.id, listing]));
@@ -134,10 +170,11 @@ const ensureState = async () => {
     const currentState = JSON.parse(row.payload);
     const seedState = normalizeState(loadSeedState(), loadSeedState());
     const merged = mergeListingDetailsFromSeed(currentState, seedState);
+    const migrated = migrateSeoAndGoogleSettings(merged.state);
 
-    if (merged.hasChanged) {
+    if (merged.hasChanged || migrated.hasChanged) {
       await dbRun('UPDATE app_state SET payload = ?, updated_at = ? WHERE id = 1', [
-        JSON.stringify(merged.state),
+        JSON.stringify(migrated.state),
         new Date().toISOString(),
       ]);
     }

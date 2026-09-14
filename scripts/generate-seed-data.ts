@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { MAIN_LISTINGS, NEWS_ITEMS } from '../constants';
-import { DEFAULT_GENERAL_SETTINGS, DEFAULT_SEO_SETTINGS } from '../config/siteDefaults';
+import { DEFAULT_GENERAL_SETTINGS, DEFAULT_SEO_SETTINGS, SEARCH_CONSOLE_META } from '../config/siteDefaults';
 import { AdminState } from '../types';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +17,7 @@ const seedState: AdminState = {
   googleSettings: {
     analyticsId: 'UA-28215240-1',
     tagManagerId: '',
-    searchConsoleMeta: '',
+    searchConsoleMeta: SEARCH_CONSOLE_META,
     adsConversionId: '',
     adsLabel: '',
   },
