@@ -542,8 +542,18 @@ const AdminListings: React.FC = () => {
   };
 
   const handleArchive = (listing: Listing) => {
-    const newStatus = listing.status === 'archived' ? 'active' : 'archived';
-    updateListing({ ...listing, status: newStatus });
+    const isArchived = listing.status === 'archived';
+    const nextListing: Listing = isArchived
+        ? { ...listing, status: 'active' }
+        : {
+            ...listing,
+            status: 'archived',
+            homepage_featured: false,
+            homepage_order: undefined,
+        };
+
+    updateListing(nextListing);
+    setFilterStatus(isArchived ? 'active' : 'archived');
   };
 
   // NOTE: New Homepage logic is now handled inside HomepageCell component which calls updateHomepageOrder directly
@@ -750,6 +760,8 @@ const AdminListings: React.FC = () => {
       if (filterStatus === 'all') return true;
       return (l.status || 'active') === filterStatus;
   });
+  const activeListingsCount = listings.filter(l => (l.status || 'active') === 'active').length;
+  const archivedListingsCount = listings.filter(l => l.status === 'archived').length;
 
   return (
     <div>
@@ -991,27 +1003,31 @@ const AdminListings: React.FC = () => {
             <>
                 {/* Filter Tabs */}
                 <div className="mb-6 flex flex-wrap gap-2">
-                    <button onClick={() => setFilterStatus('active')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'active' ? 'bg-gold-500 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Yayındakiler</button>
-                    <button onClick={() => setFilterStatus('archived')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'archived' ? 'bg-gray-800 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Arşivdekiler</button>
-                    <button onClick={() => setFilterStatus('all')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Tümü</button>
+                    <button onClick={() => setFilterStatus('active')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'active' ? 'bg-gold-500 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Yayındakiler ({activeListingsCount})</button>
+                    <button onClick={() => setFilterStatus('archived')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'archived' ? 'bg-gray-800 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Yayından Alınanlar ({archivedListingsCount})</button>
+                    <button onClick={() => setFilterStatus('all')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Tümü ({listings.length})</button>
+                    <div className="basis-full pt-1 text-xs font-semibold text-gray-500">
+                        “Yayından Al” butonu ilanı siteden kaldırır; arşivde tutar ve gerektiğinde tekrar yayına alabilirsiniz.
+                    </div>
                 </div>
 
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200/60 overflow-hidden">
                     <div className="overflow-x-auto">
-                    <table className="w-full min-w-[980px] text-sm text-left text-gray-500">
+                    <table className="w-full min-w-[1120px] text-sm text-left text-gray-500">
                         <thead className="text-xs text-gray-500 uppercase bg-gray-50/50 border-b border-gray-100">
                             <tr>
                                 <th className="px-6 py-4 font-semibold tracking-wider">Resim</th>
                                 <th className="px-6 py-4 font-semibold tracking-wider">İlan No</th>
                                 <th className="px-6 py-4 font-semibold tracking-wider">Başlık</th>
                                 <th className="px-6 py-4 font-semibold tracking-wider">Kategori</th>
+                                <th className="px-6 py-4 font-semibold tracking-wider">Durum</th>
                                 <th className="px-6 py-4 font-semibold tracking-wider text-center w-36">Ana Sayfa</th>
                                 <th className="px-6 py-4 font-semibold tracking-wider text-right">İşlemler</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
                             {filteredListings.length === 0 ? (
-                                <tr><td colSpan={6} className="text-center py-10 text-gray-400">Bu kategoride ilan bulunamadı.</td></tr>
+                                <tr><td colSpan={7} className="text-center py-10 text-gray-400">Bu kategoride ilan bulunamadı.</td></tr>
                             ) : filteredListings.map(l => (
                                 <tr key={l.id} className={`bg-white hover:bg-gray-50/80 transition-colors ${(l.status === 'archived') ? 'opacity-60 bg-gray-50' : ''}`}>
                                     <td className="px-6 py-4">
@@ -1020,6 +1036,19 @@ const AdminListings: React.FC = () => {
                                     <td className="px-6 py-4 font-mono text-xs font-bold text-gray-600">{l.ilanNo}</td>
                                     <td className="px-6 py-4 font-medium text-gray-900 max-w-xs truncate" title={l.title}>{l.title}</td>
                                     <td className="px-6 py-4 text-xs font-bold uppercase tracking-wide text-gray-500">{l.category}</td>
+                                    <td className="px-6 py-4">
+                                        {(l.status || 'active') === 'active' ? (
+                                            <span className="inline-flex items-center gap-1.5 rounded-full border border-green-100 bg-green-50 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.12em] text-green-700">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                                Yayında
+                                            </span>
+                                        ) : (
+                                            <span className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.12em] text-gray-600">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-gray-400"></span>
+                                                Yayından Alındı
+                                            </span>
+                                        )}
+                                    </td>
                                     <td className="px-4 py-4 text-center align-middle">
                                         {l.status === 'active' ? (
                                             <HomepageCell listing={l} onUpdate={updateHomepageOrder} />
@@ -1028,7 +1057,7 @@ const AdminListings: React.FC = () => {
                                         )}
                                     </td>
                                     <td className="px-6 py-4 text-right">
-                                        <div className="flex justify-end gap-2">
+                                        <div className="flex flex-wrap justify-end gap-2">
                                             <button 
                                                 onClick={() => handleEdit(l)} 
                                                 className="text-gray-400 hover:text-blue-600 p-1.5 hover:bg-blue-50 rounded transition-colors"
@@ -1038,13 +1067,20 @@ const AdminListings: React.FC = () => {
                                             </button>
                                             <button 
                                                 onClick={() => handleArchive(l)} 
-                                                className={`p-1.5 rounded transition-colors ${l.status === 'archived' ? 'text-green-400 hover:text-green-600 hover:bg-green-50' : 'text-gray-400 hover:text-gray-600 hover:bg-gray-100'}`}
-                                                title={l.status === 'archived' ? 'Yayına Al' : 'Arşivle'}
+                                                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.12em] transition-all ${l.status === 'archived' ? 'border border-green-100 bg-green-50 text-green-700 hover:border-green-300 hover:bg-green-100' : 'border border-orange-100 bg-orange-50 text-orange-700 hover:border-orange-300 hover:bg-orange-100'}`}
+                                                title={l.status === 'archived' ? 'İlanı tekrar yayına al' : 'İlanı siteden kaldır ve arşive al'}
                                             >
-                                                {l.status === 'archived' ? 
-                                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> : 
-                                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
-                                                }
+                                                {l.status === 'archived' ? (
+                                                    <>
+                                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                                        Yayına Al
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
+                                                        Yayından Al
+                                                    </>
+                                                )}
                                             </button>
                                             <button 
                                                 onClick={() => { if(window.confirm('Bu ilanı silmek istediğinize emin misiniz?')) deleteListing(l.id) }} 
