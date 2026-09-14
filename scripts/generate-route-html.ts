@@ -70,15 +70,32 @@ const staticRoutes: RouteMeta[] = [
   { route: '/blog', title: 'Gayrimenkul Haberleri ve Rehberler', description: 'Gayrimenkul yatırımı, tapu işlemleri ve piyasa gelişmeleri hakkında uzman içerikler.' },
 ];
 
-const categorySlugs = new Set([
-  ...Object.keys(SLUG_TO_CATEGORIES),
-  ...NAV_MENU.flatMap((item) => item.externalUrl ? [] : item.subItems.map((subItem) => subItem.link.replace(/^\//, ''))),
-]);
-const categoryRoutes: RouteMeta[] = [...categorySlugs].map((slug) => ({
-  route: `/${slug}`,
-  title: `${slug.split('-').map((part) => part.charAt(0).toLocaleUpperCase('tr-TR') + part.slice(1)).join(' ')} İlanları`,
-  description: `Ada Emlak güncel ${slug.replace(/-/g, ' ')} portföylerini, konum ve fiyat bilgileriyle inceleyin.`,
-}));
+const categoryRouteMap = new Map<string, RouteMeta>();
+
+Object.keys(SLUG_TO_CATEGORIES).forEach((slug) => {
+  const menuLabel = NAV_MENU.find((item) => item.slug === slug)?.label;
+  const title = menuLabel || slug.split('-').map((part) => part.charAt(0).toLocaleUpperCase('tr-TR') + part.slice(1)).join(' ');
+
+  categoryRouteMap.set(`/${slug}`, {
+    route: `/${slug}`,
+    title: `${title} İlanları`,
+    description: `Ada Emlak güncel ${title.toLocaleLowerCase('tr-TR')} portföylerini, konum ve fiyat bilgileriyle inceleyin.`,
+  });
+});
+
+NAV_MENU.forEach((item) => {
+  if (item.externalUrl) return;
+
+  item.subItems.forEach((subItem) => {
+    categoryRouteMap.set(subItem.link, {
+      route: subItem.link,
+      title: `${subItem.label} İlanları`,
+      description: `Ada Emlak güncel ${subItem.label.toLocaleLowerCase('tr-TR')} portföylerini, konum ve fiyat bilgileriyle inceleyin.`,
+    });
+  });
+});
+
+const categoryRoutes: RouteMeta[] = [...categoryRouteMap.values()];
 
 const listingRoutes: RouteMeta[] = LIVE_MAIN_LISTINGS.filter((listing) => listing.status === 'active').map((listing) => ({
   route: getListingUrl(listing),
