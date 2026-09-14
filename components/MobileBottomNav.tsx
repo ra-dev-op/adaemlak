@@ -7,7 +7,7 @@ interface MobileBottomNavProps {
   onOpenMenu: () => void;
 }
 
-const CATEGORY_PATHS = ['/arsa', '/bina', '/plaza', '/fabrika', '/depo-antrepo', '/is-yeri', '/luks-konut'];
+const CATEGORY_PATHS = ['/arsa', '/bina', '/plaza', '/fabrika', '/depo-antrepo', '/is-yeri', '/konut', '/luks-konut'];
 
 const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenCategories, onOpenMenu }) => {
   const location = useLocation();

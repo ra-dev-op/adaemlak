@@ -5,6 +5,7 @@ import { LIVE_MAIN_LISTINGS, LIVE_SIDEBAR_LISTINGS } from './data/liveListings.g
 // STRICT CATEGORY LIST
 export const CATEGORIES = [
   "SATILIK KONUT", "KİRALIK KONUT",
+  "SATILIK LÜKS KONUT", "KİRALIK LÜKS KONUT",
   "SATILIK ARSA", "KİRALIK ARSA",
   "SATILIK BİNA", "KİRALIK BİNA",
   "SATILIK PLAZA", "KİRALIK PLAZA",
@@ -25,7 +26,7 @@ export const NAV_ITEMS = [
   { label: 'FABRİKA', path: '/fabrika' },
   { label: 'DEPO - ANTREPO', path: '/depo-antrepo', externalUrl: 'https://www.depoantrepo.com/' },
   { label: 'İŞ YERİ', path: '/is-yeri' },
-  { label: 'LÜKS KONUT', path: '/luks-konut' }
+  { label: 'KONUT', path: '/konut' }
 ];
 
 // TOP MENU MAPPING (Desktop)
@@ -86,11 +87,13 @@ export const NAV_MENU: NavItem[] = [
     ]
   },
   {
-    label: "LÜKS KONUT",
-    slug: "luks-konut",
+    label: "KONUT",
+    slug: "konut",
     subItems: [
       { label: "Satılık Konut", link: "/kategori/konut/satilik", categoryKey: "SATILIK KONUT" },
       { label: "Kiralık Konut", link: "/kategori/konut/kiralik", categoryKey: "KİRALIK KONUT" },
+      { label: "Satılık Lüks Konut", link: "/kategori/luks-konut/satilik", categoryKey: "SATILIK LÜKS KONUT" },
+      { label: "Kiralık Lüks Konut", link: "/kategori/luks-konut/kiralik", categoryKey: "KİRALIK LÜKS KONUT" },
       { label: "Satılık Villa", link: "/kategori/villa/satilik", categoryKey: "SATILIK VİLLA" },
       { label: "Kiralık Villa", link: "/kategori/villa/kiralik", categoryKey: "KİRALIK VİLLA" }
     ]
@@ -114,7 +117,7 @@ export const MOBILE_CATEGORY_ITEMS = [
   { label: 'FABRİKA', path: '/fabrika', iconKey: 'fabrika' },
   { label: 'DEPO - ANTREPO', path: '/depo-antrepo', iconKey: 'depo-antrepo', externalUrl: 'https://www.depoantrepo.com/' },
   { label: 'İŞ YERİ', path: '/is-yeri', iconKey: 'is-yeri' },
-  { label: 'LÜKS KONUT', path: '/luks-konut', iconKey: 'luks-konut' },
+  { label: 'KONUT', path: '/konut', iconKey: 'konut' },
 ];
 
 // Helper to map broad slugs to actual DB categories for filtering
@@ -125,7 +128,8 @@ export const SLUG_TO_CATEGORIES: Record<string, string[]> = {
   'fabrika': ['SATILIK FABRİKA', 'KİRALIK FABRİKA'],
   'depo-antrepo': ['SATILIK DEPO-ANTREPO', 'KİRALIK DEPO-ANTREPO'],
   'is-yeri': ['SATILIK İŞ YERİ', 'KİRALIK İŞ YERİ', 'SATILIK OFİS', 'KİRALIK OFİS', 'SATILIK MAĞAZA', 'KİRALIK MAĞAZA', 'SATILIK OTEL', 'KİRALIK OTEL'],
-  'luks-konut': ['SATILIK KONUT', 'KİRALIK KONUT', 'SATILIK VİLLA', 'KİRALIK VİLLA']
+  'konut': ['SATILIK KONUT', 'KİRALIK KONUT', 'SATILIK LÜKS KONUT', 'KİRALIK LÜKS KONUT', 'SATILIK VİLLA', 'KİRALIK VİLLA'],
+  'luks-konut': ['SATILIK LÜKS KONUT', 'KİRALIK LÜKS KONUT']
 };
 
 export const MAIN_LISTINGS: Listing[] = LIVE_MAIN_LISTINGS;

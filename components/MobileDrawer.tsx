@@ -79,6 +79,8 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose, title, ite
         return <Warehouse className={className} />;
       case 'is-yeri':
         return <BriefcaseBusiness className={className} />;
+      case 'konut':
+        return <House className={className} />;
       case 'luks-konut':
         return <Gem className={className} />;
       default:

@@ -506,7 +506,7 @@ const buildDynamicSitemap = (state) => {
   const normalizedState = normalizePublicSeoSettings(state);
   const baseUrl = normalizedState.seoSettings.baseUrl.replace(/\/$/, '');
   const staticPaths = ['/', '/hakkimizda', '/referanslar', '/iletisim', '/blog', '/kvkk', '/gizlilik-politikasi', '/cerez-politikasi', '/acik-riza-metni', '/veri-sahibi-basvuru-formu', '/kullanim-kosullari'];
-  const categoryPaths = ['/arsa', '/bina', '/plaza', '/fabrika', '/is-yeri', '/luks-konut'];
+  const categoryPaths = ['/arsa', '/bina', '/plaza', '/fabrika', '/depo-antrepo', '/is-yeri', '/konut', '/luks-konut'];
   const listingEntries = (normalizedState.listings || [])
     .filter((listing) => listing.status === 'active')
     .map((listing) => ({ path: listingPath(listing), lastmod: listing.createdDate || listing.updateDate }));

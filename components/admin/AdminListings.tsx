@@ -10,6 +10,7 @@ import { buildListingPrice, formatPriceInput, parsePrice, PRICE_CURRENCY_OPTIONS
 
 const PORTFOLIO_GROUPS = [
     'KONUT',
+    'LÜKS KONUT',
     'ARSA',
     'BİNA',
     'PLAZA',
@@ -27,7 +28,7 @@ const LISTING_TRANSACTION_OPTIONS = ['SATILIK', 'KİRALIK'] as const;
 const deriveCategoryParts = (category = '') => {
     const normalized = category.toLocaleUpperCase('tr-TR');
     const transaction = LISTING_TRANSACTION_OPTIONS.find((item) => normalized.startsWith(item)) || 'SATILIK';
-    const group = PORTFOLIO_GROUPS.find((item) => normalized.endsWith(item)) || 'KONUT';
+    const group = [...PORTFOLIO_GROUPS].sort((a, b) => b.length - a.length).find((item) => normalized.endsWith(item)) || 'KONUT';
     return { transaction, group };
 };
 
