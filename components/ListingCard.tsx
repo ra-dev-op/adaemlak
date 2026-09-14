@@ -4,6 +4,7 @@ import { Listing } from '../types';
 import { getPriceParts } from '../lib/price';
 import { getListingUrl } from '../lib/seo';
 import { trackListingEvent } from '../lib/api';
+import ListingImage from './ListingImage';
 
 interface ListingCardProps {
   listing: Listing;
@@ -74,8 +75,10 @@ const ListingCard: React.FC<ListingCardProps> = ({ listing, flushSpacing = false
             onClick={() => handleCardClick('listing_card_image')}
           >
             <div className={`h-[210px] min-w-0 overflow-hidden border border-[#b5b5b5] bg-white p-[5px] sm:h-[280px] ${compactHeight ? 'lg:h-[196px]' : 'lg:h-[230px]'}`}>
-              <img
-                src={cardImageUrl}
+              <ListingImage
+                listing={listing}
+                source={cardImageUrl}
+                preferLocal
                 alt={listing.title}
                 className="h-full w-full object-cover"
                 width="1600"

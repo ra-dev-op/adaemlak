@@ -9,6 +9,7 @@ import { getRichDescriptionHtml, stripHtmlTags } from '../lib/richText';
 import { getPriceParts } from '../lib/price';
 import { trackListingEvent, trackListingView } from '../lib/api';
 import { getListingIdFromSlug, getListingUrl } from '../lib/seo';
+import ListingImage from './ListingImage';
 
 const ImageWatermark: React.FC<{ compact?: boolean }> = ({ compact = false }) => (
   <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
@@ -325,8 +326,9 @@ const ListingDetail: React.FC = () => {
                     className="relative h-[260px] cursor-zoom-in overflow-hidden border border-[#666] bg-[#e9e9e9] p-[5px] md:h-[335px]"
                     onClick={() => handleGalleryOpen('detail_main_image')}
                   >
-                    <img
-                      src={galleryImages[activeImageIndex]}
+                    <ListingImage
+                      listing={listing}
+                      source={galleryImages[activeImageIndex]}
                       alt={listing.title}
                       className="h-full w-full object-cover"
                       loading="eager"
@@ -363,7 +365,7 @@ const ListingDetail: React.FC = () => {
                               isActive ? 'border-[#666]' : 'border-[#d1d1d1] hover:border-[#8b8b8b]'
                             }`}
                           >
-                            <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                            <ListingImage listing={listing} source={img} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
                           </button>
                         );
                       })}
@@ -450,8 +452,9 @@ const ListingDetail: React.FC = () => {
                   className="relative aspect-[16/10] overflow-hidden border-b border-[#dfe4ea] bg-[#eef2f6] cursor-zoom-in group"
                   onClick={() => handleGalleryOpen('detail_main_image')}
                 >
-                   <img
-                     src={galleryImages[activeImageIndex]}
+                   <ListingImage
+                     listing={listing}
+                     source={galleryImages[activeImageIndex]}
                      alt={listing.title}
                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
                      decoding="async"
@@ -490,7 +493,7 @@ const ListingDetail: React.FC = () => {
                            isActive ? 'ring-2 ring-[#2a4ca0] ring-inset' : 'hover:opacity-90'
                          }`}
                        >
-                         <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                         <ListingImage listing={listing} source={img} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
                          <ImageWatermark compact />
                        </button>
                      );
@@ -703,8 +706,9 @@ const ListingDetail: React.FC = () => {
             <span>{listing.ilanNo}</span>
             <span>{activeImageIndex + 1}/{galleryImages.length}</span>
           </div>
-          <img
-            src={galleryImages[activeImageIndex]}
+          <ListingImage
+            listing={listing}
+            source={galleryImages[activeImageIndex]}
             alt={listing.title}
             className="h-[calc(94vh-44px)] w-full cursor-pointer bg-[#111] object-contain md:h-[calc(96vh-44px)]"
             decoding="async"
