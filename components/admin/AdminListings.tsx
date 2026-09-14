@@ -7,6 +7,7 @@ import { Listing, ListingDetails } from '../../types';
 import { EMPTY_LISTING_DETAILS, getPropertyFieldSet } from '../../config/propertyFields';
 import RichTextEditor from './RichTextEditor';
 import { buildListingPrice, formatPriceInput, parsePrice, PRICE_CURRENCY_OPTIONS, PriceCurrency } from '../../lib/price';
+import AdminListingImage from './AdminListingImage';
 
 const PORTFOLIO_GROUPS = [
     'KONUT',
@@ -1014,7 +1015,7 @@ const AdminListings: React.FC = () => {
                             ) : filteredListings.map(l => (
                                 <tr key={l.id} className={`bg-white hover:bg-gray-50/80 transition-colors ${(l.status === 'archived') ? 'opacity-60 bg-gray-50' : ''}`}>
                                     <td className="px-6 py-4">
-                                        <img src={l.imageUrls && l.imageUrls.length > 0 ? l.imageUrls[0] : 'https://via.placeholder.com/150'} alt="" className="w-16 h-12 object-cover rounded-md border border-gray-200 shadow-sm" />
+                                        <AdminListingImage listing={l} className="w-16 h-12 object-cover rounded-md border border-gray-200 shadow-sm" />
                                     </td>
                                     <td className="px-6 py-4 font-mono text-xs font-bold text-gray-600">{l.ilanNo}</td>
                                     <td className="px-6 py-4 font-medium text-gray-900 max-w-xs truncate" title={l.title}>{l.title}</td>

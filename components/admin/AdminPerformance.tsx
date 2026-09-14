@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useData } from '../../context/DataContext';
 import { Listing, ListingAnalytics, ListingAnalyticsDetail } from '../../types';
 import { fetchListingAnalytics, fetchListingAnalyticsDetail } from '../../lib/api';
+import AdminListingImage from './AdminListingImage';
 
 type RangeKey = 'daily' | 'weekly' | 'monthly' | 'total';
 type SortKey = 'interest' | 'views' | 'phone' | 'conversion' | 'gallery' | 'trend';
@@ -391,7 +392,7 @@ const AdminPerformance: React.FC = () => {
         className="group overflow-hidden rounded-[22px] border border-gray-100 bg-white text-left shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-gold-200 hover:shadow-lg"
       >
         <div className="relative h-32 overflow-hidden bg-gray-100">
-          <img src={item.listing.imageUrls[0] || 'https://via.placeholder.com/400x260'} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+          <AdminListingImage listing={item.listing} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
           <div className="absolute bottom-3 left-3 right-3">
             <div className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gold-200">{title}</div>
@@ -641,7 +642,7 @@ const AdminPerformance: React.FC = () => {
                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gray-100 text-xs font-extrabold text-gray-500 group-hover:bg-gold-500 group-hover:text-white">
                               {index + 1}
                             </div>
-                            <img src={item.listing.imageUrls[0] || 'https://via.placeholder.com/150'} className="h-14 w-20 rounded-[14px] border border-gray-100 object-cover" alt="" />
+                            <AdminListingImage listing={item.listing} className="h-14 w-20 rounded-[14px] border border-gray-100 object-cover" />
                             <div className="min-w-0">
                               <div className="max-w-[420px] truncate text-sm font-extrabold text-[#202938]" title={item.listing.title}>
                                 {item.listing.title}
@@ -723,7 +724,7 @@ const AdminPerformance: React.FC = () => {
                 <div className="space-y-6">
                   <div className="grid gap-6 lg:grid-cols-[380px_minmax(0,1fr)]">
                     <div className="overflow-hidden rounded-[24px] border border-gray-200 bg-white shadow-sm">
-                      <img src={selectedDetail.listing.imageUrls[0] || 'https://via.placeholder.com/400x260'} alt={selectedDetail.listing.title} className="h-[230px] w-full object-cover" />
+                      <AdminListingImage listing={selectedDetail.listing} alt={selectedDetail.listing.title} className="h-[230px] w-full object-cover" />
                       <div className="space-y-3 p-5">
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="rounded-full bg-gold-50 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.14em] text-gold-700">{selectedDetail.listing.ilanNo}</span>

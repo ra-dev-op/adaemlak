@@ -12,6 +12,7 @@ import {
   Star,
 } from 'lucide-react';
 import { useData } from '../../context/DataContext';
+import AdminListingImage from './AdminListingImage';
 
 const AdminDashboard: React.FC = () => {
   const { listings, news, messages } = useData();
@@ -219,7 +220,7 @@ const AdminDashboard: React.FC = () => {
           <div className="divide-y divide-[#f0eadf]">
             {recentListings.map((listing) => (
               <Link key={listing.id} to="/admin/listings" className="flex items-center gap-4 px-5 py-4 transition hover:bg-[#fbf8f1] lg:px-6">
-                <img src={listing.imageUrls[0] || 'https://via.placeholder.com/120'} alt="" className="h-14 w-16 shrink-0 rounded-xl object-cover" />
+                <AdminListingImage listing={listing} className="h-14 w-16 shrink-0 rounded-xl object-cover" />
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-sm font-extrabold text-[#202938]">{listing.title}</div>
                   <div className="mt-1 flex flex-wrap gap-2 text-xs font-bold text-[#8b95a7]">
