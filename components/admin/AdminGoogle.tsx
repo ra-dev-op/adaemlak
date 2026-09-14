@@ -40,22 +40,49 @@ const AdminGoogle: React.FC = () => {
             <div className="bg-white p-8 rounded-sm shadow-card border-t-4 border-[#E37400]">
                 <div className="flex items-center mb-6">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Google_Analytics_logo.svg/1200px-Google_Analytics_logo.svg.png" alt="Analytics" className="h-8 mr-3" />
-                    <h2 className="text-lg font-bold text-gray-700">Google Analytics 4</h2>
+                    <h2 className="text-lg font-bold text-gray-700">Google Analytics</h2>
                 </div>
                 
                 <div className="grid grid-cols-1 gap-6">
                     <div>
-                        <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Ölçüm Kimliği (Measurement ID)</label>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Ölçüm / Analytics Kimliği</label>
                         <input 
                             type="text" 
                             name="analyticsId"
                             value={formData.analyticsId}
                             onChange={handleChange}
                             className="w-full bg-white border border-gray-300 p-3 rounded-sm text-gray-900 focus:border-gold-500 outline-none transition-all placeholder-gray-400 font-mono text-sm" 
-                            placeholder="G-XXXXXXXXXX"
+                            placeholder="G-XXXXXXXXXX veya UA-XXXXXXXX-X"
                         />
                         <p className="text-[11px] text-gray-400 mt-2">
-                            Google Analytics panelinizden <span className="font-bold">Yönetici {'>'} Veri Akışları</span> bölümünden "G-" ile başlayan kimliği buraya giriniz.
+                            Mevcut eski siteden alınan Universal Analytics kimliği: <span className="font-bold">UA-28215240-1</span>. Yeni GA4 için "G-" ile başlayan kimlik de girilebilir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Google Tag Manager Section */}
+            <div className="bg-white p-8 rounded-sm shadow-card border-t-4 border-[#246FDB]">
+                <div className="flex items-center mb-6">
+                    <div className="w-8 h-8 flex items-center justify-center bg-[#246FDB] text-white font-bold rounded-full mr-3 text-sm">
+                        GTM
+                    </div>
+                    <h2 className="text-lg font-bold text-gray-700">Google Tag Manager</h2>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6">
+                    <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Container ID</label>
+                        <input
+                            type="text"
+                            name="tagManagerId"
+                            value={formData.tagManagerId || ''}
+                            onChange={handleChange}
+                            className="w-full bg-white border border-gray-300 p-3 rounded-sm text-gray-900 focus:border-gold-500 outline-none transition-all placeholder-gray-400 font-mono text-sm"
+                            placeholder="GTM-XXXXXXX"
+                        />
+                        <p className="text-[11px] text-gray-400 mt-2">
+                            Mevcut canlı sitede GTM kodu görünmüyor. İleride Tag Manager container ID alınırsa bu alana girilebilir.
                         </p>
                     </div>
                 </div>

@@ -51,11 +51,17 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 const INITIAL_MESSAGES: Message[] = [];
 
 const initialGoogleSettings: GoogleSettings = {
-  analyticsId: '',
+  analyticsId: 'UA-28215240-1',
+  tagManagerId: '',
   searchConsoleMeta: '',
   adsConversionId: '',
   adsLabel: '',
 };
+
+const normalizeGoogleSettings = (settings?: Partial<GoogleSettings> | null): GoogleSettings => ({
+  ...initialGoogleSettings,
+  ...(settings || {}),
+});
 
 const initialAdSettings: AdSettings = {
   imageUrl: null,
@@ -154,7 +160,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setListings(applyListingMigrations(adminState.listings || []));
     setNews(adminState.news || []);
     setMessages(adminState.messages || []);
-    setGoogleSettings(adminState.googleSettings || initialGoogleSettings);
+    setGoogleSettings(normalizeGoogleSettings(adminState.googleSettings));
     setSeoSettings(adminState.seoSettings || DEFAULT_SEO_SETTINGS);
     setGeneralSettings(adminState.generalSettings || DEFAULT_GENERAL_SETTINGS);
     setAdSettings(adminState.adSettings || initialAdSettings);
@@ -188,7 +194,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         const normalized = bootstrap as PublicBootstrap;
         setListings(applyListingMigrations(normalized.listings || []));
         setNews(normalized.news || []);
-        setGoogleSettings(normalized.googleSettings || initialGoogleSettings);
+        setGoogleSettings(normalizeGoogleSettings(normalized.googleSettings));
         setSeoSettings(normalized.seoSettings || DEFAULT_SEO_SETTINGS);
         setGeneralSettings(normalized.generalSettings || DEFAULT_GENERAL_SETTINGS);
         setAdSettings(normalized.adSettings || initialAdSettings);
@@ -393,8 +399,9 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const updateGoogleSettings = (settings: GoogleSettings) => {
-    setGoogleSettings(settings);
-    syncAdminState({ googleSettings: settings });
+    const normalizedSettings = normalizeGoogleSettings(settings);
+    setGoogleSettings(normalizedSettings);
+    syncAdminState({ googleSettings: normalizedSettings });
   };
 
   const updateSeoSettings = (settings: SeoSettings) => {

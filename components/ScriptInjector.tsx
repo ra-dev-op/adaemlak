@@ -10,13 +10,63 @@ const ScriptInjector: React.FC = () => {
     };
 
     const analyticsId = googleSettings.analyticsId.trim();
+    const tagManagerId = googleSettings.tagManagerId?.trim() || '';
     const adsConversionId = googleSettings.adsConversionId.trim();
+    const isLegacyUniversalAnalytics = /^UA-\d+-\d+$/i.test(analyticsId);
     const primaryTagId = analyticsId || adsConversionId;
+
+    if (!tagManagerId) {
+      removeElement('gtm-script');
+      removeElement('gtm-noscript');
+    } else {
+      let gtmScript = document.getElementById('gtm-script') as HTMLScriptElement | null;
+      if (!gtmScript) {
+        gtmScript = document.createElement('script');
+        gtmScript.id = 'gtm-script';
+        document.head.appendChild(gtmScript);
+      }
+      gtmScript.innerHTML = `
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${tagManagerId}');
+      `;
+
+      let gtmNoScript = document.getElementById('gtm-noscript') as HTMLElement | null;
+      if (!gtmNoScript) {
+        gtmNoScript = document.createElement('noscript');
+        gtmNoScript.id = 'gtm-noscript';
+        document.body.prepend(gtmNoScript);
+      }
+      gtmNoScript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${tagManagerId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    }
 
     if (!primaryTagId) {
       removeElement('ga-script');
       removeElement('ga-inline');
+      removeElement('ga-legacy');
+    } else if (isLegacyUniversalAnalytics) {
+      removeElement('ga-script');
+      removeElement('ga-inline');
+
+      let legacyScript = document.getElementById('ga-legacy') as HTMLScriptElement | null;
+      if (!legacyScript) {
+        legacyScript = document.createElement('script');
+        legacyScript.id = 'ga-legacy';
+        document.head.appendChild(legacyScript);
+      }
+      legacyScript.innerHTML = `
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', '${analyticsId}', 'auto');
+        ga('send', 'pageview');
+      `;
     } else {
+      removeElement('ga-legacy');
+
       let script = document.getElementById('ga-script') as HTMLScriptElement | null;
       if (!script) {
         script = document.createElement('script');

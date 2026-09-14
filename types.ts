@@ -174,7 +174,8 @@ export interface Message {
 }
 
 export interface GoogleSettings {
-  analyticsId: string; // G-XXXXXXXXXX
+  analyticsId: string; // G-XXXXXXXXXX or UA-XXXXXXXX-X
+  tagManagerId?: string; // GTM-XXXXXXX
   searchConsoleMeta: string; // meta content tag
   adsConversionId: string; // AW-XXXXXXXXXX
   adsLabel: string; // Conversion Label

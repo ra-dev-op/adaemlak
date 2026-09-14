@@ -54,7 +54,10 @@ const normalizeState = (payload, fallback) => ({
   listings: Array.isArray(payload?.listings) ? payload.listings : fallback.listings,
   news: Array.isArray(payload?.news) ? payload.news : fallback.news,
   messages: Array.isArray(payload?.messages) ? payload.messages : fallback.messages,
-  googleSettings: payload?.googleSettings && typeof payload.googleSettings === 'object' ? payload.googleSettings : fallback.googleSettings,
+  googleSettings:
+    payload?.googleSettings && typeof payload.googleSettings === 'object'
+      ? { analyticsId: 'UA-28215240-1', tagManagerId: '', searchConsoleMeta: '', adsConversionId: '', adsLabel: '', ...payload.googleSettings }
+      : { analyticsId: 'UA-28215240-1', tagManagerId: '', searchConsoleMeta: '', adsConversionId: '', adsLabel: '', ...(fallback.googleSettings || {}) },
   seoSettings: payload?.seoSettings && typeof payload.seoSettings === 'object' ? payload.seoSettings : fallback.seoSettings,
   generalSettings: payload?.generalSettings && typeof payload.generalSettings === 'object' ? payload.generalSettings : fallback.generalSettings,
   adSettings: payload?.adSettings && typeof payload.adSettings === 'object' ? payload.adSettings : fallback.adSettings,

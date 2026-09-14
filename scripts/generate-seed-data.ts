@@ -15,7 +15,8 @@ const seedState: AdminState = {
   news: NEWS_ITEMS,
   messages: [],
   googleSettings: {
-    analyticsId: '',
+    analyticsId: 'UA-28215240-1',
+    tagManagerId: '',
     searchConsoleMeta: '',
     adsConversionId: '',
     adsLabel: '',
