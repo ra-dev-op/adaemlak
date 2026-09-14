@@ -392,11 +392,15 @@ const HomepageCell: React.FC<{ listing: Listing, onUpdate: (id: string, featured
     );
 };
 
-const AdminListings: React.FC = () => {
+interface AdminListingsProps {
+  initialStatus?: 'all' | 'active' | 'archived';
+}
+
+const AdminListings: React.FC<AdminListingsProps> = ({ initialStatus = 'active' }) => {
   const { listings, addListing, updateListing, deleteListing, updateHomepageOrder } = useData();
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [filterStatus, setFilterStatus] = useState<'all' | 'active' | 'archived'>('active');
+  const [filterStatus, setFilterStatus] = useState<'all' | 'active' | 'archived'>(initialStatus);
   
   // New State for handling local files and processed images
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
@@ -469,6 +473,12 @@ const AdminListings: React.FC = () => {
       () => buildGoogleMapsEmbedUrlByCoords(selectedCoordinates) || buildGoogleMapsEmbedUrl(effectiveMapQuery),
       [effectiveMapQuery, selectedCoordinates],
   );
+
+  useEffect(() => {
+      setFilterStatus(initialStatus);
+      setShowForm(false);
+      setEditingId(null);
+  }, [initialStatus]);
 
   useEffect(() => {
       setFormData(prev => ({
@@ -554,6 +564,16 @@ const AdminListings: React.FC = () => {
 
     updateListing(nextListing);
     setFilterStatus(isArchived ? 'active' : 'archived');
+  };
+
+  const handleFormArchiveToggle = () => {
+      if (!editingId) return;
+
+      const currentListing = listings.find((listing) => listing.id === editingId);
+      if (!currentListing) return;
+
+      handleArchive(currentListing);
+      handleCancel();
   };
 
   // NOTE: New Homepage logic is now handled inside HomepageCell component which calls updateHomepageOrder directly
@@ -762,13 +782,18 @@ const AdminListings: React.FC = () => {
   });
   const activeListingsCount = listings.filter(l => (l.status || 'active') === 'active').length;
   const archivedListingsCount = listings.filter(l => l.status === 'archived').length;
+  const isArchivePage = initialStatus === 'archived';
 
   return (
     <div>
         <div className="flex justify-between items-end mb-8">
             <div>
-                <h1 className="text-2xl font-bold text-gray-900 tracking-tight">İlan Yönetimi</h1>
-                <p className="text-gray-500 text-sm mt-1">Portföyünüzdeki ilanları ekleyin, düzenleyin veya arşivleyin.</p>
+                <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{isArchivePage ? 'İlan Arşivi' : 'İlan Yönetimi'}</h1>
+                <p className="text-gray-500 text-sm mt-1">
+                    {isArchivePage
+                        ? 'Yayından alınan ilanlar burada silinmeden saklanır ve ilan içine girilerek tekrar yayına alınabilir.'
+                        : 'Portföyünüzdeki ilanları ekleyin, düzenleyin veya ilan içine girerek yayından alın.'}
+                </p>
             </div>
             <button 
                 onClick={() => {
@@ -798,6 +823,51 @@ const AdminListings: React.FC = () => {
                     <h2 className="text-lg font-bold text-gray-800">{editingId ? 'İlanı Düzenle' : 'Yeni İlan Ekle'}</h2>
                     <span className="text-xs text-gray-400 font-medium bg-gray-50 px-2 py-1 rounded">ID: {editingId || 'New'}</span>
                 </div>
+
+                {editingId && (
+                    <div className={`mb-6 rounded-2xl border px-5 py-4 ${formData.status === 'archived' ? 'border-gray-200 bg-gray-50' : 'border-green-100 bg-green-50/70'}`}>
+                        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <div className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-gray-500">Yayın Durumu</div>
+                                <div className="mt-1 flex flex-wrap items-center gap-2">
+                                    {(formData.status || 'active') === 'active' ? (
+                                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-green-700 ring-1 ring-green-100">
+                                            <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                            Bu ilan yayında
+                                        </span>
+                                    ) : (
+                                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-gray-700 ring-1 ring-gray-200">
+                                            <span className="h-1.5 w-1.5 rounded-full bg-gray-400"></span>
+                                            Bu ilan arşivde
+                                        </span>
+                                    )}
+                                    <span className="text-sm font-semibold text-gray-600">
+                                        {(formData.status || 'active') === 'active'
+                                            ? 'Yayından alırsanız sitede görünmez, arşive taşınır.'
+                                            : 'Yayına alırsanız ilan tekrar sitede görünür.'}
+                                    </span>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={handleFormArchiveToggle}
+                                className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-extrabold uppercase tracking-[0.12em] transition-all ${formData.status === 'archived' ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-orange-600 text-white hover:bg-orange-700'}`}
+                            >
+                                {formData.status === 'archived' ? (
+                                    <>
+                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        Yayına Al
+                                    </>
+                                ) : (
+                                    <>
+                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.9}><path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
+                                        Yayından Al
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                )}
                 
                 <form onSubmit={handleSubmit} className="space-y-8">
                     
@@ -1007,13 +1077,13 @@ const AdminListings: React.FC = () => {
                     <button onClick={() => setFilterStatus('archived')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'archived' ? 'bg-gray-800 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Yayından Alınanlar ({archivedListingsCount})</button>
                     <button onClick={() => setFilterStatus('all')} className={`px-4 py-2 text-xs font-bold uppercase tracking-wide rounded-full transition-all ${filterStatus === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-gray-500 hover:bg-gray-50 border border-gray-200'}`}>Tümü ({listings.length})</button>
                     <div className="basis-full pt-1 text-xs font-semibold text-gray-500">
-                        “Yayından Al” butonu ilanı siteden kaldırır; arşivde tutar ve gerektiğinde tekrar yayına alabilirsiniz.
+                        Yayından alma işlemi için ilanı “Düzenle” ile açın; ilan silinmeden arşivde tutulur ve gerektiğinde tekrar yayına alınabilir.
                     </div>
                 </div>
 
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200/60 overflow-hidden">
                     <div className="overflow-x-auto">
-                    <table className="w-full min-w-[1120px] text-sm text-left text-gray-500">
+                    <table className="w-full min-w-[1040px] text-sm text-left text-gray-500">
                         <thead className="text-xs text-gray-500 uppercase bg-gray-50/50 border-b border-gray-100">
                             <tr>
                                 <th className="px-6 py-4 font-semibold tracking-wider">Resim</th>
@@ -1064,23 +1134,6 @@ const AdminListings: React.FC = () => {
                                                 title="Düzenle"
                                             >
                                                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-                                            </button>
-                                            <button 
-                                                onClick={() => handleArchive(l)} 
-                                                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.12em] transition-all ${l.status === 'archived' ? 'border border-green-100 bg-green-50 text-green-700 hover:border-green-300 hover:bg-green-100' : 'border border-orange-100 bg-orange-50 text-orange-700 hover:border-orange-300 hover:bg-orange-100'}`}
-                                                title={l.status === 'archived' ? 'İlanı tekrar yayına al' : 'İlanı siteden kaldır ve arşive al'}
-                                            >
-                                                {l.status === 'archived' ? (
-                                                    <>
-                                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                                        Yayına Al
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
-                                                        Yayından Al
-                                                    </>
-                                                )}
                                             </button>
                                             <button 
                                                 onClick={() => { if(window.confirm('Bu ilanı silmek istediğinize emin misiniz?')) deleteListing(l.id) }} 

@@ -114,6 +114,7 @@ function App() {
                 <Route path="dashboard" element={<AdminDashboard />} />
                 <Route path="performance" element={<AdminPerformance />} />
                 <Route path="listings" element={<AdminListings />} />
+                <Route path="archive" element={<AdminListings initialStatus="archived" />} />
                 <Route path="news" element={<AdminNews />} />
                 <Route path="messages" element={<AdminMessages />} />
                 <Route path="google" element={<AdminGoogle />} />

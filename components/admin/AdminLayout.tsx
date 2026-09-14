@@ -29,10 +29,11 @@ const AdminLayout: React.FC = () => {
     navigate(ADMIN_LOGIN_PATH);
   };
 
-  const navItems = [
+  const navItems: Array<{ label: string; path: string; icon: string; indent?: boolean }> = [
     { label: 'Dashboard', path: '/admin/dashboard', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' },
     { label: 'İlan Performansı', path: '/admin/performance', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
     { label: 'İlanlar', path: '/admin/listings', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+    { label: 'Arşiv', path: '/admin/archive', icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4', indent: true },
     { label: 'Haberler', path: '/admin/news', icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z' },
     { label: 'Mesajlar', path: '/admin/messages', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
     { label: 'SEO Ayarları', path: '/admin/seo', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
@@ -84,7 +85,7 @@ const AdminLayout: React.FC = () => {
                     <Link 
                         key={item.path} 
                         to={item.path} 
-                        className={`group relative flex items-center rounded-2xl px-4 py-3.5 transition-all duration-200
+                        className={`group relative flex items-center rounded-2xl px-4 py-3.5 transition-all duration-200 ${item.indent ? 'ml-6' : ''}
                             ${isActive 
                                 ? 'bg-white text-[#202938] shadow-[0_14px_28px_rgba(32,41,56,0.08)] ring-1 ring-[#f0dfb6]' 
                                 : 'text-[#6b7280] hover:bg-white/70 hover:text-[#202938]'
